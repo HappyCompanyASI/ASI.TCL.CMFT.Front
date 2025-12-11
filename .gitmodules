@@ -1,0 +1,3 @@
+[submodule "Common/ASI.TCL.CMFT"]
+	path = Common/ASI.TCL.CMFT
+	url = https://github.com/HappyCompanyASI/ASI.TCL.CMFT.git
