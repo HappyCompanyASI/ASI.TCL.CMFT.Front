@@ -1,0 +1,164 @@
+﻿<UserControl
+    x:Class="ASI.TCL.CMFT.WPF.Module.DLTS.Views.DLTSPanelView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ASI.TCL.CMFT.WPF.Module.DLTS.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Style="{StaticResource CMFT.UserControl}"
+    mc:Ignorable="d">
+
+    <Border Margin="10,0">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <!--  ItemsSource="{x:Static provider:SampleData.DLTCallEvent}"  -->
+            <HeaderedItemsControl Grid.Row="0">
+                <HeaderedItemsControl.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Grid.Column="0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Text="號碼" />
+                        <TextBlock
+                            Grid.Column="1"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Text="遠端電話位置" />
+                        <TextBlock
+                            Grid.Column="2"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Text="狀態" />
+                        <TextBlock
+                            Grid.Column="3"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Text="來電時間" />
+                    </Grid>
+                </HeaderedItemsControl.Header>
+                <HeaderedItemsControl.Template>
+                    <ControlTemplate TargetType="{x:Type HeaderedItemsControl}">
+                        <Border>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <ContentPresenter ContentSource="Header" />
+                                <Separator Grid.Row="1" />
+                                <ItemsPresenter Grid.Row="2" />
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </HeaderedItemsControl.Template>
+                <HeaderedItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="1" Background="LightGreen">
+                            <Grid Margin="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="100" />
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock
+                                    Grid.Column="0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Foreground="Black"
+                                    Text="{Binding Number}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Foreground="Black"
+                                    Text="{Binding PhoneLocation}" />
+                                <TextBlock
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Foreground="Black"
+                                    Text="{Binding State}" />
+                                <TextBlock
+                                    Grid.Column="3"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Foreground="Black"
+                                    Text="{Binding CallTime, StringFormat={}{0:HH:mm:ss}}" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </HeaderedItemsControl.ItemTemplate>
+            </HeaderedItemsControl>
+            <!--  ItemsSource="{x:Static provider:SampleData.DLTPhoneWait}"  -->
+            <HeaderedItemsControl Grid.Row="1">
+                <HeaderedItemsControl.Template>
+                    <ControlTemplate TargetType="{x:Type HeaderedItemsControl}">
+                        <Border>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <ContentPresenter ContentSource="Header" />
+                                <Separator Grid.Row="1" />
+                                <ItemsPresenter Grid.Row="2" />
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </HeaderedItemsControl.Template>
+                <HeaderedItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="1" Background="{StaticResource CMFT.Brush.Green.Light}">
+                            <Grid Margin="5">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="100" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock
+                                    Grid.Column="0"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Foreground="Black"
+                                    Text="{Binding Number}" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Foreground="Black"
+                                    Text="{Binding PhoneLocation}" />
+
+                                <TextBlock
+                                    Grid.Column="3"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Foreground="Black"
+                                    Text="{Binding CallTime, StringFormat={}{0:HH:mm:ss}}" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </HeaderedItemsControl.ItemTemplate>
+            </HeaderedItemsControl>
+        </Grid>
+    </Border>
+</UserControl>

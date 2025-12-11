@@ -1,0 +1,22 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dtos="clr-namespace:ASI.TCL.CMFT.WPF.Module.DMD.Dtos">
+    <!--#region DMD-->
+    <DataTemplate x:Key="DMDMessageGroup" DataType="{x:Type dtos:DMDMessageGroupDto}">
+        <RadioButton Style="{StaticResource SelecterRadioButton}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding GroupName}" />
+            </StackPanel>
+        </RadioButton>
+    </DataTemplate>
+
+    <DataTemplate x:Key="DMDPreRecordMessage" DataType="{x:Type dtos:DMDPreRecordMessageDto}">
+        <RadioButton Style="{StaticResource SelecterRadioButton}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding MessageName}" />
+            </StackPanel>
+        </RadioButton>
+    </DataTemplate>
+    <!--#endregion-->
+</ResourceDictionary>

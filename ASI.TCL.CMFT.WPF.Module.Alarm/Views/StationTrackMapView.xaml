@@ -1,0 +1,312 @@
+﻿<UserControl
+    x:Class="ASI.TCL.CMFT.WPF.Module.Alarm.Views.StationTrackMapView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:ASI.TCL.CMFT.WPF.Module.Alarm.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="1080"
+    d:DesignWidth="1920"
+    Style="{StaticResource CMFT.UserControl}"
+    mc:Ignorable="d">
+    <Grid Margin="0,10,5,0">
+        <Grid.Resources>
+            <Style BasedOn="{StaticResource CMFT.ButtonBase}" TargetType="{x:Type Button}">
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="Width" Value="95" />
+                <Setter Property="Height" Value="50" />
+                <Setter Property="IsHitTestVisible" Value="False" />
+                <Style.Triggers>
+                    <Trigger Property="IsEnabled" Value="False">
+                        <Setter Property="BorderBrush" Value="#AAA" />
+                        <Setter Property="Background" Value="#AAA" />
+                        <Setter Property="Opacity" Value="0.6" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style TargetType="{x:Type TextBlock}">
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Style.Triggers>
+                    <Trigger Property="IsEnabled" Value="False">
+                        <Setter Property="Opacity" Value="0.6" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Resources>
+        <!--  軌道  -->
+        <Border
+            Margin="50,30"
+            BorderBrush="#AAA"
+            BorderThickness="10"
+            CornerRadius="10"
+            Opacity=".09" />
+        <!--  南環段(6)  -->
+        <UniformGrid
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Columns="6"
+            Style="{StaticResource UniformGridMargin5}">
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y05" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y04" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y03" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y02A" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y01A" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y01" />
+                </StackPanel>
+            </Button>
+        </UniformGrid>
+        <!--  新北環狀線(14)  -->
+        <UniformGrid
+            HorizontalAlignment="Left"
+            VerticalAlignment="Center"
+            Style="{StaticResource UniformGridMargin5}">
+
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="新北產業園區" />
+                    <TextBlock Text="Y19" />
+                </StackPanel>
+            </Button>
+
+
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="幸福" />
+                    <TextBlock Text="Y18" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="頭前庄" />
+                    <TextBlock Text="Y17" />
+                </StackPanel>
+            </Button>
+
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="新埔民生" />
+                    <TextBlock Text="Y16" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="板橋" />
+                    <TextBlock Text="Y15" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="板新" />
+                    <TextBlock Text="Y14" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="中原" />
+                    <TextBlock Text="Y13" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="橋和" />
+                    <TextBlock Text="Y12" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="中和" />
+                    <TextBlock Text="Y11" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="景安" />
+                    <TextBlock Text="Y10" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="景平" />
+                    <TextBlock Text="Y09" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="秀朗橋" />
+                    <TextBlock Text="Y08" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="十四張" />
+                    <TextBlock Text="Y07" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="南機廠" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="大坪林" />
+                    <TextBlock Text="Y06" />
+                </StackPanel>
+            </Button>
+        </UniformGrid>
+        <!--  北環段(11)  -->
+        <UniformGrid
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Columns="13"
+            Style="{StaticResource UniformGridMargin5}">
+
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y19A" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y19B" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y20" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y21" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y22" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="北機廠" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y23" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y24" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y25" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y26" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y27" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y28" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y29" />
+                </StackPanel>
+            </Button>
+        </UniformGrid>
+        <!--  東環段(10)  -->
+        <UniformGrid
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            IsEnabled="False"
+            Style="{StaticResource UniformGridMargin5}">
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y30" />
+                </StackPanel>
+            </Button>
+
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y31" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y32" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y33" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y34" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y35" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y36" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y37" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y38" />
+                </StackPanel>
+            </Button>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="Y39" />
+                </StackPanel>
+            </Button>
+        </UniformGrid>
+    </Grid>
+</UserControl>

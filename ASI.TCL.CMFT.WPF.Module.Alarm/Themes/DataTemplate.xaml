@@ -1,0 +1,42 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dtos="clr-namespace:ASI.TCL.CMFT.WPF.Module.Alarm.Dtos">
+
+    <!--  根據告警顏色設定 TextBlock 前景色的樣式  -->
+    <Style x:Key="GridView.Column.TextBlock.AlarmColor" TargetType="{x:Type TextBlock}">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="{DynamicResource FieldFontSize}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Foreground}" />
+
+        <Style.Triggers>
+            <!--  緊急 - 紅色 #ff0000  -->
+            <DataTrigger Binding="{Binding AlarmDefine.AlarmLevelDefine.Color}" Value="#ff0000">
+                <Setter Property="Foreground" Value="#ff0000" />
+            </DataTrigger>
+
+            <!--  高 - 黃色 #ffff00  -->
+            <DataTrigger Binding="{Binding AlarmDefine.AlarmLevelDefine.Color}" Value="#ffff00">
+                <Setter Property="Foreground" Value="#ffff00" />
+            </DataTrigger>
+
+            <!--  中 - 橙色 #ffa500  -->
+            <DataTrigger Binding="{Binding AlarmDefine.AlarmLevelDefine.Color}" Value="#ffa500">
+                <Setter Property="Foreground" Value="#ffa500" />
+            </DataTrigger>
+
+            <!--  低 - 青色 #00ffff  -->
+            <DataTrigger Binding="{Binding AlarmDefine.AlarmLevelDefine.Color}" Value="#00ffff">
+                <Setter Property="Foreground" Value="#00ffff" />
+            </DataTrigger>
+
+            <!--  普通 - 白色 #ffffff  -->
+            <DataTrigger Binding="{Binding AlarmDefine.AlarmLevelDefine.Color}" Value="#ffffff">
+                <Setter Property="Foreground" Value="#ffffff" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+
+</ResourceDictionary>

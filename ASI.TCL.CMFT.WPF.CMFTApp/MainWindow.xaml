@@ -1,0 +1,557 @@
+﻿<Window
+    x:Class="ASI.TCL.CMFT.WPF.CMFTApp.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:alarmViews="clr-namespace:ASI.TCL.CMFT.WPF.Module.Alarm.Views;assembly=ASI.TCL.CMFT.WPF.Module.Alarm"
+    xmlns:assist="clr-namespace:ASI.TCL.CMFT.WPF.Assist;assembly=ASI.TCL.CMFT.WPF"
+    xmlns:authViews="clr-namespace:ASI.TCL.CMFT.WPF.Module.Auth.Views;assembly=ASI.TCL.CMFT.WPF.Module.Auth"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:cmftApp="clr-namespace:ASI.TCL.CMFT.WPF.CMFTApp"
+    xmlns:converters="clr-namespace:ASI.TCL.CMFT.WPF.Converters;assembly=ASI.TCL.CMFT.WPF"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:datas="clr-namespace:ASI.TCL.CMFT.WPF.CMFTApp.Datas"
+    xmlns:dltsViews="clr-namespace:ASI.TCL.CMFT.WPF.Module.DLTS.Views;assembly=ASI.TCL.CMFT.WPF.Module.DLTS"
+    xmlns:markupExtensions="clr-namespace:ASI.TCL.CMFT.WPF.MarkupExtensions;assembly=ASI.TCL.CMFT.WPF"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:otcsViews="clr-namespace:ASI.TCL.CMFT.WPF.Module.OTCS.Views;assembly=ASI.TCL.CMFT.WPF.Module.OTCS"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:tetraViews="clr-namespace:ASI.TCL.CMFT.WPF.Module.Tetra.Views;assembly=ASI.TCL.CMFT.WPF.Module.Tetra"
+    Title="通訊系統多功能操作台"
+    d:DataContext="{d:DesignInstance cmftApp:MainWindowViewModel,
+                                     IsDesignTimeCreatable=True}"
+    d:DesignHeight="{Binding Mode=OneWay, Source={StaticResource CMFT.DesignTime.Window.Height}}"
+    d:DesignWidth="{Binding Mode=OneWay, Source={StaticResource CMFT.DesignTime.Window.Width}}"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    MouseDown="Window_MouseDown"
+    Style="{StaticResource BaseWindow}"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Maximized"
+    mc:Ignorable="d">
+    <Window.Resources>
+        <system:Double x:Key="CMFT.Window.Width">1920</system:Double>
+        <system:Double x:Key="CMFT.Window.Height">1080</system:Double>
+        <system:Double x:Key="CMFT.BottomDrawer.Button.Height">40</system:Double>
+        <system:Double x:Key="CMFT.BottomDrawer.Button.Width">1650</system:Double>
+        <system:Double x:Key="CMFT.BottomDrawer.Width">1650</system:Double>
+        <system:Double x:Key="CMFT.BottomDrawer.Height">800</system:Double>
+    </Window.Resources>
+    <Viewbox Stretch="Fill">
+        <Grid
+            Width="{StaticResource CMFT.Window.Width}"
+            Height="{StaticResource CMFT.Window.Height}"
+            Background="{DynamicResource MaterialDesignBackground}">
+            <!--  登入專用的 DialogHost  -->
+            <materialDesign:DialogHost Identifier="LoginDialogHost" IsOpen="{Binding IsAuthenticated, Converter={converters:BoolNegationConverter}}">
+                <materialDesign:DialogHost.DialogContent>
+                    <Grid Width="400" Height="460">
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="KeyDown">
+                                <prism:InvokeCommandAction Command="{Binding KeyDownCommand}" />
+                            </b:EventTrigger>
+                            <b:EventTrigger EventName="Loaded">
+                                <prism:InvokeCommandAction Command="{Binding LoadedCommand}" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                        <Border Background="{DynamicResource PrimaryHueMidBrush}" />
+                        <!--  設定  -->
+                        <Button
+                            Width="30"
+                            Height="40"
+                            Padding="0,4"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Style="{StaticResource MaterialDesignFlatMidBgButton}">
+                            <materialDesign:PackIcon
+                                Width="20"
+                                Height="20"
+                                Margin="0,0,5,0"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Kind="Cog" />
+                        </Button>
+                        <!--  帳號密碼  -->
+                        <Border
+                            Margin="50,60"
+                            Background="{DynamicResource MaterialDesignPaper}"
+                            CornerRadius="10">
+                            <Grid Margin="35,0" VerticalAlignment="Center">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <!--#region Header-->
+                                <Grid Grid.Row="0">
+                                    <StackPanel
+                                        Margin="5,0,0,10"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top">
+                                        <TextBlock
+                                            Margin="0,0,0,0"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Top"
+                                            FontSize="26"
+                                            Style="{StaticResource CMFT.TextBlock.Left}"
+                                            Text="登入" />
+                                        <TextBlock
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Top"
+                                            FontSize="16"
+                                            Style="{StaticResource CMFT.TextBlock.Left}"
+                                            Text="Login" />
+                                    </StackPanel>
+                                    <!--<Viewbox Height="50" HorizontalAlignment="Right">
+                                        <Grid Width="1920" Height="960">
+                                            <Rectangle Fill="{DynamicResource MaterialDesign.Brush.Primary}" Stretch="Fill">
+                                    -->
+                                    <!--  使用灰階圖像作為遮罩  -->
+                                    <!--
+                                                <Rectangle.OpacityMask>
+                                                    <ImageBrush ImageSource="{Binding UriSource, Source={StaticResource LogoSource}}" />
+                                                </Rectangle.OpacityMask>
+                                            </Rectangle>
+                                        </Grid>
+                                    </Viewbox>-->
+                                    <Viewbox Height="50" HorizontalAlignment="Right">
+                                        <Grid Width="1920" Height="960">
+                                            <!--  移除 Rectangle 和 OpacityMask，直接用 ImageBrush  -->
+                                            <Border>
+                                                <Border.Background>
+                                                    <ImageBrush ImageSource="{StaticResource LogoSource}" Stretch="Uniform" />
+                                                </Border.Background>
+                                            </Border>
+                                        </Grid>
+                                    </Viewbox>
+                                </Grid>
+
+                                <StackPanel
+                                    Grid.Row="1"
+                                    Margin="0,25,0,0"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Top">
+
+                                    <TextBox
+                                        materialDesign:HintAssist.Hint="帳號"
+                                        Style="{StaticResource CMFT.Field.TextBox.Floating}"
+                                        Text="{Binding Account}">
+                                        <TextBox.InputScope>
+                                            <InputScope>
+                                                <InputScope.Names>
+                                                    <InputScopeName NameValue="AlphanumericHalfWidth" />
+                                                </InputScope.Names>
+                                            </InputScope>
+                                        </TextBox.InputScope>
+                                    </TextBox>
+
+                                    <PasswordBox
+                                        Margin="0,20,0,0"
+                                        assist:PasswordBoxAssist.BoundPassword="{Binding Path=Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        materialDesign:HintAssist.Hint="密碼"
+                                        Style="{StaticResource CMFT.Field.PasswordBox.Floating}">
+                                        <PasswordBox.InputScope>
+                                            <InputScope>
+                                                <InputScope.Names>
+                                                    <InputScopeName NameValue="AlphanumericHalfWidth" />
+                                                </InputScope.Names>
+                                            </InputScope>
+                                        </PasswordBox.InputScope>
+                                    </PasswordBox>
+
+                                    <Button
+                                        Margin="0,20,0,0"
+                                        Command="{Binding Path=LoginCommand}"
+                                        Content="登入"
+                                        Foreground="Black"
+                                        Style="{StaticResource CMFT.Button}" />
+                                    <Button
+                                        Margin="0,20,0,0"
+                                        Command="{Binding Path=LeaveCommand}"
+                                        Content="離開"
+                                        Style="{StaticResource CMFT.Button}" />
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                        <!--  訊息顯示  -->
+                        <Border
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Bottom"
+                            Background="{StaticResource MaterialDesignDarkBackground}"
+                            CornerRadius="10,10,0,0">
+                            <materialDesign:Snackbar Background="{x:Null}">
+                                <materialDesign:Snackbar.Style>
+                                    <Style TargetType="materialDesign:Snackbar">
+                                        <Setter Property="IsActive" Value="False" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding LoginStateMessage, Converter={converters:IsStringNullOrEmptyConverter}}" Value="False">
+                                                <Setter Property="IsActive" Value="True" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </materialDesign:Snackbar.Style>
+                                <materialDesign:SnackbarMessage Margin="20,0">
+                                    <materialDesign:SnackbarMessage.Content>
+                                        <TextBlock
+                                            Foreground="{StaticResource AssitColor1}"
+                                            Style="{StaticResource CMFT.TextBlock.Left}"
+                                            Text="{Binding LoginStateMessage}" />
+                                    </materialDesign:SnackbarMessage.Content>
+                                </materialDesign:SnackbarMessage>
+                            </materialDesign:Snackbar>
+                        </Border>
+                    </Grid>
+                </materialDesign:DialogHost.DialogContent>
+
+                <!--  主畫面專用的 DialogHost  -->
+                <materialDesign:DialogHost Identifier="MainDialogHost">
+                    <materialDesign:DrawerHost
+                        x:Name="DrawerHost"
+                        BottomDrawerBackground="{x:Null}"
+                        OverlayBackground="{DynamicResource OverlayBackgroundColor}"
+                        Visibility="{Binding IsAuthenticated, Converter={StaticResource BooleanToVisibilityConverter}}">
+
+                        <!--#region 通訊設備即時告警_視窗-->
+                        <!--<materialDesign:DrawerHost.BottomDrawerContent>
+                            <Border
+                                Width="{StaticResource CMFT.BottomDrawer.Width}"
+                                Height="{StaticResource CMFT.BottomDrawer.Height}"
+                                VerticalAlignment="Top"
+                                Background="{StaticResource CMFT.Brush.EquipAlarmDrawer}"
+                                CornerRadius="10,10,0,0">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Button
+                                        Grid.Row="0"
+                                        Width="{StaticResource CMFT.BottomDrawer.Button.Width}"
+                                        Height="{StaticResource CMFT.BottomDrawer.Button.Height}"
+                                        Padding="0"
+                                        HorizontalContentAlignment="Stretch"
+                                        materialDesign:ButtonAssist.CornerRadius="10,10,0,0"
+                                        Background="{StaticResource CMFT.Brush.EquipAlarmDrawer}"
+                                        Command="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}"
+                                        CommandParameter="{x:Static Dock.Bottom}"
+                                        Content="{Binding UnConfirmedEquipAlarmCount}"
+                                        ContentTemplate="{StaticResource CMFT.DataTemplate.EquipAlarmDrawerButton}" />
+                                    <ContentControl prism:RegionManager.RegionName="{x:Static datas:RegionNames.AlarmRegion}" />
+                                </Grid>
+                            </Border>
+                        </materialDesign:DrawerHost.BottomDrawerContent>-->
+                        <!--#endregion-->
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <!--<ToggleButton
+                            x:Name="IsLoggingToggleButton"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                            IsChecked="False" />-->
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <!--#region 左側內容-->
+                                <Grid Grid.Column="0">
+
+                                    <!--  車站及軌道  -->
+                                    <ContentControl d:Content="{d:DesignInstance alarmViews:StationTrackMapView, IsDesignTimeCreatable=True}" prism:RegionManager.RegionName="{x:Static datas:RegionNames.StationTrackMapRegion}" />
+
+
+                                    <!--  中間內容  -->
+                                    <Border
+                                        Margin="110,65"
+                                        Padding="0,10,0,0"
+                                        BorderBrush="Transparent"
+                                        BorderThickness="1">
+                                        <Grid Style="{StaticResource PanelMargin3}">
+
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="1*" />
+                                                <RowDefinition Height="260" />
+                                            </Grid.RowDefinitions>
+
+                                            <!--  導航  -->
+                                            <UniformGrid
+                                                HorizontalAlignment="Center"
+                                                Rows="1"
+                                                Style="{StaticResource PanelMargin1}">
+                                                <UniformGrid.Resources>
+                                                    <Style BasedOn="{StaticResource NaviRadioButton}" TargetType="RadioButton">
+                                                        <Setter Property="Command" Value="{Binding NavigateCommand}" />
+                                                    </Style>
+                                                </UniformGrid.Resources>
+
+
+
+                                                <!--  系統功能  -->
+                                                <TextBlock
+                                                    FontSize="18"
+                                                    Style="{StaticResource CMFT.TextBlock.Center}"
+                                                    Text="功能" />
+                                                <RadioButton
+                                                    d:IsChecked="True"
+                                                    CommandParameter="{x:Static datas:NavigatePath.PAMain}"
+                                                    Content="語音廣播" />
+                                                <RadioButton CommandParameter="{x:Static datas:NavigatePath.DMDMain}" Content="點矩陣" />
+                                                <RadioButton CommandParameter="{x:Static datas:NavigatePath.CCTVMain}" Content="閉路電視" />
+                                                <RadioButton CommandParameter="{x:Static datas:NavigatePath.TetraMain}" Content="無線電" />
+                                                <RadioButton CommandParameter="{x:Static datas:NavigatePath.OTCSMain}" Content="列車監聽" />
+
+                                                <!--  系統設定  -->
+                                                <TextBlock
+                                                    FontSize="18"
+                                                    Style="{StaticResource CMFT.TextBlock.Center}"
+                                                    Text="設定" />
+                                                <RadioButton CommandParameter="{x:Static datas:NavigatePath.PASettingMain}" Content="廣播" />
+                                                <RadioButton CommandParameter="{x:Static datas:NavigatePath.DMDSettingMain}" Content="點矩陣" />
+                                                <RadioButton CommandParameter="{x:Static datas:NavigatePath.AlarmSettingMain}" Content="告警" />
+                                                <RadioButton CommandParameter="{x:Static datas:NavigatePath.SystemSettingMain}" Content="系統" />
+                                                <RadioButton CommandParameter="{x:Static datas:NavigatePath.UserSettingMain}" Content="使用者" />
+
+                                                <!--  系統狀態  -->
+                                                <TextBlock
+                                                    FontSize="18"
+                                                    Style="{StaticResource CMFT.TextBlock.Center}"
+                                                    Text="狀態" />
+                                                <RadioButton CommandParameter="{x:Static datas:NavigatePath.EquipAlarmMain}" Content="設備告警" />
+                                                <RadioButton CommandParameter="{x:Static datas:NavigatePath.EventAlarmMain}" Content="事件告警" />
+                                                <RadioButton CommandParameter="{x:Static datas:NavigatePath.StateAndLogMain}" Content="狀態紀錄" />
+
+                                            </UniformGrid>
+
+
+                                            <!--  導航內容  -->
+                                            <GroupBox Grid.Row="1" Header="主頁面">
+                                                <Grid>
+                                                    <ContentControl d:Content="{}" prism:RegionManager.RegionName="{x:Static datas:RegionNames.MainContentRegion}" />
+
+                                                    <!--#region 上方通知彈窗-->
+                                                    <Border
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Top"
+                                                        Background="{StaticResource CMFT.Brush.Alarm.High}"
+                                                        CornerRadius="0,0,10,10">
+                                                        <materialDesign:Snackbar
+                                                            Width="500"
+                                                            HorizontalAlignment="Stretch"
+                                                            VerticalAlignment="Top"
+                                                            Background="{x:Null}">
+                                                            <materialDesign:Snackbar.Style>
+                                                                <Style TargetType="materialDesign:Snackbar">
+                                                                    <Setter Property="IsActive" Value="False" />
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding ErrorMessage, Converter={converters:IsStringNullOrEmptyConverter}}" Value="False">
+                                                                            <Setter Property="IsActive" Value="True" />
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </materialDesign:Snackbar.Style>
+                                                            <materialDesign:SnackbarMessage Margin="20,0">
+                                                                <materialDesign:SnackbarMessage.Content>
+                                                                    <StackPanel Orientation="Horizontal">
+                                                                        <materialDesign:PackIcon
+                                                                            Width="30"
+                                                                            Height="30"
+                                                                            HorizontalAlignment="Center"
+                                                                            VerticalAlignment="Center"
+                                                                            Foreground="{StaticResource AssitColor1}"
+                                                                            Kind="AlertCircle" />
+
+                                                                        <TextBlock
+                                                                            Margin="10,0,0,0"
+                                                                            Foreground="{StaticResource AssitColor1}"
+                                                                            Style="{StaticResource CMFT.TextBlock.Left}"
+                                                                            Text="{Binding ErrorMessage}" />
+
+                                                                    </StackPanel>
+                                                                </materialDesign:SnackbarMessage.Content>
+                                                            </materialDesign:SnackbarMessage>
+                                                        </materialDesign:Snackbar>
+                                                    </Border>
+                                                    <!--#endregion-->
+
+                                                </Grid>
+                                            </GroupBox>
+
+                                            <!--#region  直線電話&無線電系統-->
+                                            <UniformGrid Grid.Row="2" Columns="2">
+                                                <GroupBox Margin="1" Header="直線電話">
+                                                    <ContentControl d:Content="{d:DesignInstance dltsViews:DLTSPanelView, IsDesignTimeCreatable=True}" prism:RegionManager.RegionName="{x:Static datas:RegionNames.DLTSContentRegion}" />
+                                                </GroupBox>
+                                                <GroupBox Margin="1" Header="語音系統">
+                                                    <ContentControl d:Content="{d:DesignInstance tetraViews:TetraLiveCallPanelView, IsDesignTimeCreatable=True}" prism:RegionManager.RegionName="{x:Static datas:RegionNames.TetraLiveCallRegion}" />
+                                                </GroupBox>
+                                            </UniformGrid>
+                                            <!--#endregion-->
+
+                                        </Grid>
+                                    </Border>
+                                </Grid>
+                                <!--#endregion-->
+
+                                <!--#region   右側內容-->
+                                <StackPanel
+                                    Grid.Column="1"
+                                    Width="250"
+                                    Margin="5,0">
+
+                                    <ContentControl d:Content="{d:DesignInstance authViews:UserInformationView, IsDesignTimeCreatable=True}" prism:RegionManager.RegionName="{x:Static datas:RegionNames.InformationRegion}" />
+
+                                    <GroupBox Header="本日營運時間" Style="{x:Null}">
+                                        <UniformGrid Columns="2">
+                                            <TextBlock
+                                                Margin="5"
+                                                Padding="10,0"
+                                                HorizontalAlignment="Center"
+                                                Background="Black"
+                                                FontSize="32"
+                                                Foreground="Red"
+                                                Text="05:30" />
+                                            <TextBlock
+                                                Margin="5"
+                                                Padding="10,0"
+                                                HorizontalAlignment="Center"
+                                                Background="Black"
+                                                FontSize="32"
+                                                Foreground="Red"
+                                                Text="00:40" />
+                                        </UniformGrid>
+                                    </GroupBox>
+
+                                    <ContentControl d:Content="{d:DesignInstance tetraViews:TetraCallListPanelView, IsDesignTimeCreatable=True}" prism:RegionManager.RegionName="{x:Static datas:RegionNames.TetraCallListRegion}" />
+                                    <ContentControl d:Content="{d:DesignInstance otcsViews:OTCSCallListPanelView, IsDesignTimeCreatable=True}" prism:RegionManager.RegionName="{x:Static datas:RegionNames.OTCSCallListRegion}" />
+
+                                    <GroupBox Header="開發測試">
+                                        <UniformGrid Columns="2">
+                                            <Button
+                                                Command="{Binding SimulatePICallCommand}"
+                                                Content="模擬 PI"
+                                                Style="{StaticResource SelecterButton}" />
+                                            <Button
+                                                Command="{Binding SimulateSICallCommand}"
+                                                Content="模擬 SI"
+                                                Style="{StaticResource SelecterButton}" />
+                                            <Button
+                                                Command="{Binding SimulateTetraCallCommand}"
+                                                Content="模擬 Tetra"
+                                                Style="{StaticResource SelecterButton}" />
+                                            <Button Content="開發4" Style="{StaticResource SelecterButton}" />
+                                            <Button Content="開發5" Style="{StaticResource SelecterButton}" />
+                                            <Button Content="開發6" Style="{StaticResource SelecterButton}" />
+                                        </UniformGrid>
+                                    </GroupBox>
+
+                                    <GroupBox Header="電視牆選擇" Visibility="Collapsed">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*" />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            <Border
+                                                Grid.Column="0"
+                                                Margin="5"
+                                                Background="Black"
+                                                BorderBrush="Gray"
+                                                BorderThickness="1">
+                                                <TextBlock
+                                                    Margin="5"
+                                                    HorizontalAlignment="Center"
+                                                    FontSize="32"
+                                                    Foreground="Red"
+                                                    Text="#2" />
+                                            </Border>
+                                            <Button
+                                                Grid.Column="1"
+                                                Background="{StaticResource AssitColor1}"
+                                                BorderBrush="{StaticResource AssitColor1}"
+                                                Content="切換" />
+                                        </Grid>
+                                    </GroupBox>
+                                </StackPanel>
+                                <!--#endregion-->
+
+                            </Grid>
+
+                            <!--#region 這是最下方的設備告警區域的按鈕-->
+                            <!--<Grid Grid.Row="1">
+                                <Button
+                                    Width="{StaticResource CMFT.BottomDrawer.Button.Width}"
+                                    Height="{StaticResource CMFT.BottomDrawer.Button.Height}"
+                                    Padding="0"
+                                    HorizontalContentAlignment="Stretch"
+                                    materialDesign:ButtonAssist.CornerRadius="10,10,0,0"
+                                    Background="{DynamicResource SecondaryHueDarkBrush}"
+                                    Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                                    CommandParameter="{x:Static Dock.Bottom}"
+                                    Content="{Binding UnConfirmedEquipAlarmCount}"
+                                    ContentTemplate="{StaticResource CMFT.DataTemplate.EquipAlarmDrawerButton}" />
+
+                            -->
+                            <!--<StackPanel Width="1650" VerticalAlignment="Bottom">
+                                <Border Background="{DynamicResource SecondaryHueDarkBrush}" CornerRadius="10, 10, 0, 0">
+                                    <Grid
+                                        Margin="5"
+                                        HorizontalAlignment="Stretch"
+                                        Panel.ZIndex="2">
+                                        <StackPanel
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            Orientation="Horizontal">
+                                            <TextBlock
+                                                Margin="10,0,0,0"
+                                                Foreground="{DynamicResource MaterialDesignDarkForeground}"
+                                                Style="{DynamicResource CMFT.TextBlock.Left}"
+                                                Text="通訊設備即時告警 (當前未確認數量：" />
+                                            <TextBlock
+                                                Margin="0,0,0,0"
+                                                Foreground="{DynamicResource MaterialDesignDarkForeground}"
+                                                Style="{DynamicResource CMFT.TextBlock.Left}"
+                                                Text="2" />
+                                            <TextBlock
+                                                Margin="10,0,0,0"
+                                                Foreground="{DynamicResource MaterialDesignDarkForeground}"
+                                                Style="{DynamicResource CMFT.TextBlock.Left}"
+                                                Text="筆)" />
+                                        </StackPanel>
+
+                                        <Button
+                                            Width="30"
+                                            Padding="0,4"
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Center"
+                                            Background="{x:Null}"
+                                            BorderBrush="{x:Null}"
+                                            Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
+                                            CommandParameter="{x:Static Dock.Bottom}"
+                                            Style="{StaticResource MaterialDesignFlatMidBgButton}">
+                                            <materialDesign:PackIcon
+                                                Width="20"
+                                                Height="20"
+                                                Foreground="{DynamicResource MaterialDesignDarkForeground}"
+                                                Kind="WindowMaximize" />
+                                        </Button>
+
+                                    </Grid>
+                                </Border>
+                            </StackPanel>-->
+                            <!--
+                            </Grid>-->
+                            <!--#endregion-->
+                        </Grid>
+                    </materialDesign:DrawerHost>
+                </materialDesign:DialogHost>
+            </materialDesign:DialogHost>
+        </Grid>
+    </Viewbox>
+</Window>

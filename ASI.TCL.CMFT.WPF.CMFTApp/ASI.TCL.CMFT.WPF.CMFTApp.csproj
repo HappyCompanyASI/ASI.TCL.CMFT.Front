@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>disable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\image\long_logo.png" />
+    <None Remove="Assets\image\MetroLogo.png" />
+    <None Remove="Assets\image\Metro_Taipei_Logo.png" />
+    <None Remove="Assets\image\NewTaipeiMetrologo.png" />
+    <None Remove="Assets\image\texture.png" />
+    <None Remove="Assets\image\train.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="5.0.0" />
+    <PackageReference Include="Prism.Unity" Version="8.1.97" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ASI.TCL.CMFT.WPF.Module.Alarm\ASI.TCL.CMFT.WPF.Module.Alarm.csproj" />
+    <ProjectReference Include="..\ASI.TCL.CMFT.WPF.Module.Auth\ASI.TCL.CMFT.WPF.Module.Auth.csproj" />
+    <ProjectReference Include="..\ASI.TCL.CMFT.WPF.Module.CCTV\ASI.TCL.CMFT.WPF.Module.CCTV.csproj" />
+    <ProjectReference Include="..\ASI.TCL.CMFT.WPF.Module.DLTS\ASI.TCL.CMFT.WPF.Module.DLTS.csproj" />
+    <ProjectReference Include="..\ASI.TCL.CMFT.WPF.Module.DMD\ASI.TCL.CMFT.WPF.Module.DMD.csproj" />
+    <ProjectReference Include="..\ASI.TCL.CMFT.WPF.Module.OTCS\ASI.TCL.CMFT.WPF.Module.OTCS.csproj" />
+    <ProjectReference Include="..\ASI.TCL.CMFT.WPF.Module.PA\ASI.TCL.CMFT.WPF.Module.PA.csproj" />
+    <ProjectReference Include="..\ASI.TCL.CMFT.WPF.Module.SYS\ASI.TCL.CMFT.WPF.Module.SYS.csproj" />
+    <ProjectReference Include="..\ASI.TCL.CMFT.WPF.Module.Tetra\ASI.TCL.CMFT.WPF.Module.Tetra.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\image\long_logo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\image\MetroLogo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\image\Metro_Taipei_Logo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\image\NewTaipeiMetrologo.png">
+    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\image\texture.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\image\train.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

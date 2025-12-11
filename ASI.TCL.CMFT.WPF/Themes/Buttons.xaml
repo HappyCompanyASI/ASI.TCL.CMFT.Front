@@ -1,0 +1,100 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Button.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="ContentSreachReset" TargetType="{x:Type ContentControl}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ContentControl}">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <Button
+                            Command="{Binding Path=SearchCommand}"
+                            Content="查詢"
+                            Style="{StaticResource CMFT.Button}" />
+                        <Button
+                            Margin="10,0,0,0"
+                            Command="{Binding Path=ResetCommand}"
+                            Content="重置"
+                            Style="{StaticResource CMFT.Button}" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ContentExportPrint" TargetType="{x:Type ContentControl}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ContentControl}">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <Button
+                            Command="{Binding Path=ExportCommand}"
+                            Content="匯出"
+                            Style="{StaticResource CMFT.Button.Icon}" />
+                        <Button
+                            Margin="10,0,0,0"
+                            Command="{Binding Path=PrintCommand}"
+                            Content="列印"
+                            Style="{StaticResource CMFT.Button.Icon}" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ContentVerticalPlusMinus" TargetType="{x:Type ContentControl}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ContentControl}">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Vertical">
+                        <Button
+                            Margin="5"
+                            Command="{Binding Path=PlusCommand}"
+                            Content="+"
+                            Style="{StaticResource CMFT.Button.Icon}" />
+                        <Button
+                            Margin="5"
+                            Command="{Binding Path=MinusCommand}"
+                            Content="-"
+                            Style="{StaticResource CMFT.Button.Icon}" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ContentHorizontalPlusMinus" TargetType="{x:Type ContentControl}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ContentControl}">
+                    <StackPanel
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <Button
+                            Margin="5"
+                            Command="{Binding Path=PlusCommand}"
+                            Content="+"
+                            Style="{StaticResource CMFT.Button.Icon}" />
+                        <Button
+                            Margin="5"
+                            Command="{Binding Path=MinusCommand}"
+                            Content="-"
+                            Style="{StaticResource CMFT.Button.Icon}" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

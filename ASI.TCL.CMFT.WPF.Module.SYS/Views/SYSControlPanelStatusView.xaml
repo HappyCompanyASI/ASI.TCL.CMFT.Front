@@ -1,0 +1,103 @@
+﻿<UserControl
+    x:Class="ASI.TCL.CMFT.WPF.Module.SYS.Views.SYSControlPanelStatusView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:assist="clr-namespace:ASI.TCL.CMFT.WPF.Assist;assembly=ASI.TCL.CMFT.WPF"
+    xmlns:converters="clr-namespace:ASI.TCL.CMFT.WPF.Converters;assembly=ASI.TCL.CMFT.WPF"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:datas="clr-namespace:ASI.TCL.CMFT.WPF.Module.SYS.Datas"
+    xmlns:dtos="clr-namespace:ASI.TCL.CMFT.WPF.Module.SYS.Dtos"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:provider="clr-namespace:ASI.TCL.CMFT.WPF.Module.SYS.DataTypes"
+    xmlns:viewModels="clr-namespace:ASI.TCL.CMFT.WPF.Module.SYS.ViewModels"
+    d:DataContext="{d:DesignInstance viewModels:SYSControlPanelStatusViewModel,
+                                     IsDesignTimeCreatable=True}"
+    d:DesignHeight="1620"
+    d:DesignWidth="1420"
+    Style="{StaticResource CMFT.UserControl}"
+    mc:Ignorable="d">
+
+    <Grid>
+        <ListView
+            ItemContainerStyle="{StaticResource ListView.GridViewItem.Stretch}"
+            ItemsSource="{Binding SYSConsoleStates}"
+            ScrollViewer.VerticalScrollBarVisibility="Visible"
+            SelectionMode="Single">
+            <ListView.View>
+                <GridView ColumnHeaderContainerStyle="{StaticResource GridView.ColumnHeader.Center}">
+
+                    <GridViewColumn Header="主控台">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate DataType="{x:Type dtos:SYSConsoleStateDto}">
+                                <TextBlock Style="{StaticResource GridView.Column.TextBlock.Center}" Text="{Binding Console.ConsoleName, StringFormat='{}{0:yyyy/MM/dd HH:mm:ss}'}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="座位名稱">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate DataType="{x:Type dtos:SYSConsoleStateDto}">
+                                <TextBlock Style="{StaticResource GridView.Column.TextBlock.Center}" Text="{Binding Console.SeatName}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="登入使用者">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate DataType="{x:Type dtos:SYSConsoleStateDto}">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Style="{StaticResource GridView.Column.TextBlock.Center}" Text="{Binding UserID}" />
+                                    <TextBlock Style="{StaticResource GridView.Column.TextBlock.Center}" Text="(" />
+                                    <TextBlock Style="{StaticResource GridView.Column.TextBlock.Center}" Text="{Binding UserName}" />
+                                    <TextBlock Style="{StaticResource GridView.Column.TextBlock.Center}" Text=")" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="電視牆">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate DataType="{x:Type dtos:SYSConsoleStateDto}">
+                                <TextBlock Style="{StaticResource GridView.Column.TextBlock.Center}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="直線電話">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate DataType="{x:Type dtos:SYSConsoleStateDto}">
+                                <TextBlock Style="{StaticResource GridView.Column.TextBlock.Center}" Text="{Binding DLTState}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="無線電通訊">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate DataType="{x:Type dtos:SYSConsoleStateDto}">
+                                <TextBlock Style="{StaticResource GridView.Column.TextBlock.Center}" Text="{Binding TetraState}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="列車通訊">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate DataType="{x:Type dtos:SYSConsoleStateDto}">
+                                <TextBlock Style="{StaticResource GridView.Column.TextBlock.Center}" Text="{Binding OTCSState}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="車站廣播">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate DataType="{x:Type dtos:SYSConsoleStateDto}">
+                                <TextBlock Style="{StaticResource GridView.Column.TextBlock.Center}" Text="{Binding PAStation}" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</UserControl>

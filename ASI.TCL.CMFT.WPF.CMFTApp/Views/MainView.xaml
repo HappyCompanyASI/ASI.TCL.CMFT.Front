@@ -1,0 +1,17 @@
+﻿<UserControl
+    x:Class="ASI.TCL.CMFT.WPF.CMFTApp.Views.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Style="{StaticResource CMFT.UserControl}"
+    mc:Ignorable="d">
+    <Grid>
+        <TextBlock
+            FontSize="36"
+            Style="{StaticResource CMFT.TextBlock.Center}"
+            Text="請點選上方功能項目" />
+    </Grid>
+</UserControl>

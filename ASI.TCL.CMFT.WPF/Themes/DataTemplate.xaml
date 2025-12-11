@@ -1,0 +1,97 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Colors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/TextBlock.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Button.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/ColorTool.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/DataGrid.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <DataTemplate x:Key="CMFT.DataTemplate.MessageID">
+        <StackPanel
+            Margin="10,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Orientation="Horizontal">
+            <TextBlock
+                Foreground="{StaticResource CMFT.Brush.Red.Mid}"
+                Style="{StaticResource CMFT.TextBlock.Left}"
+                Text="訊息編號：" />
+            <TextBlock
+                Foreground="{StaticResource CMFT.Brush.Red.Mid}"
+                Style="{StaticResource CMFT.TextBlock.Left}"
+                Text="{Binding}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <!--  DataType : system  -->
+
+    <DataTemplate x:Key="CMFT.DataTemplate.Boolean" DataType="{x:Type system:Boolean}">
+        <materialDesign:PackIcon>
+            <materialDesign:PackIcon.Style>
+                <Style BasedOn="{StaticResource CMFT.Icon.Mid}" TargetType="materialDesign:PackIcon">
+                    <!--  預設 Kind 和 Foreground  -->
+                    <Setter Property="Kind" Value="CheckCircle" />
+                    <Setter Property="Foreground" Value="{StaticResource CMFT.Brush.Green.Mid}" />
+                    <Style.Triggers>
+                        <!--  當 Content 是 False 時顯示 Warning 和 Red  -->
+                        <DataTrigger Binding="{Binding}" Value="False">
+                            <Setter Property="Kind" Value="Warning" />
+                            <Setter Property="Foreground" Value="{StaticResource CMFT.Brush.Red.Mid}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </materialDesign:PackIcon.Style>
+        </materialDesign:PackIcon>
+    </DataTemplate>
+    <DataTemplate x:Key="CMFT.DataTemplate.DateTime" DataType="{x:Type system:DateTime}">
+        <StackPanel Orientation="Vertical">
+            <TextBlock
+                FontSize="{DynamicResource DataGridContentSize}"
+                Style="{StaticResource CMFT.DataGrid.Element.TextBlock.Center}"
+                Text="{Binding StringFormat='{}{0:yyyy/MM/dd }'}" />
+            <TextBlock Style="{StaticResource CMFT.DataGrid.Element.TextBlock.Center}" Text="{Binding StringFormat='{}{0:HH:mm:ss}'}" />
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CMFT.DataTemplate.IsAlarmConfirmed" DataType="{x:Type system:Boolean}">
+        <TextBlock>
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Text" Value="{Binding}" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding}" Value="{x:Static system:Boolean.TrueString}">
+                            <Setter Property="Text" Value="已確認" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding}" Value="{x:Static system:Boolean.FalseString}">
+                            <Setter Property="Text" Value="未確認" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+    </DataTemplate>
+    <DataTemplate x:Key="CMFT.DataTemplate.IsAlarmReleased" DataType="{x:Type system:Boolean}">
+        <TextBlock>
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Text" Value="{Binding}" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding}" Value="{x:Static system:Boolean.TrueString}">
+                            <Setter Property="Text" Value="已解除" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding}" Value="{x:Static system:Boolean.FalseString}">
+                            <Setter Property="Text" Value="未解除" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+    </DataTemplate>
+
+</ResourceDictionary>

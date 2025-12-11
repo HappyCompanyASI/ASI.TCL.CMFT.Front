@@ -1,0 +1,135 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/TextBlock.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Colors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/ItemsControl.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--  HeaderBorder  -->
+    <Style x:Key="CMFT.ListBox.HeaderBorder.LightGray" TargetType="{x:Type Border}">
+        <Style.Resources>
+            <Style BasedOn="{StaticResource CMFT.TextBlock.Left}" TargetType="{x:Type TextBlock}">
+                <Setter Property="Foreground" Value="{StaticResource CMFT.Brush.Dark}" />
+            </Style>
+            <Style BasedOn="{StaticResource CMFT.CheckBox.UserForeground}" TargetType="{x:Type CheckBox}">
+                <Setter Property="Foreground" Value="{StaticResource CMFT.Brush.Dark}" />
+                <Setter Property="HorizontalAlignment" Value="Right" />
+            </Style>
+        </Style.Resources>
+        <Setter Property="Background" Value="{StaticResource CMFT.Brush.Gray.Light}" />
+        <Setter Property="CornerRadius" Value="4,4,0,0" />
+    </Style>
+
+    <Style x:Key="CMFT.ListBox.HeaderBorder.Primary" TargetType="{x:Type Border}">
+        <Style.Resources>
+            <Style BasedOn="{StaticResource CMFT.TextBlock.Left}" TargetType="{x:Type TextBlock}">
+                <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Primary.Foreground}" />
+            </Style>
+            <Style BasedOn="{StaticResource CMFT.CheckBox.UserForeground}" TargetType="{x:Type CheckBox}">
+                <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Primary.Foreground}" />
+                <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="IsThreeState" Value="True" />
+            </Style>
+        </Style.Resources>
+        <Setter Property="Background" Value="{DynamicResource MaterialDesign.Brush.Primary}" />
+        <Setter Property="CornerRadius" Value="4,4,0,0" />
+    </Style>
+
+    <!--  BodyBorder  -->
+    <Style x:Key="CMFT.ListBox.BodyBorder.LightGray" TargetType="{x:Type Border}">
+        <Setter Property="BorderBrush" Value="{StaticResource CMFT.Brush.Gray.Light}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="0,0,4,4" />
+    </Style>
+
+    <Style x:Key="CMFT.ListBox.BodyBorder.Primary" TargetType="{x:Type Border}">
+        <Setter Property="BorderBrush" Value="{DynamicResource MaterialDesign.Brush.Primary}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="0,0,4,4" />
+    </Style>
+
+    <!--  ListBoxItem  -->
+    <Style
+        x:Key="CMFT.ListBox.ListBoxItem"
+        BasedOn="{StaticResource MaterialDesignListBoxItem}"
+        TargetType="{x:Type ListBoxItem}">
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+
+    <!--  ListBox  -->
+    <Style
+        x:Key="CMFT.ListBox"
+        BasedOn="{StaticResource MaterialDesignListBox}"
+        TargetType="{x:Type ListBox}">
+        <Setter Property="ItemContainerStyle" Value="{StaticResource CMFT.ListBox.ListBoxItem}" />
+        <Setter Property="Background" Value="Transparent" />
+        <!--  Item間的距離  -->
+        <Setter Property="ItemsPanel" Value="{StaticResource StackItemsPanelVerticalMargin0}" />
+    </Style>
+
+    <Style
+        x:Key="CMFT.ListBox.SingleSelctable"
+        BasedOn="{StaticResource CMFT.ListBox}"
+        TargetType="{x:Type ListBox}">
+        <Setter Property="Height" Value="150" />
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style BasedOn="{StaticResource CMFT.ListBox.ListBoxItem}" TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="materialDesign:ListBoxItemAssist.ShowSelection" Value="True" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="SelectionMode" Value="Single" />
+    </Style>
+
+    <Style
+        x:Key="CMFT.ListBox.MultiSelctable"
+        BasedOn="{StaticResource CMFT.ListBox}"
+        TargetType="{x:Type ListBox}">
+        <Setter Property="Height" Value="150" />
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style BasedOn="{StaticResource CMFT.ListBox.ListBoxItem}" TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="materialDesign:ListBoxItemAssist.ShowSelection" Value="True" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="SelectionMode" Value="Multiple" />
+    </Style>
+
+    <Style
+        x:Key="CMFT.ListBox.SingleCheckable"
+        BasedOn="{StaticResource CMFT.ListBox}"
+        TargetType="{x:Type ListBox}">
+        <Setter Property="Height" Value="150" />
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style BasedOn="{StaticResource CMFT.ListBox.ListBoxItem}" TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="materialDesign:ListBoxItemAssist.ShowSelection" Value="False" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="SelectionMode" Value="Single" />
+    </Style>
+
+    <Style
+        x:Key="CMFT.ListBox.MultiCheckable"
+        BasedOn="{StaticResource CMFT.ListBox}"
+        TargetType="{x:Type ListBox}">
+        <Setter Property="Height" Value="150" />
+        <Setter Property="ItemContainerStyle">
+            <Setter.Value>
+                <Style BasedOn="{StaticResource CMFT.ListBox.ListBoxItem}" TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="materialDesign:ListBoxItemAssist.ShowSelection" Value="False" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="SelectionMode" Value="Multiple" />
+    </Style>
+
+</ResourceDictionary>

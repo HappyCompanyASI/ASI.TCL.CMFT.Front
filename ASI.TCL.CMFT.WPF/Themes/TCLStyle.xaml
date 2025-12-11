@@ -1,0 +1,507 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:applications="clr-namespace:ASI.TCL.CMFT.WPF.Applications"
+    xmlns:assist="clr-namespace:ASI.TCL.CMFT.WPF.Assist"
+    xmlns:converters="clr-namespace:ASI.TCL.CMFT.WPF.Converters"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+
+    <SolidColorBrush x:Key="ReadOnlyColor" Color="#FFFFDB8F" />
+    <SolidColorBrush x:Key="SelectableColor" Color="MediumPurple" />
+    <SolidColorBrush x:Key="Selectable2Color" Color="#B28FCE" />
+
+
+    <!--  主畫面的上方導覽按鈕  -->
+    <Style
+        x:Key="NaviRadioButton"
+        BasedOn="{StaticResource CMFT.RadioButton.ButtonLike}"
+        TargetType="{x:Type RadioButton}">
+        <!--<Setter Property="Command" Value="{x:Static cmftApp:WPFApplicationCommands.NavigateCommand}" />-->
+        <Setter Property="Height" Value="45" />
+        <Setter Property="GroupName" Value="Navi" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="materialDesign:ButtonAssist.CornerRadius" Value="0" />
+        <Setter Property="Background" Value="{StaticResource AssitColor1}" />
+        <Setter Property="BorderBrush" Value="{StaticResource AssitColor1}" />
+        <Style.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+                <Setter Property="BorderBrush" Value="LightGreen" />
+                <Setter Property="Background" Value="LightGreen" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
+    <!--  主頁面 主要功能按鈕  列車語音廣播/車站語音廣播/車站PID/車站DMD..  -->
+    <Style
+        x:Key="NaviBigButton"
+        BasedOn="{StaticResource CMFT.Button}"
+        TargetType="{x:Type Button}">
+        <Setter Property="Command" Value="{x:Static applications:WPFApplicationCommands.NavigateCommand}" />
+        <Setter Property="Height" Value="150" />
+        <Setter Property="FontSize" Value="28" />
+    </Style>
+
+    <!--  主頁面 左側 操作/設定選擇 按鈕 目標選擇 方式及內容選擇 開始  -->
+    <Style
+        x:Key="StepRadioButton"
+        BasedOn="{StaticResource WPF.ToggleButton.ButtonLike}"
+        TargetType="{x:Type ToggleButton}">
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontSize" Value="{StaticResource ButtonFontSize_Middle}" />
+        <Setter Property="Padding" Value="8,24" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+    </Style>
+    <Style
+        x:Key="MainTitleTextBox"
+        BasedOn="{StaticResource CMFT.TextBlock.Center}"
+        TargetType="{x:Type TextBlock}">
+        <Setter Property="Margin" Value="0,20" />
+        <Setter Property="VerticalAlignment" Value="Bottom" />
+        <Setter Property="FontSize" Value="22" />
+    </Style>
+
+    <!--  主頁面 右側導覽按鈕  上一步/下一步/播放/  -->
+    <Style
+        x:Key="StepButton"
+        BasedOn="{StaticResource CMFT.Button}"
+        TargetType="{x:Type Button}">
+        <!--<Setter Property="Command" Value="{x:Static cmftApp:WPFApplicationCommands.StepCommand}" />-->
+        <Setter Property="Height" Value="50" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+    </Style>
+
+    <!--  主頁面 右側導覽按鈕 取消/結束  -->
+    <Style
+        x:Key="NaviStepButton"
+        BasedOn="{StaticResource StepButton}"
+        TargetType="{x:Type Button}">
+        <!--<Setter Property="Command" Value="{x:Static cmftApp:WPFApplicationCommands.NavigateCommand}" />-->
+    </Style>
+
+    <!--#region  操作按鈕-->
+    <DataTemplate x:Key="EditModeData">
+        <StackPanel>
+            <TextBlock Text="編輯" />
+            <TextBlock Text="模式" />
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="EditItemData">
+        <StackPanel>
+            <TextBlock Text="編輯" />
+            <TextBlock Text="項目" />
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="EditGroupData">
+        <StackPanel>
+            <TextBlock Text="編輯" />
+            <TextBlock Text="群組" />
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="AddGroupData">
+        <StackPanel>
+            <TextBlock Text="新增" />
+            <TextBlock Text="群組" />
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="AddItemData">
+        <StackPanel>
+            <TextBlock Text="新增" />
+            <TextBlock Text="項目" />
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="DeleteGroupData">
+        <StackPanel>
+            <TextBlock Text="刪除" />
+            <TextBlock Text="群組" />
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="DeleteItemData">
+        <StackPanel>
+            <TextBlock Text="刪除" />
+            <TextBlock Text="項目" />
+        </StackPanel>
+    </DataTemplate>
+    <Style
+        x:Key="OperationButton"
+        BasedOn="{StaticResource CMFT.ButtonBase}"
+        TargetType="{x:Type Button}">
+        <Setter Property="BorderBrush" Value="{DynamicResource CMFT.Brush.Gray.Dark}" />
+        <Setter Property="Foreground" Value="{DynamicResource AssitColor1}" />
+        <Setter Property="Background" Value="{Binding BorderBrush, RelativeSource={RelativeSource Self}}" />
+        <Setter Property="Width" Value="80" />
+        <Setter Property="Height" Value="80" />
+        <Setter Property="BorderThickness" Value="0" />
+    </Style>
+    <Style
+        x:Key="EditButton"
+        BasedOn="{StaticResource OperationButton}"
+        TargetType="{x:Type Button}">
+        <!--<Setter Property="Visibility" Value="{Binding IsEditMode, Converter={converters:EqualityToVisibilityConverter}, ConverterParameter={StaticResource FalseValue}}" />-->
+        <Setter Property="Background" Value="{StaticResource CMFT.Brush.Green.Dark}" />
+
+        <Setter Property="CommandParameter" Value="{StaticResource TrueValue}" />
+        <Setter Property="ContentTemplate" Value="{StaticResource EditModeData}" />
+    </Style>
+    <Style
+        x:Key="ConfirmButton"
+        BasedOn="{StaticResource OperationButton}"
+        TargetType="{x:Type Button}">
+        <!--<Setter Property="Visibility" Value="{Binding IsEditMode, Converter={converters:EqualityToVisibilityConverter}, ConverterParameter={StaticResource TrueValue}}" />-->
+        <Setter Property="Background" Value="{StaticResource CMFT.Brush.Green.Mid}" />
+
+        <Setter Property="CommandParameter" Value="{StaticResource FalseValue}" />
+        <Setter Property="Content" Value="確定" />
+    </Style>
+    <Style
+        x:Key="CancelButton"
+        BasedOn="{StaticResource OperationButton}"
+        TargetType="{x:Type Button}">
+        <!--<Setter Property="Visibility" Value="{Binding IsEditMode, Converter={converters:EqualityToVisibilityConverter}, ConverterParameter={StaticResource TrueValue}}" />-->
+        <Setter Property="Background" Value="{StaticResource CMFT.Brush.Gray.Dark}" />
+
+        <Setter Property="CommandParameter" Value="{StaticResource FalseValue}" />
+        <Setter Property="Content" Value="取消" />
+    </Style>
+    <Style
+        x:Key="AddButton"
+        BasedOn="{StaticResource OperationButton}"
+        TargetType="{x:Type Button}">
+        <!--<Setter Property="Visibility" Value="{Binding IsEditMode, Converter={converters:EqualityToVisibilityConverter}, ConverterParameter={StaticResource TrueValue}}" />-->
+        <Setter Property="Background" Value="{StaticResource CMFT.Brush.Blue.Mid}" />
+        <Setter Property="Content" Value="新增" />
+    </Style>
+    <Style
+        x:Key="DeleteButton"
+        BasedOn="{StaticResource OperationButton}"
+        TargetType="{x:Type Button}">
+        <!--<Setter Property="Visibility" Value="{Binding IsEditMode, Converter={converters:EqualityToVisibilityConverter}, ConverterParameter={StaticResource TrueValue}}" />-->
+        <Setter Property="Background" Value="{StaticResource CMFT.Brush.Red.Dark}" />
+        <Setter Property="Content" Value="刪除" />
+    </Style>
+    <Style
+        x:Key="CopyButton"
+        BasedOn="{StaticResource OperationButton}"
+        TargetType="{x:Type Button}">
+        <!--<Setter Property="Visibility" Value="{Binding IsEditMode, Converter={converters:EqualityToVisibilityConverter}, ConverterParameter={StaticResource TrueValue}}" />-->
+        <Setter Property="Background" Value="{StaticResource CMFT.Brush.Blue.Mid}" />
+        <Setter Property="Content" Value="拷貝" />
+    </Style>
+    <!--#endregion-->
+
+    <!--#region 目標/內容 選擇按鈕-->
+    <Style
+        x:Key="SelecterRadioButton"
+        BasedOn="{StaticResource WPF.RadioButton.ButtonLike}"
+        TargetType="{x:Type RadioButton}">
+        <Setter Property="Padding" Value="8" />
+        <Setter Property="Margin" Value="2" />
+        <Setter Property="FontSize" Value="{StaticResource ButtonFontSize_Middle}" />
+        <Setter Property="IsChecked">
+            <Setter.Value>
+                <Binding
+                    Mode="TwoWay"
+                    Path="IsSelected"
+                    RelativeSource="{RelativeSource AncestorType=ListBoxItem}" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style
+        x:Key="SelecterButton"
+        BasedOn="{StaticResource WPF.ButtonBase.ButtonLike}"
+        TargetType="{x:Type Button}">
+        <Setter Property="Padding" Value="8" />
+        <Setter Property="Margin" Value="2" />
+        <Setter Property="FontSize" Value="{StaticResource ButtonFontSize_Middle}" />
+    </Style>
+
+    <Style
+        x:Key="StretchListBoxItem"
+        BasedOn="{StaticResource CMFT.ListBox.ListBoxItem}"
+        TargetType="{x:Type ListBoxItem}">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border
+                        Padding="{TemplateBinding Padding}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="OopsContent1" TargetType="{x:Type ContentControl}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ContentControl}">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <materialDesign:PackIcon
+                            Width="200"
+                            Height="200"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="{StaticResource CMFT.Brush.Red.Dark}"
+                            Kind="AlertCircle" />
+                        <TextBlock
+                            Margin="0,-40,0,0"
+                            HorizontalAlignment="Stretch"
+                            FontSize="100"
+                            FontWeight="Bold"
+                            Foreground="{StaticResource CMFT.Brush.Red.Dark}"
+                            Text="Oops!" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="OopsContent2" TargetType="{x:Type ContentControl}">
+        <Setter Property="Template">
+            <Setter.Value>
+
+                <ControlTemplate TargetType="{x:Type ContentControl}">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <materialDesign:PackIcon
+                            Width="200"
+                            Height="200"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="{StaticResource CMFT.Brush.Red.Dark}"
+                            Kind="EmoticonDevilOutline" />
+                        <TextBlock
+                            Margin="0,-40,0,0"
+                            HorizontalAlignment="Stretch"
+                            FontSize="100"
+                            FontWeight="Bold"
+                            Foreground="{StaticResource CMFT.Brush.Red.Dark}"
+                            Text="Oops!" />
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+
+    <!--#region  GridViewHeader-->
+    <Style
+        x:Key="GridView.ColumnHeader.Center"
+        BasedOn="{StaticResource MaterialDesignToolButton}"
+        TargetType="GridViewColumnHeader">
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="TextBlock.TextAlignment" Value="Center" />
+        <Setter Property="TextBlock.Foreground" Value="{DynamicResource MaterialDesignBody}" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="12,3,3,3" />
+        <Setter Property="Background" Value="Red" />
+    </Style>
+    <Style
+        x:Key="GridView.ColumnHeader.Left"
+        BasedOn="{StaticResource GridView.ColumnHeader.Center}"
+        TargetType="GridViewColumnHeader">
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+    </Style>
+    <Style
+        x:Key="GridView.ColumnHeader.Right"
+        BasedOn="{StaticResource GridView.ColumnHeader.Center}"
+        TargetType="GridViewColumnHeader">
+        <Setter Property="HorizontalContentAlignment" Value="Right" />
+        <Setter Property="Padding" Value="3,3,0,3" />
+    </Style>
+    <Style
+        x:Key="GridView.ColumnHeader.Stretch"
+        BasedOn="{StaticResource GridView.ColumnHeader.Center}"
+        TargetType="GridViewColumnHeader">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    </Style>
+    <Style
+        x:Key="GridView.VerticalColumnHeader"
+        BasedOn="{StaticResource MaterialDesignSubtitle1TextBlock}"
+        TargetType="TextBlock">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="TextAlignment" Value="Left" />
+    </Style>
+    <Style
+        x:Key="GridView.VerticalColumnHeader.Stretch"
+        BasedOn="{StaticResource GridView.VerticalColumnHeader}"
+        TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+    </Style>
+    <Style
+        x:Key="GridView.VerticalColumnHeader.Left"
+        BasedOn="{StaticResource GridView.VerticalColumnHeader}"
+        TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+    </Style>
+    <Style
+        x:Key="GridView.VerticalColumnHeader.Center"
+        BasedOn="{StaticResource GridView.VerticalColumnHeader}"
+        TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+    <!--#endregion-->
+
+    <!--#region  GridViewItem/GridViewEelement-->
+
+    <!--
+        (ItemContainerStyle正規化)
+        1.BasedOn 需要先繼承MaterialDesignGridViewItem", 否則選selected Color會不見
+        2.HorizontalContentAlignment需要Stretch, 否則column會無法設定Aligment
+        3.column的整體FontSize可從這邊設定
+    -->
+    <Style
+        x:Key="ListView.GridViewItem.Stretch"
+        BasedOn="{StaticResource MaterialDesignGridViewItem}"
+        TargetType="{x:Type ListViewItem}">
+        <!--<Setter Property="IsHitTestVisible" Value="{Binding IsEditMode}" />-->
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+
+    <Style x:Key="GridView.Column.TextBlock.Stretch" TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+    <Style
+        x:Key="GridView.Column.TextBlock.Center"
+        BasedOn="{StaticResource GridView.Column.TextBlock.Stretch}"
+        TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
+    <Style
+        x:Key="GridView.Column.TextBlock.Left"
+        BasedOn="{StaticResource GridView.Column.TextBlock.Stretch}"
+        TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+    </Style>
+
+    <Style
+        x:Key="GridView.Column.TextBox.Stretch"
+        BasedOn="{StaticResource MaterialDesignFilledTextBox}"
+        TargetType="TextBox">
+        <Setter Property="materialDesign:HintAssist.IsFloating" Value="False" />
+        <Setter Property="Padding" Value="8" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+    <Style
+        x:Key="GridView.Column.ComboBox.Center"
+        BasedOn="{StaticResource MaterialDesignFilledComboBox}"
+        TargetType="ComboBox">
+        <Setter Property="materialDesign:HintAssist.IsFloating" Value="False" />
+        <Setter Property="Padding" Value="6" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="TextBlock.TextAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+    <Style
+        x:Key="GridView.Column.TimePicker.Center"
+        BasedOn="{StaticResource MaterialDesignFilledTimePicker}"
+        TargetType="materialDesign:TimePicker">
+        <Setter Property="materialDesign:HintAssist.IsFloating" Value="False" />
+        <Setter Property="Padding" Value="6" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="TextBlock.TextAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Is24Hours" Value="True" />
+    </Style>
+
+    <Style
+        x:Key="GridView.Column.CheckBox.Center"
+        BasedOn="{StaticResource MaterialDesignCheckBox}"
+        TargetType="CheckBox">
+        <Setter Property="materialDesign:CheckBoxAssist.CheckBoxSize" Value="35" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="20" />
+    </Style>
+
+    <Style
+        x:Key="GridView.Column.ToggleButton.Switch.Center"
+        BasedOn="{StaticResource MaterialDesignSwitchToggleButton}"
+        TargetType="ToggleButton">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+
+    </Style>
+    <Style
+        x:Key="GridView.Column.ToggleButton.State.Center"
+        BasedOn="{StaticResource MaterialDesignActionLightToggleButton}"
+        TargetType="ToggleButton">
+        <!--  1. 置中對齊  -->
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+
+        <!--  2. 預設先顯示紅色叉叉：以 ContentTemplate 產生紅叉 PackIcon  -->
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <!--  這裡的 PackIcon 會每次都重建，不會重複共用同一個實例  -->
+                    <materialDesign:PackIcon
+                        Width="20"
+                        Height="20"
+                        Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ToggleButton}}"
+                        Kind="Close" />
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <!--  3. 依照 IsChecked 狀態切換 ContentTemplate 與 Foreground 顏色  -->
+        <Style.Triggers>
+            <!--  當 IsChecked = False：維持紅色叉叉  -->
+            <Trigger Property="IsChecked" Value="False">
+                <!--  除了 ContentTemplate 可留預設，也可以在此顯式再指定一次  -->
+                <Setter Property="Foreground" Value="Red" />
+            </Trigger>
+
+            <!--  當 IsChecked = True：改成綠色打勾  -->
+            <Trigger Property="IsChecked" Value="True">
+                <!--  換成顯示綠色勾勾的 DataTemplate  -->
+                <Setter Property="ContentTemplate">
+                    <Setter.Value>
+                        <DataTemplate>
+                            <materialDesign:PackIcon
+                                Width="20"
+                                Height="20"
+                                Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=ToggleButton}}"
+                                Kind="Check" />
+                        </DataTemplate>
+                    </Setter.Value>
+                </Setter>
+                <!--  同時把前景色設為綠色  -->
+                <Setter Property="Foreground" Value="Green" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <!--#endregion-->
+
+
+
+
+
+
+
+
+</ResourceDictionary>

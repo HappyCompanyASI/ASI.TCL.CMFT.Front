@@ -1,0 +1,151 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:assist="clr-namespace:ASI.TCL.CMFT.WPF.Assist">
+
+    <!--#region Panel Style-->
+    <Style x:Key="PanelMargin0" TargetType="{x:Type Panel}">
+        <Setter Property="assist:MarginAssist.Margin" Value="0" />
+        <Setter Property="assist:MarginAssist.LastItemMargin" Value="0" />
+    </Style>
+    <Style x:Key="PanelMargin1" TargetType="{x:Type Panel}">
+        <Setter Property="assist:MarginAssist.Margin" Value="1" />
+        <Setter Property="assist:MarginAssist.LastItemMargin" Value="1" />
+    </Style>
+    <Style x:Key="PanelMargin2" TargetType="{x:Type Panel}">
+        <Setter Property="assist:MarginAssist.Margin" Value="2" />
+        <Setter Property="assist:MarginAssist.LastItemMargin" Value="2" />
+    </Style>
+    <Style x:Key="PanelMargin3" TargetType="{x:Type Panel}">
+        <Setter Property="assist:MarginAssist.Margin" Value="3" />
+        <Setter Property="assist:MarginAssist.LastItemMargin" Value="3" />
+    </Style>
+    <Style x:Key="PanelMargin4" TargetType="{x:Type Panel}">
+        <Setter Property="assist:MarginAssist.Margin" Value="4" />
+        <Setter Property="assist:MarginAssist.LastItemMargin" Value="4" />
+    </Style>
+    <Style x:Key="PanelMargin5" TargetType="{x:Type Panel}">
+        <Setter Property="assist:MarginAssist.Margin" Value="5" />
+        <Setter Property="assist:MarginAssist.LastItemMargin" Value="5" />
+    </Style>
+    <Style x:Key="PanelMargin10" TargetType="{x:Type Panel}">
+        <Setter Property="assist:MarginAssist.Margin" Value="10" />
+        <Setter Property="assist:MarginAssist.LastItemMargin" Value="10" />
+    </Style>
+    <!--#endregion-->
+
+    <!--#region Grid Style-->
+    <Style
+        x:Key="GridMargin5"
+        BasedOn="{StaticResource PanelMargin5}"
+        TargetType="{x:Type Grid}" />
+    <!--#endregion-->
+
+    <!--#region UniformGrid Style-->
+    <Style
+        x:Key="UniformGridMargin0"
+        BasedOn="{StaticResource PanelMargin0}"
+        TargetType="{x:Type UniformGrid}">
+        <Setter Property="Columns" Value="1" />
+    </Style>
+    <Style
+        x:Key="UniformGridMargin1"
+        BasedOn="{StaticResource PanelMargin1}"
+        TargetType="{x:Type UniformGrid}">
+        <Setter Property="Columns" Value="1" />
+    </Style>
+    <Style
+        x:Key="UniformGridMargin2"
+        BasedOn="{StaticResource PanelMargin2}"
+        TargetType="{x:Type UniformGrid}">
+        <Setter Property="Columns" Value="1" />
+    </Style>
+    <Style
+        x:Key="UniformGridMargin3"
+        BasedOn="{StaticResource PanelMargin3}"
+        TargetType="{x:Type UniformGrid}">
+        <Setter Property="Columns" Value="1" />
+    </Style>
+    <Style
+        x:Key="UniformGridMargin5"
+        BasedOn="{StaticResource PanelMargin5}"
+        TargetType="{x:Type UniformGrid}">
+        <Setter Property="Columns" Value="1" />
+    </Style>
+    <Style
+        x:Key="UniformGridMargin10"
+        BasedOn="{StaticResource PanelMargin10}"
+        TargetType="{x:Type UniformGrid}">
+        <Setter Property="Columns" Value="1" />
+    </Style>
+    <!--#endregion-->
+
+    <!--#region StackPanel Style-->
+    <Style
+        x:Key="StackPanelVerticalMargin0"
+        BasedOn="{StaticResource PanelMargin0}"
+        TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation" Value="Vertical" />
+    </Style>
+    <Style
+        x:Key="StackPanelVerticalMargin1"
+        BasedOn="{StaticResource PanelMargin1}"
+        TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation" Value="Vertical" />
+    </Style>
+    <Style
+        x:Key="StackPanelVerticalMargin2"
+        BasedOn="{StaticResource PanelMargin2}"
+        TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation" Value="Vertical" />
+    </Style>
+    <Style
+        x:Key="StackPanelVerticalMargin3"
+        BasedOn="{StaticResource PanelMargin3}"
+        TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation" Value="Vertical" />
+    </Style>
+    <Style
+        x:Key="StackPanelVerticalMargin4"
+        BasedOn="{StaticResource PanelMargin4}"
+        TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation" Value="Vertical" />
+    </Style>
+    <Style
+        x:Key="StackPanelVerticalMargin5"
+        BasedOn="{StaticResource PanelMargin5}"
+        TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation" Value="Vertical" />
+    </Style>
+    <Style
+        x:Key="StackPanelVerticalMargin10"
+        BasedOn="{StaticResource PanelMargin10}"
+        TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation" Value="Vertical" />
+    </Style>
+    <Style
+        x:Key="StackPanelHorizontalMargin0"
+        BasedOn="{StaticResource PanelMargin0}"
+        TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation" Value="Horizontal" />
+    </Style>
+    <Style
+        x:Key="StackPanelHorizontalMargin3"
+        BasedOn="{StaticResource PanelMargin3}"
+        TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation" Value="Horizontal" />
+    </Style>
+    <Style
+        x:Key="StackPanelHorizontalMargin5"
+        BasedOn="{StaticResource PanelMargin5}"
+        TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation" Value="Horizontal" />
+    </Style>
+    <Style
+        x:Key="StackPanelHorizontalMargin10"
+        BasedOn="{StaticResource PanelMargin10}"
+        TargetType="{x:Type StackPanel}">
+        <Setter Property="Orientation" Value="Horizontal" />
+    </Style>
+    <!--#endregion-->
+</ResourceDictionary>

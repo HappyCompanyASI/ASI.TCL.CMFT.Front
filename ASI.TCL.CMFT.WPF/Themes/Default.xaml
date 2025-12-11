@@ -1,0 +1,50 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:customControl="clr-namespace:ASI.TCL.CMFT.WPF.CustomControl"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+
+    <Style x:Key="CMFT.GroupBox" TargetType="{x:Type GroupBox}" />
+
+    <Style TargetType="{x:Type ComboBoxItem}">
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="VerticalContentAlignment" Value="Top" />
+    </Style>
+
+    <!--  Button  -->
+    <Style BasedOn="{StaticResource CMFT.Button}" TargetType="{x:Type Button}" />
+    <Style BasedOn="{StaticResource CMFT.ToggleButton}" TargetType="{x:Type ToggleButton}" />
+    <Style BasedOn="{StaticResource CMFT.CheckBox}" TargetType="{x:Type CheckBox}" />
+    <Style BasedOn="{StaticResource CMFT.RadioButton}" TargetType="{x:Type RadioButton}" />
+
+    <!--  Fields  -->
+    <Style BasedOn="{StaticResource CMFT.Field.TextBox}" TargetType="{x:Type TextBox}" />
+    <Style BasedOn="{StaticResource CMFT.Field.PasswordBox}" TargetType="{x:Type PasswordBox}" />
+    <Style BasedOn="{StaticResource CMFT.Field.DatePicker}" TargetType="{x:Type DatePicker}" />
+    <Style BasedOn="{StaticResource CMFT.Field.TimePicker}" TargetType="{x:Type materialDesign:TimePicker}" />
+    <Style BasedOn="{StaticResource CMFT.Field.ComboBox}" TargetType="{x:Type ComboBox}" />
+
+    <!--  ListBox  -->
+    <Style BasedOn="{StaticResource CMFT.ListBox.ListBoxItem}" TargetType="{x:Type ListBoxItem}" />
+    <Style BasedOn="{StaticResource CMFT.ListBox}" TargetType="{x:Type ListBox}" />
+
+    <!--  ListView  -->
+    <Style BasedOn="{StaticResource CMFT.ListView.ListViewItem}" TargetType="{x:Type ListViewItem}" />
+    <Style BasedOn="{StaticResource CMFT.ListView}" TargetType="{x:Type ListView}" />
+
+    <!--  GridView  -->
+    <Style BasedOn="{StaticResource CMFT.GridView.ColumnHeader.Left}" TargetType="{x:Type GridViewColumnHeader}" />
+
+    <!--  DataGrid  -->
+    <Style BasedOn="{StaticResource CMFT.DataGrid.Cell}" TargetType="{x:Type DataGridCell}" />
+    <Style BasedOn="{StaticResource CMFT.DataGrid.ColumnHeader.Left}" TargetType="{x:Type DataGridColumnHeader}" />
+    <Style BasedOn="{StaticResource CMFT.DataGrid.Row}" TargetType="{x:Type DataGridRow}" />
+    <Style BasedOn="{StaticResource CMFT.DataGrid.RowHeader}" TargetType="{x:Type DataGridRowHeader}" />
+    <Style BasedOn="{StaticResource CMFT.DataGrid}" TargetType="{x:Type DataGrid}" />
+
+    <!--  Generic  -->
+    <Style BasedOn="{StaticResource CMFT.Snackbar}" TargetType="{x:Type materialDesign:Snackbar}" />
+    <Style BasedOn="{StaticResource CMFT.GroupBox}" TargetType="{x:Type GroupBox}" />
+    <Style BasedOn="{StaticResource CMFT.Expander.Down}" TargetType="{x:Type Expander}" />
+    <Style BasedOn="{StaticResource CMFT.ColorTool}" TargetType="{x:Type customControl:ColorTool}" />
+</ResourceDictionary>

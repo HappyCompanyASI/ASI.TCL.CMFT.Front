@@ -1,0 +1,195 @@
+﻿<UserControl
+    x:Class="ASI.TCL.CMFT.WPF.Module.OTCS.Views.OTCSCallListPanelView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:applications="clr-namespace:ASI.TCL.CMFT.WPF.Applications;assembly=ASI.TCL.CMFT.WPF"
+    xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:converters="clr-namespace:ASI.TCL.CMFT.WPF.Module.OTCS.Converters"
+    xmlns:converters1="clr-namespace:ASI.TCL.CMFT.WPF.Converters;assembly=ASI.TCL.CMFT.WPF"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dataTypes="clr-namespace:ASI.TCL.CMFT.WPF.Module.OTCS.DataTypes"
+    xmlns:datas="clr-namespace:ASI.TCL.CMFT.WPF.Module.OTCS.Datas"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:triggerActions="clr-namespace:ASI.TCL.CMFT.WPF.TriggerActions;assembly=ASI.TCL.CMFT.WPF"
+    xmlns:viewModels="clr-namespace:ASI.TCL.CMFT.WPF.Module.OTCS.ViewModels"
+    d:DataContext="{d:DesignInstance viewModels:OTCSCallListPanelViewModel,
+                                     IsDesignTimeCreatable=True}"
+    d:DesignHeight="600"
+    d:DesignWidth="300"
+    Style="{StaticResource CMFT.UserControl}"
+    mc:Ignorable="d">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!--  PI來電  -->
+        <GroupBox
+            Grid.Row="0"
+            Header="PI來電 等候佇列"
+            Style="{x:Null}">
+            <StackPanel>
+                <Button
+                    Margin="5"
+                    Command="{Binding AnswerPICallCommand}"
+                    Content="接聽"
+                    Style="{DynamicResource CMFT.Button}" />
+                <ListView
+                    Height="180"
+                    ItemsSource="{Binding PICallQueue}"
+                    SelectedItem="{Binding SelectedPIItem}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="100" Header="列車資訊">
+                                <GridViewColumn.HeaderContainerStyle>
+                                    <Style BasedOn="{StaticResource GridView.ColumnHeader.Center}" TargetType="GridViewColumnHeader">
+                                        <Setter Property="FontSize" Value="14" />
+                                        <Setter Property="Height" Value="30" />
+                                    </Style>
+                                </GridViewColumn.HeaderContainerStyle>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Foreground="Black"
+                                                Text="{Binding Train.TrainNumber}" />
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Foreground="Black"
+                                                Text="{Binding Car}" />
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Foreground="Black"
+                                                Text="PI#" />
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Foreground="Black"
+                                                Text="{Binding PINumber}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <!--<GridViewColumn Width="100" Header="基地台">
+                                <GridViewColumn.HeaderContainerStyle>
+                                    <Style BasedOn="{StaticResource GridView.ColumnHeader.Center}" TargetType="GridViewColumnHeader">
+                                        <Setter Property="FontSize" Value="14" />
+                                    </Style>
+                                </GridViewColumn.HeaderContainerStyle>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Foreground="Black"
+                                            Text="{Binding BaseStation}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>-->
+                        </GridView>
+                    </ListView.View>
+                    <ListView.ItemContainerStyle>
+                        <Style BasedOn="{StaticResource ListView.GridViewItem.Stretch}" TargetType="ListViewItem">
+                            <Setter Property="FontSize" Value="12" />
+                            <Setter Property="Height" Value="30" />
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                </Trigger>
+                                <Trigger Property="IsSelected" Value="False">
+                                    <Setter Property="Background" Value="LightGreen" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+            </StackPanel>
+        </GroupBox>
+
+        <!--  SI來電  -->
+        <GroupBox
+            Grid.Row="1"
+            Header="SI來電 等候佇列"
+            Style="{x:Null}">
+            <StackPanel>
+                <Button
+                    Margin="5"
+                    Command="{Binding AnswerSICallCommand}"
+                    Content="接聽"
+                    Style="{DynamicResource CMFT.Button}" />
+                <ListView
+                    Height="180"
+                    ItemsSource="{Binding SICallQueue}"
+                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                    SelectedItem="{Binding SelectedSIItem}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="100" Header="列車資訊">
+                                <GridViewColumn.HeaderContainerStyle>
+                                    <Style BasedOn="{StaticResource GridView.ColumnHeader.Center}" TargetType="GridViewColumnHeader">
+                                        <Setter Property="FontSize" Value="14" />
+                                        <Setter Property="Height" Value="30" />
+                                    </Style>
+                                </GridViewColumn.HeaderContainerStyle>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Foreground="Black"
+                                                Text="{Binding Train.TrainNumber}" />
+                                            <TextBlock
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                Foreground="Black"
+                                                Text="{Binding Car}" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="100" Header="基地台">
+                                <GridViewColumn.HeaderContainerStyle>
+                                    <Style BasedOn="{StaticResource GridView.ColumnHeader.Center}" TargetType="GridViewColumnHeader">
+                                        <Setter Property="FontSize" Value="14" />
+                                    </Style>
+                                </GridViewColumn.HeaderContainerStyle>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Foreground="Black"
+                                            Text="{Binding BaseStation}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                    <ListView.ItemContainerStyle>
+                        <Style BasedOn="{StaticResource ListView.GridViewItem.Stretch}" TargetType="ListViewItem">
+                            <Setter Property="FontSize" Value="12" />
+                            <Setter Property="Height" Value="30" />
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                </Trigger>
+                                <Trigger Property="IsSelected" Value="False">
+                                    <Setter Property="Background" Value="LightGreen" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+
+</UserControl>

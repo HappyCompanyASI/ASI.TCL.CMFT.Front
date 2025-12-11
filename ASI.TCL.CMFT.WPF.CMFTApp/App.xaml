@@ -1,0 +1,78 @@
+﻿<Application
+    x:Class="ASI.TCL.CMFT.WPF.CMFTApp.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <Application.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                <!--  materialDesign Resource  -->
+                <materialDesign:CustomColorTheme
+                    BaseTheme="Dark"
+                    PrimaryColor="#ffdb00"
+                    SecondaryColor="#fb8c00" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml" />
+
+
+                <!--  ASI.CMFT.WPF Resource  -->
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/TextBlock.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Snackbar.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Panel.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Separator.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Contents.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/TabControl.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Control.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Window.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Fields.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/GridView.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/ColorTool.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Buttons.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Dialog.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Expander.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/ItemsControl.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/ListBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/ListView.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/DataGrid.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/DataTemplate.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Default.xaml" />
+
+                <!--  ASI.TCL.CMFT.WPF Resource  -->
+                <ResourceDictionary Source="pack://application:,,,/Themes/StaticData.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/TCLStyle.xaml" />
+
+                <!--  ASI.TCL.CMFT.WPF.Modules Resource  -->
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.SYS;component/Themes/DataTemplate.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.Alarm;component/Themes/DataTemplate.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.Auth;component/Themes/DataTemplate.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.CCTV;component/Themes/DataTemplate.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.DLTS;component/Themes/DataTemplate.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.DMD;component/Themes/DataTemplate.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.OTCS;component/Themes/DataTemplate.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.PA;component/Themes/DataTemplate.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.Tetra;component/Themes/DataTemplate.xaml" />
+
+                <!--  ASI.TCL.CMFT.WPF.CMFTApp Resource  -->
+                <ResourceDictionary Source="pack://application:,,,/Themes/DataTemplate.xaml" />
+
+
+            </ResourceDictionary.MergedDictionaries>
+            <BitmapImage x:Key="TextureSource" UriSource="pack://application:,,,/Assets/image/texture.png" />
+            <BitmapImage x:Key="LogoSource" UriSource="pack://application:,,,/Assets/image/NewTaipeiMetrologo.png" />
+
+            <system:Double x:Key="CMFT.DesignTime.Window.Width">1920</system:Double>
+            <system:Double x:Key="CMFT.DesignTime.Window.Height">1080</system:Double>
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+
+
+
+
+
+</Application>

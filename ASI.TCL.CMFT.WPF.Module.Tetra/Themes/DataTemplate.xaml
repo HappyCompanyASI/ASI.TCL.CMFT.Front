@@ -1,0 +1,22 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dtos1="clr-namespace:ASI.TCL.CMFT.WPF.Module.Tetra.Dtos">
+    <!--#region Tetra-->
+    <DataTemplate x:Key="TetraRadioGroup" DataType="{x:Type dtos1:RadioGroupDto}">
+        <RadioButton Style="{StaticResource SelecterRadioButton}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding GroupName}" />
+            </StackPanel>
+        </RadioButton>
+    </DataTemplate>
+
+    <DataTemplate x:Key="TetraRadio" DataType="{x:Type dtos1:RadioDto}">
+        <RadioButton Style="{StaticResource SelecterRadioButton}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding RadioNumber}" />
+            </StackPanel>
+        </RadioButton>
+    </DataTemplate>
+    <!--#endregion-->
+</ResourceDictionary>

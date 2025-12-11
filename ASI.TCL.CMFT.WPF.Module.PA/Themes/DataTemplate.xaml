@@ -1,0 +1,22 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dtos="clr-namespace:ASI.TCL.CMFT.WPF.Module.PA.Dtos">
+    <!--#region PA-->
+    <DataTemplate x:Key="PAVoiceGroup" DataType="{x:Type dtos:PAVoiceGroupDto}">
+        <RadioButton Style="{StaticResource SelecterRadioButton}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding GroupName}" />
+            </StackPanel>
+        </RadioButton>
+    </DataTemplate>
+
+    <DataTemplate x:Key="PAPreRecordVoice" DataType="{x:Type dtos:PAPreRecordVoiceDto}">
+        <RadioButton Style="{StaticResource SelecterRadioButton}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding VoiceName}" />
+            </StackPanel>
+        </RadioButton>
+    </DataTemplate>
+    <!--#endregion-->
+</ResourceDictionary>

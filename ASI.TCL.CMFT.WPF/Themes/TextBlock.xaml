@@ -1,0 +1,52 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Colors.xaml" />
+
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <Style x:Key="CMFT.TextBlock.Left" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Foreground}" />
+        <Setter Property="FontSize" Value="{DynamicResource FieldFontSize}" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style
+        x:Key="CMFT.TextBlock.Center"
+        BasedOn="{StaticResource CMFT.TextBlock.Left}"
+        TargetType="{x:Type TextBlock}">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="CMFT.TextBlock.PanelHeader" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Foreground}" />
+        <Setter Property="FontSize" Value="{DynamicResource PanelFontSize}" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style
+        x:Key="CMFT.TextBlock.PanelHeader.Center"
+        BasedOn="{StaticResource CMFT.TextBlock.PanelHeader}"
+        TargetType="{x:Type TextBlock}">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+    </Style>
+
+    <Style x:Key="CMFT.TextBlock.PanelHeader.SmallFontSize" TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Secondary}" />
+        <Setter Property="FontSize" Value="{DynamicResource PanelFontSize2}" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style
+        x:Key="CMFT.TextBlock.TipText"
+        BasedOn="{StaticResource CMFT.TextBlock.Left}"
+        TargetType="{x:Type TextBlock}">
+        <Setter Property="Foreground" Value="{StaticResource CMFT.Brush.Green.Mid}" />
+    </Style>
+</ResourceDictionary>

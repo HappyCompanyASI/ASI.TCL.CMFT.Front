@@ -1,0 +1,78 @@
+﻿<Window x:Class="ASI.TCL.CMFT.WPF.Exceptions.ExceptionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:assist="clr-namespace:ASI.TCL.CMFT.WPF.Assist"
+        xmlns:dialogs="clr-namespace:ASI.TCL.CMFT.WPF.Dialogs"
+        xmlns:exceptions="clr-namespace:ASI.TCL.CMFT.WPF.Exceptions"
+        Title="異常拋出"
+        assist:WindowColserAssist.DialogResult="{Binding DialogResult}"
+        assist:WindowColserAssist.EnableWindowClosing="True"
+        d:DataContext="{d:DesignInstance exceptions:ExceptionWindowViewModel,
+                                         IsDesignTimeCreatable=True}"
+        BorderBrush="{StaticResource CMFT.Brush.Red.Mid}"
+        BorderThickness="1"
+        ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight"
+        Style="{StaticResource BaseWindow}"
+        Topmost="True"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Normal"
+        WindowStyle="None"
+        mc:Ignorable="d">
+    <StackPanel>
+
+        <Border Background="{StaticResource CMFT.Brush.Red.Mid}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="15,10"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           Text="異常拋出" />
+                <TextBlock Margin="15,10"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           FontSize="20"
+                           FontWeight="Bold"
+                           Text="{Binding Title}" />
+
+            </StackPanel>
+        </Border>
+        <UniformGrid Width="700"
+                     Margin="10"
+                     Style="{StaticResource UniformGridMargin5}">
+            <StackPanel>
+                <TextBlock Margin="0,10"
+                           Foreground="{StaticResource CMFT.Brush.Red.Mid}"
+                           Style="{StaticResource CMFT.TextBlock.PanelHeader}"
+                           Text="錯誤訊息" />
+                <TextBox Height="200"
+                         FontSize="{StaticResource FieldFontSize}"
+                         IsReadOnly="True"
+                         Text="{Binding Path=vmpDefaultMessage}"
+                         TextWrapping="Wrap"
+                         VerticalScrollBarVisibility="Auto" />
+
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Margin="0,10"
+                           Foreground="{StaticResource CMFT.Brush.Red.Mid}"
+                           Style="{StaticResource CMFT.TextBlock.PanelHeader}"
+                           Text="其他資訊" />
+                <TextBox Height="200"
+                         FontSize="{StaticResource FieldFontSize}"
+                         IsReadOnly="True"
+                         Text="{Binding Path=vmpCustomMessage}"
+                         TextWrapping="Wrap"
+                         VerticalScrollBarVisibility="Auto" />
+            </StackPanel>
+        </UniformGrid>
+
+        <ContentControl Background="Transparent"
+                        Content="{x:Static dialogs:eDialogFooterButtons.OK}"
+                        Style="{StaticResource DialogFooter}" />
+
+    </StackPanel>
+</Window>
