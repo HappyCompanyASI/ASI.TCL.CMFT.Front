@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using ASI.TCL.CMFT.Messages.SYS;
 using ASI.TCL.CMFT.WPF.Dialogs;
 using ASI.TCL.CMFT.WPF.Module.SYS.Dtos;
+using ASI.TCL.CMFT.WPF.Web;
 using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
@@ -272,9 +273,9 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.ViewModels
             //    _queryService.Query(new QueryModels.GetAllUsers()));
             //var userList = users.Where(r => r.BelongRoleId != superAdminRoleId).ToList();
 
-            var roles = await _apiClient.Get<List<ReadModels.Role>>("sys/role");
+            var roles = await _apiClient.GetAsync<List<ReadModels.Role>>("sys/role");
             var roleList = roles.Where(r => r.Id != superAdminRoleId).ToList();
-            var users = await _apiClient.Get<List<ReadModels.User>>("sys/user");
+            var users = await _apiClient.GetAsync<List<ReadModels.User>>("sys/user");
             var userList = users.Where(r => r.BelongRoleId != superAdminRoleId).ToList();
 
 

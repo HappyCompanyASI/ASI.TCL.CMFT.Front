@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Net.Http;
 using System.Windows;
+
 using ASI.TCL.CMFT.WPF.CMFTApp.Datas;
 using ASI.TCL.CMFT.WPF.CMFTApp.Views;
 using ASI.TCL.CMFT.WPF.Exceptions;
+using ASI.TCL.CMFT.WPF.Logger;
 using ASI.TCL.CMFT.WPF.Module.Alarm.Views;
 using ASI.TCL.CMFT.WPF.Module.Auth.Views;
 using ASI.TCL.CMFT.WPF.Module.CCTV.Views;
@@ -13,7 +15,7 @@ using ASI.TCL.CMFT.WPF.Module.OTCS.Views;
 using ASI.TCL.CMFT.WPF.Module.PA.Views;
 using ASI.TCL.CMFT.WPF.Module.SYS.Views;
 using ASI.TCL.CMFT.WPF.Module.Tetra.Views;
- 
+using ASI.TCL.CMFT.WPF.Web;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;
@@ -33,24 +35,12 @@ namespace ASI.TCL.CMFT.WPF.CMFTApp
             Container.Resolve<IExceptionHandlingService>().Initialize(System.Windows.Application.Current);
 
 
-            //  Update : HttpClient 註冊
+            containerRegistry.Register<ILogService, SerilogService>();
             var http = new HttpClient();
-            http.BaseAddress = new Uri("https://localhost:5001");
-
+            http.BaseAddress = new Uri("http://localhost:5278");
             containerRegistry.RegisterInstance<HttpClient>(http);
-
-            containerRegistry.RegisterSingleton<IAuthService, MyAuthService>();
-            containerRegistry.RegisterSingleton<IApiLogger, DefaultApiLogger>();
-
-            containerRegistry.Register<ApiClient>(c =>
-            {
-                var options = new ApiClientOptions();
-                options.BaseUrl = "https://localhost:5001/api";
-                options.AuthService = c.Resolve<IAuthService>();
-                options.Logger = c.Resolve<IApiLogger>();
-
-                return new ApiClient(c.Resolve<HttpClient>(), options);
-            });
+            containerRegistry.RegisterSingleton<IAuthService, AuthService>();
+            containerRegistry.Register<IApiClient,ApiClient>();
 
             containerRegistry.RegisterForNavigation<MainView>();
             containerRegistry.RegisterForNavigation<PATrainView>();

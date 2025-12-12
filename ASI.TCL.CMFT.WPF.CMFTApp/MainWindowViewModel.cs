@@ -8,17 +8,21 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+
 using ASI.TCL.CMFT.WPF.Applications;
 using ASI.TCL.CMFT.WPF.CMFTApp.Datas;
 using ASI.TCL.CMFT.WPF.CMFTApp.Views;
 using ASI.TCL.CMFT.WPF.Events;
 using ASI.TCL.CMFT.WPF.Module.Auth.Events;
 using ASI.TCL.CMFT.WPF.Utilities;
-using ASI.TCL.CMFT.Messages.Auth;
+using ASI.TCL.CMFT.WPF.Web;
+
 using Prism.Commands;
 using Prism.Events;
 using Prism.Mvvm;
 using Prism.Regions;
+
+using static ASI.TCL.CMFT.Messages.Auth.Commands;
 
 namespace ASI.TCL.CMFT.WPF.CMFTApp
 {
@@ -26,7 +30,9 @@ namespace ASI.TCL.CMFT.WPF.CMFTApp
     {
         private readonly IRegionManager _regionManager;
         private readonly IEventAggregator _eventAggregator;
-    
+
+        private readonly IApiClient _apiClient;
+
         private TaskCompletionSource<bool> _loginCompletionSource;
 
         #region Constructors
@@ -39,12 +45,13 @@ namespace ASI.TCL.CMFT.WPF.CMFTApp
         }
         public MainWindowViewModel(
             IRegionManager regionManager,
-            IEventAggregator eventAggregator
-           )
+            IEventAggregator eventAggregator,
+            IApiClient apiClient)
         {
             _regionManager = regionManager;
             _eventAggregator = eventAggregator;
-          
+            _apiClient = apiClient;
+
 
             //登入畫面
             IsAuthenticated = false;
@@ -164,42 +171,78 @@ namespace ASI.TCL.CMFT.WPF.CMFTApp
         #endregion
 
         #region PrivateMethods
+
         private async Task Login()
         {
             LoginStateMessage = "登錄中請稍後....";
-            
-            // 建立等待 EventBus 回應的 TaskCompletionSource
-            _loginCompletionSource = new TaskCompletionSource<bool>();
 
-            try
+            //// 建立等待 EventBus 回應的 TaskCompletionSource
+            //_loginCompletionSource = new TaskCompletionSource<bool>();
+            //try
+            //{
+            //    // 初始化資料庫 
+            //    await _dbInitializer.InitializeAsync();
+            //    // TODO 初始化資料庫結果處理
+
+            //    // 執行登入命令(暫定以superadmin登入)
+            //    await _requestHandler.HandleCommand(new Commands.LoginCommand
+            //    {
+            //        Account = "superadmin",
+            //        Password = "superadmin"
+            //    }, _authApplicationService.Handle);
+
+            //    // 等待 EventBus 回應，最多 10 秒
+            //    var timeoutTask = Task.Delay(10000);
+            //    var completedTask = await Task.WhenAny(_loginCompletionSource.Task, timeoutTask);
+
+            //    if (completedTask == timeoutTask)
+            //    {
+            //        // 10 秒逾時，沒收到 EventBus 回應
+            //        LoginStateMessage = "登入回應逾時，請重新嘗試登入。";
+            //    }
+            //    // 如果收到 EventBus 回應，由 ReceiveMessage 處理 UI 更新
+            //}
+            //catch (Exception ex)
+            //{
+            //    LoginStateMessage = $"登入發生錯誤：{ex.Message}";
+            //}
+
+            var token = await _apiClient.PostAsync<LoginCommand, string>("api/auth/login", new LoginCommand
             {
-                //// 初始化資料庫 
-                //await _dbInitializer.InitializeAsync();
-                //// TODO 初始化資料庫結果處理
+                Account = "admin",
+                Password = "admin"
+            });
+            if (!string.IsNullOrEmpty(token))
+            {
+                var userName = "admin";
+                var userRole = "admin";
 
-                //// 執行登入命令(暫定以superadmin登入)
-                //await _requestHandler.HandleCommand(new Commands.LoginCommand
-                //{
-                //    Account = "superadmin",
-                //    Password = "superadmin"
-                //}, _authApplicationService.Handle);
-                
-                // 等待 EventBus 回應，最多 10 秒
-                var timeoutTask = Task.Delay(10000);
-                var completedTask = await Task.WhenAny(_loginCompletionSource.Task, timeoutTask);
-                
-                if (completedTask == timeoutTask)
+                //登入成功
+                IsAuthenticated = true;
+                LoginStateMessage = $"歡迎 {userName} 登入, 角色: {userRole}";
+
+                //更新畫面狀態
+                RaisePropertyChanged(nameof(IsAuthenticated));
+                RaisePropertyChanged(nameof(LoginStateMessage));
+
+                var info = new LoginInfo
                 {
-                    // 10 秒逾時，沒收到 EventBus 回應
-                    LoginStateMessage = "登入回應逾時，請重新嘗試登入。";
-                }
-                // 如果收到 EventBus 回應，由 ReceiveMessage 處理 UI 更新
+                    UserName = "UserName",
+                    UserRole = "UserRole"
+                };
+
+                _eventAggregator.GetEvent<LoginEvent>().Publish(info);
             }
-            catch (Exception ex)
+            else
             {
-                LoginStateMessage = $"登入發生錯誤：{ex.Message}";
+                //登入失敗
+                IsAuthenticated = false;
+                LoginStateMessage = "登入失敗，請檢查帳號或密碼是否正確。";
+                RaisePropertyChanged(nameof(IsAuthenticated));
+                RaisePropertyChanged(nameof(LoginStateMessage));
             }
         }
+
         private async Task Leave()
         {
             LoginStateMessage = "應用程式關閉中,請稍後...";
