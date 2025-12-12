@@ -214,6 +214,8 @@ namespace ASI.TCL.CMFT.WPF.CMFTApp
             });
             if (!string.IsNullOrEmpty(token))
             {
+
+                //這邊解token 取得使用者資訊，角色權限
                 var userName = "admin";
                 var userRole = "admin";
 
