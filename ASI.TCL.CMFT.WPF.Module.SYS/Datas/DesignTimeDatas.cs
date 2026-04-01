@@ -26,8 +26,6 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.Datas
         public static IEnumerable<SYSOperationLogDto> SYSOperationLogs { get; private set; } = GenerateSYSOperationLogs();
         public static IEnumerable<SYSConsoleStateDto> SYSConsoleStates { get; private set; } = GenerateSYSConsoleStates();
         public static IEnumerable<string> DMDBlockList { get; private set; } = GenerateDMDBlockList();
-
-
         private static IEnumerable<eSystemType> GenerateSystemTypes()
         {
             return Enum.GetValues(typeof(eSystemType)).Cast<eSystemType>();
@@ -36,13 +34,13 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.Datas
         {
             var temp = new List<RoleDto>
             {
-               new RoleDto() { Id = Guid.NewGuid(), RoleName ="系統管理員",   IsPAFunction = true, IsDMDFunction = true, IsTetraFunction = true, IsOTCSFunction = true, IsPASetting = true, IsDMDSetting = true, IsTetraSetting = true,  IsAlarmSetting = true, IsSystemSetting = true, IsUserSetting = true, },
-               new RoleDto() { Id = Guid.NewGuid(), RoleName ="主任控制員",   IsPAFunction = true, IsDMDFunction = true, IsTetraFunction = true, IsOTCSFunction = true, IsPASetting = true, IsDMDSetting = true, IsTetraSetting = true,  IsAlarmSetting = true, IsSystemSetting = true, IsUserSetting = true, },
-               new RoleDto() { Id = Guid.NewGuid(), RoleName ="正線控制員",   IsPAFunction = true, IsDMDFunction = true, IsTetraFunction = true, IsOTCSFunction = true, IsPASetting = true, IsDMDSetting = true, IsTetraSetting = true,  IsAlarmSetting = true, IsSystemSetting = true, IsUserSetting = true, },
-               new RoleDto() { Id = Guid.NewGuid(), RoleName ="車站控制員",   IsPAFunction = true, IsDMDFunction = true, IsTetraFunction = true, IsOTCSFunction = true, IsPASetting = true, IsDMDSetting = true, IsTetraSetting = true,  IsAlarmSetting = true, IsSystemSetting = true, IsUserSetting = true, },
-               new RoleDto() { Id = Guid.NewGuid(), RoleName ="電力控制員",   IsPAFunction = true, IsDMDFunction = true, IsTetraFunction = true, IsOTCSFunction = true, IsPASetting = true, IsDMDSetting = true, IsTetraSetting = true,  IsAlarmSetting = true, IsSystemSetting = true, IsUserSetting = true, },
-               new RoleDto() { Id = Guid.NewGuid(), RoleName ="機廠控制員",   IsPAFunction = true, IsDMDFunction = true, IsTetraFunction = true, IsOTCSFunction = true, IsPASetting = true, IsDMDSetting = true, IsTetraSetting = true,  IsAlarmSetting = true, IsSystemSetting = true, IsUserSetting = true, },
-               new RoleDto() { Id = Guid.NewGuid(), RoleName ="維修人員"  , IsPAFunction = true, IsDMDFunction = true, IsTetraFunction = true, IsOTCSFunction = true, IsPASetting = true, IsDMDSetting = true, IsTetraSetting = true,  IsAlarmSetting = true, IsSystemSetting = true, IsUserSetting = true, },
+               new() { Id = Guid.NewGuid(), RoleName ="系統管理員", IsPAFunction = true, IsDMDFunction = true, IsTetraFunction = true, IsOTCSFunction = true, IsPASetting = true, IsDMDSetting = true, IsTetraSetting = true,  IsAlarmSetting = true, IsSystemSetting = true, IsUserSetting = true, },
+               new() { Id = Guid.NewGuid(), RoleName ="主任控制員", IsPAFunction = true, IsDMDFunction = true, IsTetraFunction = true, IsOTCSFunction = true, IsPASetting = true, IsDMDSetting = true, IsTetraSetting = true,  IsAlarmSetting = true, IsSystemSetting = true, IsUserSetting = true, },
+               new() { Id = Guid.NewGuid(), RoleName ="正線控制員", IsPAFunction = true, IsDMDFunction = true, IsTetraFunction = true, IsOTCSFunction = true, IsPASetting = true, IsDMDSetting = true, IsTetraSetting = true,  IsAlarmSetting = true, IsSystemSetting = true, IsUserSetting = true, },
+               new() { Id = Guid.NewGuid(), RoleName ="車站控制員", IsPAFunction = true, IsDMDFunction = true, IsTetraFunction = true, IsOTCSFunction = true, IsPASetting = true, IsDMDSetting = true, IsTetraSetting = true,  IsAlarmSetting = true, IsSystemSetting = true, IsUserSetting = true, },
+               new() { Id = Guid.NewGuid(), RoleName ="電力控制員", IsPAFunction = true, IsDMDFunction = true, IsTetraFunction = true, IsOTCSFunction = true, IsPASetting = true, IsDMDSetting = true, IsTetraSetting = true,  IsAlarmSetting = true, IsSystemSetting = true, IsUserSetting = true, },
+               new() { Id = Guid.NewGuid(), RoleName ="機廠控制員", IsPAFunction = true, IsDMDFunction = true, IsTetraFunction = true, IsOTCSFunction = true, IsPASetting = true, IsDMDSetting = true, IsTetraSetting = true,  IsAlarmSetting = true, IsSystemSetting = true, IsUserSetting = true, },
+               new() { Id = Guid.NewGuid(), RoleName ="維修人員"  , IsPAFunction = true, IsDMDFunction = true, IsTetraFunction = true, IsOTCSFunction = true, IsPASetting = true, IsDMDSetting = true, IsTetraSetting = true,  IsAlarmSetting = true, IsSystemSetting = true, IsUserSetting = true, },
             };
             return temp;
         }
@@ -50,13 +48,13 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.Datas
         {
             var temp = new List<AccountDto>
             {
-               new AccountDto() { UserID ="admin0", UserPassword="", UserName="名稱0", Description="admin" },
-               new AccountDto() { UserID ="admin1", UserPassword="", UserName="名稱1", Description="Leader" },
-               new AccountDto() { UserID ="admin2", UserPassword="", UserName="名稱2", Description="Chief" },
-               new AccountDto() { UserID ="admin3", UserPassword="", UserName="名稱3", Description="Staff" },
-               new AccountDto() { UserID ="admin4", UserPassword="", UserName="名稱4", Description="Staff" },
-               new AccountDto() { UserID ="admin5", UserPassword="", UserName="名稱5", Description="Staff" },
-               new AccountDto() { UserID ="admin6", UserPassword="", UserName="名稱6", Description="Staff" },
+               new() { UserID ="admin0", UserPassword="", UserName="名稱0", Description="admin" },
+               new() { UserID ="admin1", UserPassword="", UserName="名稱1", Description="Leader" },
+               new() { UserID ="admin2", UserPassword="", UserName="名稱2", Description="Chief" },
+               new() { UserID ="admin3", UserPassword="", UserName="名稱3", Description="Staff" },
+               new() { UserID ="admin4", UserPassword="", UserName="名稱4", Description="Staff" },
+               new() { UserID ="admin5", UserPassword="", UserName="名稱5", Description="Staff" },
+               new() { UserID ="admin6", UserPassword="", UserName="名稱6", Description="Staff" },
             };
 
             var roles = UserRoles.ToList();
@@ -89,13 +87,13 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.Datas
         {
             var temp = new List<SYSStationGroupDto>()
             {
-               new SYSStationGroupDto() { Id = Guid.NewGuid().ToString(), GroupName = "全部車站"},
-               new SYSStationGroupDto() { Id = Guid.NewGuid().ToString(), GroupName = "一期車站"},
-               new SYSStationGroupDto() { Id = Guid.NewGuid().ToString(), GroupName = "二期車站"},
-               new SYSStationGroupDto() { Id = Guid.NewGuid().ToString(), GroupName = "三期車站"},
-               new SYSStationGroupDto() { Id = Guid.NewGuid().ToString(), GroupName = "單數車站"},
-               new SYSStationGroupDto() { Id = Guid.NewGuid().ToString(), GroupName = "偶數車站"},
-               new SYSStationGroupDto() { Id = Guid.NewGuid().ToString(), GroupName = "轉運車站"},
+               new() { Id = Guid.NewGuid().ToString(), GroupName = "全部車站"},
+               new() { Id = Guid.NewGuid().ToString(), GroupName = "一期車站"},
+               new() { Id = Guid.NewGuid().ToString(), GroupName = "二期車站"},
+               new() { Id = Guid.NewGuid().ToString(), GroupName = "三期車站"},
+               new() { Id = Guid.NewGuid().ToString(), GroupName = "單數車站"},
+               new() { Id = Guid.NewGuid().ToString(), GroupName = "偶數車站"},
+               new() { Id = Guid.NewGuid().ToString(), GroupName = "轉運車站"},
             };
             return temp;
         }
@@ -104,54 +102,54 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.Datas
             var temp = new List<SYSStationDto>()
             {
                //南環段
-               new SYSStationDto() { StationID = eStationID.Y01 },
-               new SYSStationDto() { StationID = eStationID.Y01A},
-               new SYSStationDto() { StationID = eStationID.Y02A},
-               new SYSStationDto() { StationID = eStationID.Y03 },
-               new SYSStationDto() { StationID = eStationID.Y04 },
-               new SYSStationDto() { StationID = eStationID.Y05 },
+               new() { StationID = eStationID.Y01 },
+               new() { StationID = eStationID.Y01A},
+               new() { StationID = eStationID.Y02A},
+               new() { StationID = eStationID.Y03 },
+               new() { StationID = eStationID.Y04 },
+               new() { StationID = eStationID.Y05 },
 
                //新北環狀線
-               new SYSStationDto() { StationID = eStationID.Y06 },
-               new SYSStationDto() { StationID = eStationID.Y07 },
-               new SYSStationDto() { StationID = eStationID.Y08 },
-               new SYSStationDto() { StationID = eStationID.Y09 },
-               new SYSStationDto() { StationID = eStationID.Y10 },
-               new SYSStationDto() { StationID = eStationID.Y11 },
-               new SYSStationDto() { StationID = eStationID.Y12 },
-               new SYSStationDto() { StationID = eStationID.Y13 },
-               new SYSStationDto() { StationID = eStationID.Y14 },
-               new SYSStationDto() { StationID = eStationID.Y15 },
-               new SYSStationDto() { StationID = eStationID.Y16 },
-               new SYSStationDto() { StationID = eStationID.Y17 },
-               new SYSStationDto() { StationID = eStationID.Y18 },
-               new SYSStationDto() { StationID = eStationID.Y19 },
+               new() { StationID = eStationID.Y06 },
+               new() { StationID = eStationID.Y07 },
+               new() { StationID = eStationID.Y08 },
+               new() { StationID = eStationID.Y09 },
+               new() { StationID = eStationID.Y10 },
+               new() { StationID = eStationID.Y11 },
+               new() { StationID = eStationID.Y12 },
+               new() { StationID = eStationID.Y13 },
+               new() { StationID = eStationID.Y14 },
+               new() { StationID = eStationID.Y15 },
+               new() { StationID = eStationID.Y16 },
+               new() { StationID = eStationID.Y17 },
+               new() { StationID = eStationID.Y18 },
+               new() { StationID = eStationID.Y19 },
 
                //北環段
-               new SYSStationDto() { StationID = eStationID.Y19A},
-               new SYSStationDto() { StationID = eStationID.Y19B},
-               new SYSStationDto() { StationID = eStationID.Y20 },
-               new SYSStationDto() { StationID = eStationID.Y21 },
-               new SYSStationDto() { StationID = eStationID.Y22 },
-               new SYSStationDto() { StationID = eStationID.Y23 },
-               new SYSStationDto() { StationID = eStationID.Y24 },
-               new SYSStationDto() { StationID = eStationID.Y25 },
-               new SYSStationDto() { StationID = eStationID.Y26 },
-               new SYSStationDto() { StationID = eStationID.Y27 },
-               new SYSStationDto() { StationID = eStationID.Y28 },
-               new SYSStationDto() { StationID = eStationID.Y29 },
+               new() { StationID = eStationID.Y19A},
+               new() { StationID = eStationID.Y19B},
+               new() { StationID = eStationID.Y20 },
+               new() { StationID = eStationID.Y21 },
+               new() { StationID = eStationID.Y22 },
+               new() { StationID = eStationID.Y23 },
+               new() { StationID = eStationID.Y24 },
+               new() { StationID = eStationID.Y25 },
+               new() { StationID = eStationID.Y26 },
+               new() { StationID = eStationID.Y27 },
+               new() { StationID = eStationID.Y28 },
+               new() { StationID = eStationID.Y29 },
 
                 //東環段
-                new SYSStationDto() { StationID = eStationID.Y30 },
-                new SYSStationDto() { StationID = eStationID.Y31 },
-                new SYSStationDto() { StationID = eStationID.Y32 },
-                new SYSStationDto() { StationID = eStationID.Y33 },
-                new SYSStationDto() { StationID = eStationID.Y34 },
-                new SYSStationDto() { StationID = eStationID.Y35 },
-                new SYSStationDto() { StationID = eStationID.Y36 },
-                new SYSStationDto() { StationID = eStationID.Y37 },
-                new SYSStationDto() { StationID = eStationID.Y38 },
-                new SYSStationDto() { StationID = eStationID.Y39 },
+                new() { StationID = eStationID.Y30 },
+                new() { StationID = eStationID.Y31 },
+                new() { StationID = eStationID.Y32 },
+                new() { StationID = eStationID.Y33 },
+                new() { StationID = eStationID.Y34 },
+                new() { StationID = eStationID.Y35 },
+                new() { StationID = eStationID.Y36 },
+                new() { StationID = eStationID.Y37 },
+                new() { StationID = eStationID.Y38 },
+                new() { StationID = eStationID.Y39 },
             };
 
             var groups = SYSStationGroups.ToList();
@@ -177,12 +175,12 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.Datas
         {
             var temp = new List<SYSTrainGroupDto>()
             {
-               new SYSTrainGroupDto() { Id = Guid.NewGuid(), GroupName = "全部列車"  },
-               new SYSTrainGroupDto() { Id = Guid.NewGuid(), GroupName = "一期列車"  },
-               new SYSTrainGroupDto() { Id = Guid.NewGuid(), GroupName = "上行群組"  },
-               new SYSTrainGroupDto() { Id = Guid.NewGuid(), GroupName = "下行群組"  },
-               new SYSTrainGroupDto() { Id = Guid.NewGuid(), GroupName = "營運列車"  },
-               new SYSTrainGroupDto() { Id = Guid.NewGuid(), GroupName = "非營運列車"},
+               new() { Id = Guid.NewGuid(), GroupName = "全部列車"  },
+               new() { Id = Guid.NewGuid(), GroupName = "一期列車"  },
+               new() { Id = Guid.NewGuid(), GroupName = "上行群組"  },
+               new() { Id = Guid.NewGuid(), GroupName = "下行群組"  },
+               new() { Id = Guid.NewGuid(), GroupName = "營運列車"  },
+               new() { Id = Guid.NewGuid(), GroupName = "非營運列車"},
             };
             return temp;
         }
@@ -190,31 +188,31 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.Datas
         {
             var temp = new List<SYSTrainDto>()
             {
-               new SYSTrainDto() { TrainNumber = "V01"  },
-               new SYSTrainDto() { TrainNumber = "V02"  },
-               new SYSTrainDto() { TrainNumber = "V03"  },
-               new SYSTrainDto() { TrainNumber = "V04"  },
-               new SYSTrainDto() { TrainNumber = "V05"  },
-               new SYSTrainDto() { TrainNumber = "V06"  },
-               new SYSTrainDto() { TrainNumber = "V07"  },
-               new SYSTrainDto() { TrainNumber = "V08"  },
-               new SYSTrainDto() { TrainNumber = "V09"  },
-               new SYSTrainDto() { TrainNumber = "V10"  },
-               new SYSTrainDto() { TrainNumber = "V11"  },
-               new SYSTrainDto() { TrainNumber = "V12"  },
-               new SYSTrainDto() { TrainNumber = "V13"  },
-               new SYSTrainDto() { TrainNumber = "V14"  },
-               new SYSTrainDto() { TrainNumber = "V15"  },
-               new SYSTrainDto() { TrainNumber = "V16"  },
-               new SYSTrainDto() { TrainNumber = "V17"  },
-               new SYSTrainDto() { TrainNumber = "V18"  },
-               new SYSTrainDto() { TrainNumber = "V19"  },
-               new SYSTrainDto() { TrainNumber = "V20"  },
-               new SYSTrainDto() { TrainNumber = "V21"  },
-               new SYSTrainDto() { TrainNumber = "V22"  },
-               new SYSTrainDto() { TrainNumber = "V23"  },
-               new SYSTrainDto() { TrainNumber = "V24"  },
-               new SYSTrainDto() { TrainNumber = "V25"  },
+               new() { TrainNumber = "V01"  },
+               new() { TrainNumber = "V02"  },
+               new() { TrainNumber = "V03"  },
+               new() { TrainNumber = "V04"  },
+               new() { TrainNumber = "V05"  },
+               new() { TrainNumber = "V06"  },
+               new() { TrainNumber = "V07"  },
+               new() { TrainNumber = "V08"  },
+               new() { TrainNumber = "V09"  },
+               new() { TrainNumber = "V10"  },
+               new() { TrainNumber = "V11"  },
+               new() { TrainNumber = "V12"  },
+               new() { TrainNumber = "V13"  },
+               new() { TrainNumber = "V14"  },
+               new() { TrainNumber = "V15"  },
+               new() { TrainNumber = "V16"  },
+               new() { TrainNumber = "V17"  },
+               new() { TrainNumber = "V18"  },
+               new() { TrainNumber = "V19"  },
+               new() { TrainNumber = "V20"  },
+               new() { TrainNumber = "V21"  },
+               new() { TrainNumber = "V22"  },
+               new() { TrainNumber = "V23"  },
+               new() { TrainNumber = "V24"  },
+               new() { TrainNumber = "V25"  },
             };
 
             var groups = SYSTrainGroups.ToList();
@@ -251,14 +249,14 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.Datas
         {
             var temp = new List<RadioGroupDto>()
             {
-               new RadioGroupDto() { Id = Guid.NewGuid().ToString(), GroupName = "全部無線電" },
-               new RadioGroupDto() { Id = Guid.NewGuid().ToString(), GroupName = "固-正線" },
-               new RadioGroupDto() { Id = Guid.NewGuid().ToString(), GroupName = "固-警察" },
-               new RadioGroupDto() { Id = Guid.NewGuid().ToString(), GroupName = "固-電力" },
-               new RadioGroupDto() { Id = Guid.NewGuid().ToString(), GroupName = "固-維修" },
-               new RadioGroupDto() { Id = Guid.NewGuid().ToString(), GroupName = "固-機廠" },
-               new RadioGroupDto() { Id = Guid.NewGuid().ToString(), GroupName = "主任1"   },
-               new RadioGroupDto() { Id = Guid.NewGuid().ToString(), GroupName = "控制員"  },
+               new() { Id = Guid.NewGuid().ToString(), GroupName = "全部無線電" },
+               new() { Id = Guid.NewGuid().ToString(), GroupName = "固-正線" },
+               new() { Id = Guid.NewGuid().ToString(), GroupName = "固-警察" },
+               new() { Id = Guid.NewGuid().ToString(), GroupName = "固-電力" },
+               new() { Id = Guid.NewGuid().ToString(), GroupName = "固-維修" },
+               new() { Id = Guid.NewGuid().ToString(), GroupName = "固-機廠" },
+               new() { Id = Guid.NewGuid().ToString(), GroupName = "主任1"   },
+               new() { Id = Guid.NewGuid().ToString(), GroupName = "控制員"  },
             };
             return temp;
         }
@@ -308,13 +306,23 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.Datas
         {
             var temp = new List<SYSConsoleDto>()
             {
-               new SYSConsoleDto() { Id = Guid.NewGuid(), SystemID = "Console1", ConsoleName = "通訊多功能操作台1", IPAddress = "10.7.0.51", DLTNumber ="2301", TetraNumber = "51001", SetupLocation = "行控中心", SeatName = "正線控制1" },
-               new SYSConsoleDto() { Id = Guid.NewGuid(), SystemID = "Console2", ConsoleName = "通訊多功能操作台2", IPAddress = "10.7.0.52", DLTNumber ="2302", TetraNumber = "51002", SetupLocation = "行控中心", SeatName = "正線控制2" },
-               new SYSConsoleDto() { Id = Guid.NewGuid(), SystemID = "Console3", ConsoleName = "通訊多功能操作台3", IPAddress = "10.7.0.53", DLTNumber ="2303", TetraNumber = "51003", SetupLocation = "行控中心", SeatName = "車站/電力控制" },
-               new SYSConsoleDto() { Id = Guid.NewGuid(), SystemID = "Console4", ConsoleName = "通訊多功能操作台4", IPAddress = "10.7.0.54", DLTNumber ="2304", TetraNumber = "51004", SetupLocation = "行控中心", SeatName = "南機廠控制" },
-               new SYSConsoleDto() { Id = Guid.NewGuid(), SystemID = "Console5", ConsoleName = "通訊多功能操作台5", IPAddress = "10.7.0.55", DLTNumber ="2305", TetraNumber = "51005", SetupLocation = "行控中心", SeatName = "主任控制" },
-               new SYSConsoleDto() { Id = Guid.NewGuid(), SystemID = "Console6", ConsoleName = "通訊多功能操作台6", IPAddress = "10.7.0.56", DLTNumber ="2306", TetraNumber = "51006", SetupLocation = "通訊維修室", SeatName = "通訊維修" },
-               new SYSConsoleDto() { Id = Guid.NewGuid(), SystemID = "Console7", ConsoleName = "通訊多功能操作台7", IPAddress = "10.7.0.57", DLTNumber ="2307", TetraNumber = "51007", SetupLocation = "測試軌控制室", SeatName = "測試軌控制" },
+               new() { Id = Guid.NewGuid(), SystemID = "Console01", ConsoleName = "OCC01" , IPAddress = "10.7.0.51" , SetupLocation = "行控中心"   ,  SeatName = "正線控制員"   , DLTNumber ="23001", TetraNumber = "10103" },
+               new() { Id = Guid.NewGuid(), SystemID = "Console02", ConsoleName = "OCC02" , IPAddress = "10.7.0.52" , SetupLocation = "行控中心"   ,  SeatName = "正線控制員"   , DLTNumber ="23002", TetraNumber = "10104" },
+               new() { Id = Guid.NewGuid(), SystemID = "Console03", ConsoleName = "OCC03" , IPAddress = "10.7.0.53" , SetupLocation = "行控中心"   ,  SeatName = "正線控制員"   , DLTNumber ="23003", TetraNumber = "10105"},
+               new() { Id = Guid.NewGuid(), SystemID = "Console04", ConsoleName = "OCC04" , IPAddress = "10.7.0.54" , SetupLocation = "行控中心"   ,  SeatName = "正線控制員"   , DLTNumber ="23004", TetraNumber = "10106" },
+               new() { Id = Guid.NewGuid(), SystemID = "Console05", ConsoleName = "OCC05" , IPAddress = "10.7.0.55" , SetupLocation = "行控中心"   ,  SeatName = "正線控制員"   , DLTNumber ="23005", TetraNumber = "10107" },
+               new() { Id = Guid.NewGuid(), SystemID = "Console06", ConsoleName = "OCC06" , IPAddress = "10.7.0.56" , SetupLocation = "行控中心"   ,  SeatName = "正線控制員"   , DLTNumber ="23006", TetraNumber = "10108"  },
+               new() { Id = Guid.NewGuid(), SystemID = "Console07", ConsoleName = "OCC07" , IPAddress = "10.7.0.57" , SetupLocation = "行控中心"   ,  SeatName = "南機廠控制員" , DLTNumber ="23007", TetraNumber = "10109"   },
+               new() { Id = Guid.NewGuid(), SystemID = "Console08", ConsoleName = "OCC08" , IPAddress = "10.7.0.58" , SetupLocation = "行控中心"   ,  SeatName = "南機廠控制員" , DLTNumber ="23008", TetraNumber = "10110" },
+               new() { Id = Guid.NewGuid(), SystemID = "Console09", ConsoleName = "OCC09" , IPAddress = "10.7.0.59" , SetupLocation = "行控中心"   ,  SeatName = "電力控制員"   , DLTNumber ="23009", TetraNumber = "10111" },
+               new() { Id = Guid.NewGuid(), SystemID = "Console10", ConsoleName = "OCC10" , IPAddress = "10.7.0.60" , SetupLocation = "行控中心"   ,  SeatName = "車站控制員"   , DLTNumber ="23010", TetraNumber = "10112"},
+               new() { Id = Guid.NewGuid(), SystemID = "Console11", ConsoleName = "OCC11" , IPAddress = "10.7.0.61" , SetupLocation = "行控中心"   ,  SeatName = "電力控制員"   , DLTNumber ="23011", TetraNumber = "10113" },
+               new() { Id = Guid.NewGuid(), SystemID = "Console12", ConsoleName = "OCC12" , IPAddress = "10.7.0.62" , SetupLocation = "行控中心"   ,  SeatName = "主任控制員"   , DLTNumber ="23012", TetraNumber = "10114" },
+               new() { Id = Guid.NewGuid(), SystemID = "Console13", ConsoleName = "BOCC01", IPAddress = "10.7.0.151", SetupLocation = "備援行控中心", SeatName = "正線控制員"   , DLTNumber ="23901", TetraNumber = "10103"  },
+               new() { Id = Guid.NewGuid(), SystemID = "Console14", ConsoleName = "BOCC02", IPAddress = "10.7.0.152", SetupLocation = "備援行控中心", SeatName = "正線控制員"   , DLTNumber ="23902", TetraNumber = "10104"   },
+               new() { Id = Guid.NewGuid(), SystemID = "Console15", ConsoleName = "BOCC03", IPAddress = "10.7.0.153", SetupLocation = "備援行控中心", SeatName = "電力控制員"   , DLTNumber ="23903", TetraNumber = "10105" },
+               new() { Id = Guid.NewGuid(), SystemID = "Console16", ConsoleName = "BOCC04", IPAddress = "10.7.0.154", SetupLocation = "備援行控中心", SeatName = "機廠控制員"   , DLTNumber ="23904", TetraNumber = "10106" },
+               new() { Id = Guid.NewGuid(), SystemID = "Console17", ConsoleName = "BOCC05", IPAddress = "10.7.0.155", SetupLocation = "備援行控中心", SeatName = "主任控制員"   , DLTNumber ="23905", TetraNumber = "10107" },
             };
             return temp;
         }
@@ -323,13 +331,13 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.Datas
             var list = SYSConsoles.ToList();
             var temp = new List<SYSCMFTAuthorityDto>()
             {
-               new SYSCMFTAuthorityDto() { Console = list[0], IsDMDEnable = true, IsPAEnable = true, IsTetraEnable = true, IsOTCSEnable = true, IsSystemAlarmEnable = true, IsLogSearchEnable = true },
-               new SYSCMFTAuthorityDto() { Console = list[1], IsDMDEnable = true, IsPAEnable = true, IsTetraEnable = true, IsOTCSEnable = true, IsSystemAlarmEnable = true, IsLogSearchEnable = true },
-               new SYSCMFTAuthorityDto() { Console = list[2], IsDMDEnable = true, IsPAEnable = true, IsTetraEnable = true, IsOTCSEnable = true, IsSystemAlarmEnable = true, IsLogSearchEnable = true },
-               new SYSCMFTAuthorityDto() { Console = list[3], IsDMDEnable = true, IsPAEnable = true, IsTetraEnable = true, IsOTCSEnable = true, IsSystemAlarmEnable = true, IsLogSearchEnable = true },
-               new SYSCMFTAuthorityDto() { Console = list[4], IsDMDEnable = true, IsPAEnable = true, IsTetraEnable = true, IsOTCSEnable = true, IsSystemAlarmEnable = true, IsLogSearchEnable = true },
-               new SYSCMFTAuthorityDto() { Console = list[5], IsDMDEnable = false, IsPAEnable = false, IsTetraEnable = true, IsOTCSEnable = false, IsSystemAlarmEnable = true, IsLogSearchEnable = true },
-               new SYSCMFTAuthorityDto() { Console = list[6], IsDMDEnable = false, IsPAEnable = false, IsTetraEnable = true, IsOTCSEnable = true, IsSystemAlarmEnable = false, IsLogSearchEnable = true },
+               new() { Console = list[0], IsDMDEnable = true, IsPAEnable = true, IsTetraEnable = true, IsOTCSEnable = true, IsSystemAlarmEnable = true, IsLogSearchEnable = true },
+               new() { Console = list[1], IsDMDEnable = true, IsPAEnable = true, IsTetraEnable = true, IsOTCSEnable = true, IsSystemAlarmEnable = true, IsLogSearchEnable = true },
+               new() { Console = list[2], IsDMDEnable = true, IsPAEnable = true, IsTetraEnable = true, IsOTCSEnable = true, IsSystemAlarmEnable = true, IsLogSearchEnable = true },
+               new() { Console = list[3], IsDMDEnable = true, IsPAEnable = true, IsTetraEnable = true, IsOTCSEnable = true, IsSystemAlarmEnable = true, IsLogSearchEnable = true },
+               new() { Console = list[4], IsDMDEnable = true, IsPAEnable = true, IsTetraEnable = true, IsOTCSEnable = true, IsSystemAlarmEnable = true, IsLogSearchEnable = true },
+               new() { Console = list[5], IsDMDEnable = false, IsPAEnable = false, IsTetraEnable = true, IsOTCSEnable = false, IsSystemAlarmEnable = true, IsLogSearchEnable = true },
+               new() { Console = list[6], IsDMDEnable = false, IsPAEnable = false, IsTetraEnable = true, IsOTCSEnable = true, IsSystemAlarmEnable = false, IsLogSearchEnable = true },
             };
             return temp;
         }
@@ -362,31 +370,29 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.Datas
             var list = SYSConsoles.ToList();
             var temp = new List<SYSPASAuthority>()
             {
-               new SYSPASAuthority() { Console = list[0], CanPlay = true },
-               new SYSPASAuthority() { Console = list[1], CanPlay = true },
-               new SYSPASAuthority() { Console = list[2], CanPlay = true },
-               new SYSPASAuthority() { Console = list[3], CanPlay = true },
-               new SYSPASAuthority() { Console = list[4], CanPlay = true },
-               new SYSPASAuthority() { Console = list[5], CanPlay = true },
-               new SYSPASAuthority() { Console = list[6], CanPlay = true },
+               new() { Console = list[0], CanPlay = true },
+               new() { Console = list[1], CanPlay = true },
+               new() { Console = list[2], CanPlay = true },
+               new() { Console = list[3], CanPlay = true },
+               new() { Console = list[4], CanPlay = true },
+               new() { Console = list[5], CanPlay = true },
+               new() { Console = list[6], CanPlay = true },
             };
             return temp;
         }
-     
-       
         private static IEnumerable<SYSOperationLogDto> GenerateSYSOperationLogs()
         {
             var consoles = SYSConsoles.ToList();
             var accounts = UserAccounts.ToList();
             var temp = new List<SYSOperationLogDto>()
             {
-                new SYSOperationLogDto() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = accounts[0].UserID , UserName =  accounts[0].UserName ,Console = consoles[0], SystemType = eSystemType.點矩陣,  Content ="發送即時訊息" },
-                new SYSOperationLogDto() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = accounts[0].UserID , UserName =  accounts[0].UserName ,Console = consoles[0], SystemType = eSystemType.點矩陣,  Content ="發送預路訊息" },
-                new SYSOperationLogDto() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = accounts[0].UserID , UserName =  accounts[0].UserName ,Console = consoles[0], SystemType = eSystemType.點矩陣,  Content ="發送即時訊息" },
-                new SYSOperationLogDto() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = accounts[0].UserID , UserName =  accounts[0].UserName ,Console = consoles[0], SystemType = eSystemType.點矩陣,  Content ="修改ATS訊息設定" },
-                new SYSOperationLogDto() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = accounts[0].UserID , UserName =  accounts[0].UserName ,Console = consoles[0], SystemType = eSystemType.點矩陣,  Content ="發送預錄訊息" },
-                new SYSOperationLogDto() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = accounts[1].UserID , UserName =  accounts[1].UserName ,Console = consoles[1], SystemType = eSystemType.車站廣播,  Content ="發送預錄廣播" },
-                new SYSOperationLogDto() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = accounts[2].UserID , UserName =  accounts[2].UserName ,Console = consoles[2], SystemType = eSystemType.車站廣播,  Content ="發送預錄廣播" },
+                new() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = accounts[0].UserID , UserName =  accounts[0].UserName ,Console = consoles[0], SystemType = eSystemType.點矩陣,  Content ="發送即時訊息" },
+                new() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = accounts[0].UserID , UserName =  accounts[0].UserName ,Console = consoles[0], SystemType = eSystemType.點矩陣,  Content ="發送預路訊息" },
+                new() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = accounts[0].UserID , UserName =  accounts[0].UserName ,Console = consoles[0], SystemType = eSystemType.點矩陣,  Content ="發送即時訊息" },
+                new() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = accounts[0].UserID , UserName =  accounts[0].UserName ,Console = consoles[0], SystemType = eSystemType.點矩陣,  Content ="修改ATS訊息設定" },
+                new() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = accounts[0].UserID , UserName =  accounts[0].UserName ,Console = consoles[0], SystemType = eSystemType.點矩陣,  Content ="發送預錄訊息" },
+                new() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = accounts[1].UserID , UserName =  accounts[1].UserName ,Console = consoles[1], SystemType = eSystemType.車站廣播,  Content ="發送預錄廣播" },
+                new() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = accounts[2].UserID , UserName =  accounts[2].UserName ,Console = consoles[2], SystemType = eSystemType.車站廣播,  Content ="發送預錄廣播" },
             };
             return temp;
 
@@ -401,13 +407,13 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.Datas
             {
                 var temp = new List<SYSConsoleStateDto>
                 {
-                    new SYSConsoleStateDto() { Console = consols[0], UserID = users[0].UserID, UserName = users[0].UserName  ,DLTState =""     , TetraState = "", OTCSState ="PI-V01", PAStation = ""    },
-                    new SYSConsoleStateDto() { Console = consols[1], UserID = users[1].UserID, UserName = users[1].UserName  ,DLTState ="12344", TetraState = "", OTCSState =""      , PAStation = ""    },
-                    new SYSConsoleStateDto() { Console = consols[2], UserID = users[2].UserID, UserName = users[2].UserName  ,DLTState =""     , TetraState = "", OTCSState ="PI-V02", PAStation = ""    },
-                    new SYSConsoleStateDto() { Console = consols[3], UserID = users[3].UserID, UserName = users[3].UserName  ,DLTState =""     , TetraState = "", OTCSState =""      , PAStation = "Y06" },
-                    new SYSConsoleStateDto() { Console = consols[4], UserID = users[4].UserID, UserName = users[4].UserName  ,DLTState =""     , TetraState = "", OTCSState ="SI-V01", PAStation = ""    },
-                    new SYSConsoleStateDto() { Console = consols[5], UserID = users[5].UserID, UserName = users[5].UserName  ,DLTState =""     , TetraState = "", OTCSState =""      , PAStation = "Y06" },
-                    new SYSConsoleStateDto() { Console = consols[6], UserID = users[6].UserID, UserName = users[6].UserName  ,DLTState ="23007", TetraState = "", OTCSState =""      , PAStation = ""    },
+                    new() { Console = consols[0], UserID = users[0].UserID, UserName = users[0].UserName  ,DLTState =""     , TetraState = "", OTCSState ="PI-V01", PAStation = ""    },
+                    new() { Console = consols[1], UserID = users[1].UserID, UserName = users[1].UserName  ,DLTState ="12344", TetraState = "", OTCSState =""      , PAStation = ""    },
+                    new() { Console = consols[2], UserID = users[2].UserID, UserName = users[2].UserName  ,DLTState =""     , TetraState = "", OTCSState ="PI-V02", PAStation = ""    },
+                    new() { Console = consols[3], UserID = users[3].UserID, UserName = users[3].UserName  ,DLTState =""     , TetraState = "", OTCSState =""      , PAStation = "Y06" },
+                    new() { Console = consols[4], UserID = users[4].UserID, UserName = users[4].UserName  ,DLTState =""     , TetraState = "", OTCSState ="SI-V01", PAStation = ""    },
+                    new() { Console = consols[5], UserID = users[5].UserID, UserName = users[5].UserName  ,DLTState =""     , TetraState = "", OTCSState =""      , PAStation = "Y06" },
+                    new() { Console = consols[6], UserID = users[6].UserID, UserName = users[6].UserName  ,DLTState ="23007", TetraState = "", OTCSState =""      , PAStation = ""    },
                 };
                 return temp;
             }
@@ -427,15 +433,15 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.Datas
             var groups = DLTPhoneGroups.ToList();
             var temp = new List<DLTPhoneDto>()
             {
-                new DLTPhoneDto() { PhoneNumber = "7601", BelongGroup = groups[0], PhoneLocation = "站長室" },
-                new DLTPhoneDto() { PhoneNumber = "7602", BelongGroup = groups[0], PhoneLocation = "車站詢問處" },
-                new DLTPhoneDto() { PhoneNumber = "7603", BelongGroup = groups[0], PhoneLocation = "上行月台終端" },
-                new DLTPhoneDto() { PhoneNumber = "7604", BelongGroup = groups[0], PhoneLocation = "下行月台終端" },
+                new() { PhoneNumber = "7601", BelongGroup = groups[0], PhoneLocation = "站長室" },
+                new() { PhoneNumber = "7602", BelongGroup = groups[0], PhoneLocation = "車站詢問處" },
+                new() { PhoneNumber = "7603", BelongGroup = groups[0], PhoneLocation = "上行月台終端" },
+                new() { PhoneNumber = "7604", BelongGroup = groups[0], PhoneLocation = "下行月台終端" },
 
-                new DLTPhoneDto() { PhoneNumber = "5466", BelongGroup = groups[1], PhoneLocation = "站長室" },
-                new DLTPhoneDto() { PhoneNumber = "5467", BelongGroup = groups[1], PhoneLocation = "車站詢問處" },
-                new DLTPhoneDto() { PhoneNumber = "5468", BelongGroup = groups[1], PhoneLocation = "上行月台終端" },
-                new DLTPhoneDto() { PhoneNumber = "5469", BelongGroup = groups[1], PhoneLocation = "下行月台終端" },
+                new() { PhoneNumber = "5466", BelongGroup = groups[1], PhoneLocation = "站長室" },
+                new() { PhoneNumber = "5467", BelongGroup = groups[1], PhoneLocation = "車站詢問處" },
+                new() { PhoneNumber = "5468", BelongGroup = groups[1], PhoneLocation = "上行月台終端" },
+                new() { PhoneNumber = "5469", BelongGroup = groups[1], PhoneLocation = "下行月台終端" },
             };
             groups[0].Phones = new List<DLTPhoneDto>() { temp[0], temp[1], temp[2], temp[3] };
             groups[1].Phones = new List<DLTPhoneDto>() { temp[4], temp[5], temp[6], temp[7] };

@@ -7,7 +7,6 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.Dtos
         public Guid Id { get; set; }
         public string SystemID { get; set; }
         public string ConsoleName { get; set; }
-
         public string IPAddress { get; set; }
         public string SetupLocation { get; set; }
         public string SeatName { get; set; }

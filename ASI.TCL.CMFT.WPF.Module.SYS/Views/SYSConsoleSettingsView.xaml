@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="ASI.TCL.CMFT.WPF.Module.SYS.Views.SYSControlPanelSettingsView"
+    x:Class="ASI.TCL.CMFT.WPF.Module.SYS.Views.SYSConsoleSettingsView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,7 +7,7 @@
     xmlns:prism="http://prismlibrary.com/"
     xmlns:viewModels="clr-namespace:ASI.TCL.CMFT.WPF.Module.SYS.ViewModels"
     xmlns:views="clr-namespace:ASI.TCL.CMFT.WPF.Module.SYS.Views"
-    d:DataContext="{d:DesignInstance viewModels:SYSControlPanelSettingsViewModel,
+    d:DataContext="{d:DesignInstance viewModels:SYSConsoleSettingsViewModel,
                                      IsDesignTimeCreatable=True}"
     d:DesignHeight="1620"
     d:DesignWidth="1420"

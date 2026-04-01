@@ -15,7 +15,7 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS
             containerRegistry.RegisterForNavigation<SYSUserPasswordSettingsView>();
 
             // 系統
-            containerRegistry.RegisterForNavigation<SYSControlPanelSettingsView>();
+            containerRegistry.RegisterForNavigation<SYSConsoleSettingsView>();
             containerRegistry.RegisterForNavigation<SYSRegionalResponsibilitiesSettingsView>();
             containerRegistry.RegisterForNavigation<SYSGroupPhonebookSettingsView>();
             containerRegistry.RegisterForNavigation<SYSInappropriateWordSettingsView>();

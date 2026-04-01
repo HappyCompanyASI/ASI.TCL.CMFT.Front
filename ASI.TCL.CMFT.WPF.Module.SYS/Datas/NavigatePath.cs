@@ -21,7 +21,7 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.Datas
         /// </summary>
 
         /// 主控台設定
-        public const string SYSControlPanelSettings = nameof(SYSControlPanelSettingsView);
+        public const string SYSControlPanelSettings = nameof(SYSConsoleSettingsView);
         // 區域權責設定
         public const string SYSRegionalResponsibilitiesSettings = nameof(SYSRegionalResponsibilitiesSettingsView);
         // 群組與電話簿

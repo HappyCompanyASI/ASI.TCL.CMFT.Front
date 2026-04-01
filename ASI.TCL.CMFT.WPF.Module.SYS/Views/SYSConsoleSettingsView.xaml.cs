@@ -5,9 +5,9 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.Views
     /// <summary>
     /// SYSControlPanelSettingsView.xaml 的互動邏輯
     /// </summary>
-    public partial class SYSControlPanelSettingsView : UserControl
+    public partial class SYSConsoleSettingsView : UserControl
     {
-        public SYSControlPanelSettingsView()
+        public SYSConsoleSettingsView()
         {
             InitializeComponent();
         }

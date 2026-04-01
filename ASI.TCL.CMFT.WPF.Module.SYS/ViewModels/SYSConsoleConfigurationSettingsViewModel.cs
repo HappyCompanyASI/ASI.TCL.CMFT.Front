@@ -17,12 +17,8 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.ViewModels
     public class SYSConsoleConfigurationSettingsViewModel : BindableBase, IRegionMemberLifetime
     {
         public bool KeepAlive => false;
-
-        
         private readonly IDialogService _dialogService;
-        
         private readonly IEventAggregator _eventAggregator;
-        
 
         #region Constructors
         public SYSConsoleConfigurationSettingsViewModel()
@@ -30,12 +26,8 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.ViewModels
         }
         public SYSConsoleConfigurationSettingsViewModel( IDialogService dialogService, IEventAggregator eventAggregator)
         {
-            
             _dialogService = dialogService;
-            
             _eventAggregator = eventAggregator;
-            
-
             InitDataAsync().Await(null, (ex) => throw ex);
         }
         #endregion
@@ -48,9 +40,7 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.ViewModels
             set => SetProperty(ref _isEditMode, value);
         }
         public bool IsItemOperation => SelectedItem != null;
-
         private List<SYSConsoleDto> _originalConsoles;
-
         private SYSConsoleDto _selectedItem;
         public SYSConsoleDto SelectedItem
         {
@@ -61,8 +51,6 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.ViewModels
                 RaisePropertyChanged(nameof(IsItemOperation));
             }
         }
-
-        // 主控台配置資料
         private ObservableCollection<SYSConsoleDto> _sysConsoles = new();
         public ObservableCollection<SYSConsoleDto> SYSConsoles
         {
