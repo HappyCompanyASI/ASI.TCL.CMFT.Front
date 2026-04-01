@@ -2,19 +2,14 @@
     x:Class="ASI.TCL.CMFT.WPF.Module.SYS.Views.SystemSettingMainView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:assist="clr-namespace:ASI.TCL.CMFT.WPF.Assist;assembly=ASI.TCL.CMFT.WPF"
-    xmlns:converters="clr-namespace:ASI.TCL.CMFT.WPF.Converters;assembly=ASI.TCL.CMFT.WPF"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:datas="clr-namespace:ASI.TCL.CMFT.WPF.Module.SYS.Datas"
-    xmlns:dtos="clr-namespace:ASI.TCL.CMFT.WPF.Module.SYS.Dtos"
-    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prism="http://prismlibrary.com/"
-    xmlns:provider="clr-namespace:ASI.TCL.CMFT.WPF.Module.SYS.DataTypes"
     xmlns:viewModels="clr-namespace:ASI.TCL.CMFT.WPF.Module.SYS.ViewModels"
     d:DataContext="{d:DesignInstance viewModels:SystemSettingMainViewModel,
                                      IsDesignTimeCreatable=True}"
-    d:DesignHeight="1620"
+    d:DesignHeight="540"
     d:DesignWidth="1420"
     Style="{StaticResource CMFT.UserControl}"
     mc:Ignorable="d">
@@ -41,7 +36,7 @@
                         CommandParameter="{x:Static datas:NavigatePath.SYSControlPanelSettings}"
                         Content="主控台設定"
                         IsChecked="True" />
-                    <RadioButton CommandParameter="{x:Static datas:NavigatePath.SYSRegionalResponsibilitiesSettings}" Content="區域權責設定" />
+                    <!--<RadioButton CommandParameter="{x:Static datas:NavigatePath.SYSRegionalResponsibilitiesSettings}" Content="區域權責設定" />-->
                     <RadioButton CommandParameter="{x:Static datas:NavigatePath.SYSGroupPhonebookSettings}" Content="群組與電話簿" />
                     <RadioButton CommandParameter="{x:Static datas:NavigatePath.SYSInappropriateWordSettings}" Content="不雅字設定" />
                 </UniformGrid>

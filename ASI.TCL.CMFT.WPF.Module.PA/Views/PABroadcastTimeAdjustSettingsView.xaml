@@ -6,13 +6,10 @@
     xmlns:behaviors="clr-namespace:ASI.TCL.CMFT.WPF.Module.PA.Behaviors"
     xmlns:converters="clr-namespace:ASI.TCL.CMFT.WPF.Converters;assembly=ASI.TCL.CMFT.WPF"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:dataTypes="clr-namespace:ASI.TCL.CMFT.WPF.Module.PA.DataTypes"
     xmlns:datas="clr-namespace:ASI.TCL.CMFT.WPF.Module.PA.Datas"
     xmlns:dtos="clr-namespace:ASI.TCL.CMFT.WPF.Module.PA.Dtos"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:prism="http://prismlibrary.com/"
-    xmlns:triggerActions="clr-namespace:ASI.TCL.CMFT.WPF.TriggerActions;assembly=ASI.TCL.CMFT.WPF"
     xmlns:viewModels="clr-namespace:ASI.TCL.CMFT.WPF.Module.PA.ViewModels"
     d:DataContext="{d:DesignInstance viewModels:PABroadcastTimeAdjustSettingsViewModel,
                                      IsDesignTimeCreatable=True}"

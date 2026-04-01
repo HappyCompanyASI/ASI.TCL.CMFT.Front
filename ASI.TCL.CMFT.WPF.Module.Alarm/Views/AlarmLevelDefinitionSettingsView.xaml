@@ -6,8 +6,6 @@
     xmlns:behaviors="clr-namespace:ASI.TCL.CMFT.WPF.Module.Alarm.Behaviors"
     xmlns:converters="clr-namespace:ASI.TCL.CMFT.WPF.Converters;assembly=ASI.TCL.CMFT.WPF"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:dataTypes="clr-namespace:ASI.TCL.CMFT.WPF.Module.Alarm.DataTypes"
-    xmlns:datas="clr-namespace:ASI.TCL.CMFT.WPF.Module.Alarm.Datas"
     xmlns:dtos="clr-namespace:ASI.TCL.CMFT.WPF.Module.Alarm.Dtos"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:ASI.TCL.CMFT.WPF.Module.Alarm.ViewModels"

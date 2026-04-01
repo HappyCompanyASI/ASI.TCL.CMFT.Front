@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using ASI.TCL.CMFT.Messages.SYS;
+using ASI.TCL.CMFT.Messages.Role;
+using ASI.TCL.CMFT.Messages.User;
 using ASI.TCL.CMFT.WPF.Dialogs;
 using ASI.TCL.CMFT.WPF.Module.SYS.Dtos;
 using ASI.TCL.CMFT.WPF.Web;
@@ -25,6 +26,7 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.ViewModels
         #region Constructors
         public SYSUserRoleSettingsViewModel()
         {
+
         }
         public SYSUserRoleSettingsViewModel( IDialogService dialogService, IEventAggregator eventAggregator, IApiClient apiClient)
         {
@@ -273,20 +275,21 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.ViewModels
             //    _queryService.Query(new QueryModels.GetAllUsers()));
             //var userList = users.Where(r => r.BelongRoleId != superAdminRoleId).ToList();
 
-            var roles = await _apiClient.GetAsync<List<ReadModels.Role>>("sys/role");
+            var roles = await _apiClient.GetAsync<List<Messages.Role.ReadModels.Role>>("sys/role");
             var roleList = roles.Where(r => r.Id != superAdminRoleId).ToList();
-            var users = await _apiClient.GetAsync<List<ReadModels.User>>("sys/user");
-            var userList = users.Where(r => r.BelongRoleId != superAdminRoleId).ToList();
+
+            var users = await _apiClient.GetAsync<List<Messages.User.ReadModels.User>>("sys/user");
+            var userList = users.Where(r => r.RoleId != superAdminRoleId).ToList();
+
 
 
             // 先把每個 AuthorityList 切割成 HashSet<string>
             var roleDtoDict = roleList
                 .Select(r =>
                 {
-                    // 切成 ["PAFunc","PASetting",…]，去除空白
-                    var flags = (r.AuthorityList ?? "")
-                        .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                    var flags = (r.Authorities ?? Enumerable.Empty<string>())
                         .Select(s => s.Trim())
+                        .Where(s => !string.IsNullOrEmpty(s))
                         .ToHashSet(StringComparer.OrdinalIgnoreCase);
 
                     // 再映射到 RoleDto
@@ -315,13 +318,13 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.ViewModels
             var accountDtos = userList
                 .Select(u =>
                 {
-                    roleDtoDict.TryGetValue(u.BelongRoleId, out var role);
+                    roleDtoDict.TryGetValue(u.RoleId, out var role);
 
                     var acct = new AccountDto
                     {
-                        UserID = u.Id,
+                        UserID = u.Id.ToString(),
                         UserName = u.Name,
-                        Description = u.Description,
+                        Description = String.Empty,
                         RoleDto = role
                     };
 

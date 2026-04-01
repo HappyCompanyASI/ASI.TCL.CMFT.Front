@@ -75,7 +75,7 @@ namespace ASI.TCL.CMFT.WPF.CMFTApp
 
         #region Properties
         // 登入畫面
-        private bool _hasExecutedLoaded = false; // 開發時使用，確保 LoadedCommand 只執行一次的flag
+        private bool _hasExecutedLoaded = true; // 開發時使用，確保 LoadedCommand 只執行一次的flag
 
         private bool _isAuthenticated;
         public bool IsAuthenticated
@@ -207,44 +207,62 @@ namespace ASI.TCL.CMFT.WPF.CMFTApp
             //    LoginStateMessage = $"登入發生錯誤：{ex.Message}";
             //}
 
-            var token = await _apiClient.PostAsync<LoginCommand, string>("api/auth/login", new LoginCommand
+            //var token = await _apiClient.PostAsync<LoginCommand, string>("api/auth/login", new LoginCommand
+            //{
+            //    Account = "admin",
+            //    Password = "admin"
+            //});
+            //if (!string.IsNullOrEmpty(token))
+            //{
+
+            //    //這邊解token 取得使用者資訊，角色權限
+            //    var userName = "admin";
+            //    var userRole = "admin";
+
+            //    //登入成功
+            //    IsAuthenticated = true;
+            //    LoginStateMessage = $"歡迎 {userName} 登入, 角色: {userRole}";
+
+            //    //更新畫面狀態
+            //    RaisePropertyChanged(nameof(IsAuthenticated));
+            //    RaisePropertyChanged(nameof(LoginStateMessage));
+
+            //    var info = new LoginInfo
+            //    {
+            //        UserName = "UserName",
+            //        UserRole = "UserRole"
+            //    };
+
+            //    _eventAggregator.GetEvent<LoginEvent>().Publish(info);
+            //}
+            //else
+            //{
+            //    //登入失敗
+            //    IsAuthenticated = false;
+            //    LoginStateMessage = "登入失敗，請檢查帳號或密碼是否正確。";
+            //    RaisePropertyChanged(nameof(IsAuthenticated));
+            //    RaisePropertyChanged(nameof(LoginStateMessage));
+            //}
+
+
+
+            //登入成功
+            IsAuthenticated = true;
+            
+            LoginStateMessage = $"歡迎 admin 登入, 角色: admin";
+
+            //更新畫面狀態
+            RaisePropertyChanged(nameof(IsAuthenticated));
+            RaisePropertyChanged(nameof(LoginStateMessage));
+
+            var info = new LoginInfo
             {
-                Account = "admin",
-                Password = "admin"
-            });
-            if (!string.IsNullOrEmpty(token))
-            {
+                UserName = "admin",
+                UserRole = "admin"
+            };
 
-                //這邊解token 取得使用者資訊，角色權限
-                var userName = "admin";
-                var userRole = "admin";
-
-                //登入成功
-                IsAuthenticated = true;
-                LoginStateMessage = $"歡迎 {userName} 登入, 角色: {userRole}";
-
-                //更新畫面狀態
-                RaisePropertyChanged(nameof(IsAuthenticated));
-                RaisePropertyChanged(nameof(LoginStateMessage));
-
-                var info = new LoginInfo
-                {
-                    UserName = "UserName",
-                    UserRole = "UserRole"
-                };
-
-                _eventAggregator.GetEvent<LoginEvent>().Publish(info);
-            }
-            else
-            {
-                //登入失敗
-                IsAuthenticated = false;
-                LoginStateMessage = "登入失敗，請檢查帳號或密碼是否正確。";
-                RaisePropertyChanged(nameof(IsAuthenticated));
-                RaisePropertyChanged(nameof(LoginStateMessage));
-            }
+            _eventAggregator.GetEvent<LoginEvent>().Publish(info);
         }
-
         private async Task Leave()
         {
             LoginStateMessage = "應用程式關閉中,請稍後...";
@@ -336,7 +354,7 @@ namespace ASI.TCL.CMFT.WPF.CMFTApp
 
         //            // 通知等待中的 Login 方法
         //            _loginCompletionSource?.SetResult(n.Success);
-                    
+
         //            //登入結果通知或錯誤處理
 
         //            if (n.Success)

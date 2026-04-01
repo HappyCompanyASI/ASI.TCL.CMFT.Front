@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:dtos="clr-namespace:ASI.TCL.CMFT.WPF.Module.Alarm.Dtos">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <!--  根據告警顏色設定 TextBlock 前景色的樣式  -->
     <Style x:Key="GridView.Column.TextBlock.AlarmColor" TargetType="{x:Type TextBlock}">

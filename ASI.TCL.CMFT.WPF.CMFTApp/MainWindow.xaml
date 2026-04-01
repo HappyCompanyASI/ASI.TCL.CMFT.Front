@@ -11,7 +11,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:datas="clr-namespace:ASI.TCL.CMFT.WPF.CMFTApp.Datas"
     xmlns:dltsViews="clr-namespace:ASI.TCL.CMFT.WPF.Module.DLTS.Views;assembly=ASI.TCL.CMFT.WPF.Module.DLTS"
-    xmlns:markupExtensions="clr-namespace:ASI.TCL.CMFT.WPF.MarkupExtensions;assembly=ASI.TCL.CMFT.WPF"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:otcsViews="clr-namespace:ASI.TCL.CMFT.WPF.Module.OTCS.Views;assembly=ASI.TCL.CMFT.WPF.Module.OTCS"
