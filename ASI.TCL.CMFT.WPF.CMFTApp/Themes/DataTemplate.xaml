@@ -1,39 +1,127 @@
-﻿<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
 
+    <DataTemplate x:Key="CMFT.DataTemplate.EventAlarmDrawerButton">
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Stretch"
+                    Orientation="Vertical">
+            <materialDesign:PackIcon Width="{Binding FontSize, RelativeSource={RelativeSource AncestorType=Button}}"
+                                     Height="{Binding FontSize, RelativeSource={RelativeSource AncestorType=Button}}"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center">
+                <materialDesign:PackIcon.Style>
+                    <Style TargetType="materialDesign:PackIcon">
+                        <Setter Property="Kind" Value="ChevronDoubleLeft" />
+                        <Style.Triggers>
+
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding Command, RelativeSource={RelativeSource AncestorType=Button}}" Value="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}" />
+                                    <Condition Binding="{Binding CommandParameter, RelativeSource={RelativeSource AncestorType=Button}}" Value="{x:Static Dock.Left}" />
+                                </MultiDataTrigger.Conditions>
+                                <MultiDataTrigger.Setters>
+                                    <Setter Property="Kind" Value="ChevronDoubleRight" />
+                                </MultiDataTrigger.Setters>
+                            </MultiDataTrigger>
+
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding Command, RelativeSource={RelativeSource AncestorType=Button}}" Value="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}" />
+                                    <Condition Binding="{Binding CommandParameter, RelativeSource={RelativeSource AncestorType=Button}}" Value="{x:Static Dock.Left}" />
+                                </MultiDataTrigger.Conditions>
+                                <MultiDataTrigger.Setters>
+                                    <Setter Property="Kind" Value="ChevronDoubleLeft" />
+                                </MultiDataTrigger.Setters>
+                            </MultiDataTrigger>
+
+                        </Style.Triggers>
+                    </Style>
+                </materialDesign:PackIcon.Style>
+
+            </materialDesign:PackIcon>
+            <TextBlock Width="{Binding FontSize, RelativeSource={RelativeSource AncestorType=Button}}"
+                       FontSize="{Binding FontSize, RelativeSource={RelativeSource AncestorType=Button}}"
+                       Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
+                       Style="{StaticResource CMFT.TextBlock.Center}"
+                       Text="{Binding Content, RelativeSource={RelativeSource AncestorType=Button}}"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap" />
+        </StackPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="CMFT.DataTemplate.DLTDrawerButton">
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Stretch"
+                    Orientation="Vertical">
+            <materialDesign:PackIcon Width="{Binding FontSize, RelativeSource={RelativeSource AncestorType=Button}}"
+                                     Height="{Binding FontSize, RelativeSource={RelativeSource AncestorType=Button}}"
+                                     HorizontalAlignment="Center"
+                                     VerticalAlignment="Center">
+                <materialDesign:PackIcon.Style>
+                    <Style TargetType="materialDesign:PackIcon">
+                        <Setter Property="Kind" Value="ChevronDoubleLeft" />
+                        <Style.Triggers>
+
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding Command, RelativeSource={RelativeSource AncestorType=Button}}" Value="{x:Static materialDesign:DrawerHost.CloseDrawerCommand}" />
+                                    <Condition Binding="{Binding CommandParameter, RelativeSource={RelativeSource AncestorType=Button}}" Value="{x:Static Dock.Right}" />
+                                </MultiDataTrigger.Conditions>
+                                <MultiDataTrigger.Setters>
+                                    <Setter Property="Kind" Value="ChevronDoubleRight" />
+                                </MultiDataTrigger.Setters>
+                            </MultiDataTrigger>
+
+                            <MultiDataTrigger>
+                                <MultiDataTrigger.Conditions>
+                                    <Condition Binding="{Binding Command, RelativeSource={RelativeSource AncestorType=Button}}" Value="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}" />
+                                    <Condition Binding="{Binding CommandParameter, RelativeSource={RelativeSource AncestorType=Button}}" Value="{x:Static Dock.Right}" />
+                                </MultiDataTrigger.Conditions>
+                                <MultiDataTrigger.Setters>
+                                    <Setter Property="Kind" Value="ChevronDoubleLeft" />
+                                </MultiDataTrigger.Setters>
+                            </MultiDataTrigger>
+
+                        </Style.Triggers>
+                    </Style>
+                </materialDesign:PackIcon.Style>
+
+            </materialDesign:PackIcon>
+            <TextBlock Width="{Binding FontSize, RelativeSource={RelativeSource AncestorType=Button}}"
+                       FontSize="{Binding FontSize, RelativeSource={RelativeSource AncestorType=Button}}"
+                       Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
+                       Style="{StaticResource CMFT.TextBlock.Center}"
+                       Text="{Binding Content, RelativeSource={RelativeSource AncestorType=Button}}"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap" />
+        </StackPanel>
+    </DataTemplate>
     <DataTemplate x:Key="CMFT.DataTemplate.EquipAlarmDrawerButton">
-        <Grid
-            Margin="10,0"
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch">
+        <Grid Margin="10,0"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" Orientation="Horizontal">
-                <TextBlock
-                    Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
-                    Style="{StaticResource CMFT.TextBlock.Left}"
-                    Text="通訊設備即時告警 (當前未確認數量：" />
-                <TextBlock
-                    Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
-                    Style="{StaticResource CMFT.TextBlock.Center}"
-                    Text="{Binding}" />
-                <TextBlock
-                    Margin="10,0,0,0"
-                    Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
-                    Style="{StaticResource CMFT.TextBlock.Center}"
-                    Text="筆)" />
+                <TextBlock Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
+                           Style="{StaticResource CMFT.TextBlock.Left}"
+                           Text="通訊設備即時告警 (當前未確認數量：" />
+                <TextBlock Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
+                           Style="{StaticResource CMFT.TextBlock.Center}"
+                           Text="{Binding}" />
+                <TextBlock Margin="10,0,0,0"
+                           Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
+                           Style="{StaticResource CMFT.TextBlock.Center}"
+                           Text="筆)" />
             </StackPanel>
 
-            <materialDesign:PackIcon
-                Grid.Column="1"
-                Width="{Binding FontSize, RelativeSource={RelativeSource AncestorType=Button}}"
-                Height="{Binding FontSize, RelativeSource={RelativeSource AncestorType=Button}}"
-                HorizontalAlignment="Right"
-                VerticalAlignment="Center">
+            <materialDesign:PackIcon Grid.Column="1"
+                                     Width="{Binding FontSize, RelativeSource={RelativeSource AncestorType=Button}}"
+                                     Height="{Binding FontSize, RelativeSource={RelativeSource AncestorType=Button}}"
+                                     HorizontalAlignment="Right"
+                                     VerticalAlignment="Center">
                 <materialDesign:PackIcon.Style>
                     <Style TargetType="materialDesign:PackIcon">
                         <Setter Property="Kind" Value="ChevronDoubleLeft" />

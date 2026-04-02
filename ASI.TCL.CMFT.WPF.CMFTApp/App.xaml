@@ -1,19 +1,20 @@
-﻿<Application
-    x:Class="ASI.TCL.CMFT.WPF.CMFTApp.App"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-    xmlns:system="clr-namespace:System;assembly=mscorlib">
+﻿<Application x:Class="ASI.TCL.CMFT.WPF.CMFTApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
     <Application.Resources>
 
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
 
                 <!--  materialDesign Resource  -->
-                <materialDesign:CustomColorTheme
-                    BaseTheme="Dark"
-                    PrimaryColor="#ffdb00"
-                    SecondaryColor="#fb8c00" />
+                <materialDesign:CustomColorTheme BaseTheme="Dark"
+                                                 ColorAdjustment="{materialDesign:ColorAdjustment Colors=All,
+                                                                                                  Contrast=Medium,
+                                                                                                  DesiredContrastRatio=2.0}"
+                                                 PrimaryColor="#ffdb00"
+                                                 SecondaryColor="#fb8c00" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml" />
 
 
@@ -61,18 +62,15 @@
 
 
             </ResourceDictionary.MergedDictionaries>
-            <BitmapImage x:Key="TextureSource" UriSource="pack://application:,,,/Assets/image/texture.png" />
+
             <BitmapImage x:Key="LogoSource" UriSource="pack://application:,,,/Assets/image/NewTaipeiMetrologo.png" />
+            <!--<BitmapImage x:Key="TextureSource" UriSource="pack://application:,,,/Assets/image/texture.png" />-->
+            <!--<BitmapImage x:Key="LogoSource" UriSource="pack://application:,,,/Assets/image/NewTaipeiMetrologo.png" />-->
+            <!--<BitmapImage x:Key="TextureSource" UriSource="pack://application:,,,/Assets/image/texture.png" />
+            <BitmapImage x:Key="LogoSource" UriSource="pack://application:,,,/Assets/image/NewTaipeiMetrologo.png" />-->
 
             <system:Double x:Key="CMFT.DesignTime.Window.Width">1920</system:Double>
             <system:Double x:Key="CMFT.DesignTime.Window.Height">1080</system:Double>
-
         </ResourceDictionary>
-
     </Application.Resources>
-
-
-
-
-
 </Application>

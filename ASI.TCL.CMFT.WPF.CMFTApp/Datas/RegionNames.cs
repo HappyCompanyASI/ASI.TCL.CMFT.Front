@@ -9,6 +9,6 @@
         public const string TetraLiveCallRegion = nameof(TetraLiveCallRegion);
         public const string TetraCallListRegion = nameof(TetraCallListRegion);
         public const string OTCSCallListRegion = nameof(OTCSCallListRegion);
-        public const string AlarmRegion = nameof(AlarmRegion);
+        public const string EquipAlarmDrawer = nameof(EquipAlarmDrawer);
     }
 }

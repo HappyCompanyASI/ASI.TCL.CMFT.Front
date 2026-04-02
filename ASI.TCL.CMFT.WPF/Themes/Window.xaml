@@ -4,11 +4,8 @@
         <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Control.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style
-        x:Key="BaseWindow"
-        BasedOn="{StaticResource CMFT.UserControl}"
-        TargetType="{x:Type Window}" />
-
-
+    <Style x:Key="BaseWindow"
+           BasedOn="{StaticResource CMFT.UserControl}"
+           TargetType="{x:Type Window}" />
 
 </ResourceDictionary>

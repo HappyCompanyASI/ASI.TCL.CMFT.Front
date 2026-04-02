@@ -30,9 +30,7 @@ namespace ASI.TCL.CMFT.WPF.CMFTApp
     {
         private readonly IRegionManager _regionManager;
         private readonly IEventAggregator _eventAggregator;
-
         private readonly IApiClient _apiClient;
-
         private TaskCompletionSource<bool> _loginCompletionSource;
 
         #region Constructors
@@ -40,6 +38,7 @@ namespace ASI.TCL.CMFT.WPF.CMFTApp
         {
             if (WPFHelper.IsDesignTime)
             {
+                IsAuthenticated = true;
                 ErrorMessage = "無法與Server連線";
             }
         }
@@ -132,11 +131,7 @@ namespace ASI.TCL.CMFT.WPF.CMFTApp
         public DelegateCommand LoadedCommand => _loadedCommand ??= new DelegateCommand(ExcuteLoadedCommand);
         private async void ExcuteLoadedCommand()
         {
-            //這一區是開發時方便登入暫時這樣使用
-            //materialDesign畫面渲染時會導致Loaded事件被多次觸發，這裡只執行一次登入邏輯
-            if (_hasExecutedLoaded)
-                return;
-            _hasExecutedLoaded = true;
+         
 
             await Login();
         }

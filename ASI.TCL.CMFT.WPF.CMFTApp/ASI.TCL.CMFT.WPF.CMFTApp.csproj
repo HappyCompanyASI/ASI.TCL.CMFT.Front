@@ -31,6 +31,7 @@
     <ProjectReference Include="..\ASI.TCL.CMFT.WPF.Module.PA\ASI.TCL.CMFT.WPF.Module.PA.csproj" />
     <ProjectReference Include="..\ASI.TCL.CMFT.WPF.Module.SYS\ASI.TCL.CMFT.WPF.Module.SYS.csproj" />
     <ProjectReference Include="..\ASI.TCL.CMFT.WPF.Module.Tetra\ASI.TCL.CMFT.WPF.Module.Tetra.csproj" />
+    <ProjectReference Include="..\ASI.TCL.CMFT.WPF\ASI.TCL.CMFT.WPF.csproj" />
   </ItemGroup>
 
   <ItemGroup>
