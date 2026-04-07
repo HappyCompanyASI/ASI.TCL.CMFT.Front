@@ -1,5 +1,7 @@
 ﻿using System;
 
+namespace ASI.TCL.CMFT.WPF.Web;
+
 public class ApiException : Exception
 {
     public ProblemDetails Problem { get; private set; }

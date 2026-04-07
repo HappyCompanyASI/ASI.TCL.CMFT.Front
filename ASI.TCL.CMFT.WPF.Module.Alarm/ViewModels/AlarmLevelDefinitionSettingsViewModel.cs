@@ -16,10 +16,7 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.ViewModels
     public class AlarmLevelDefinitionSettingsViewModel : BindableBase, IRegionMemberLifetime
     {
         public bool KeepAlive => false;
-
-        
         private readonly IDialogService _dialogService;
-        
         private readonly IEventAggregator _eventAggregator;
 
         #region Constructors
@@ -28,11 +25,8 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.ViewModels
         }
         public AlarmLevelDefinitionSettingsViewModel( IDialogService dialogService, IEventAggregator eventAggregator)
         {
-            
             _dialogService = dialogService;
-            
             _eventAggregator = eventAggregator;
-
             InitDataAsync().Await(null, (ex) => throw ex);
         }
         #endregion

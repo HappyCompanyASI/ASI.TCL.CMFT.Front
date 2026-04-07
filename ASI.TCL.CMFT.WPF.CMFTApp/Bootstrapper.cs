@@ -57,7 +57,7 @@ namespace ASI.TCL.CMFT.WPF.CMFTApp
             containerRegistry.RegisterForNavigation<SystemSettingMainView>();
             containerRegistry.RegisterForNavigation<UserSettingMainView>();
             containerRegistry.RegisterForNavigation<SystemAlarmMainView>(); // 沒有使用
-            containerRegistry.RegisterForNavigation<EquipAlarmMainView>();
+            containerRegistry.RegisterForNavigation<EquipAlarmView>();
             containerRegistry.RegisterForNavigation<EventAlarmView>();
             containerRegistry.RegisterForNavigation<StateAndLogMainView>();
         }

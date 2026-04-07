@@ -27,7 +27,7 @@ namespace ASI.TCL.CMFT.WPF.CMFTApp.Datas
 
         public const string SystemAlarmMain = nameof(SystemAlarmMainView); // 沒有使用
         public const string EventAlarmMain = nameof(EventAlarmView);
-        public const string EquipAlarmMain = nameof(EquipAlarmMainView);
+        public const string EquipAlarmMain = nameof(EquipAlarmView);
         public const string StateAndLogMain = nameof(StateAndLogMainView);
     }
 }

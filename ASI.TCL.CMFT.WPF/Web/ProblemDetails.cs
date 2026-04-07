@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 
+namespace ASI.TCL.CMFT.WPF.Web;
+
 public class ProblemDetails
 {
     public string Type { get; set; }

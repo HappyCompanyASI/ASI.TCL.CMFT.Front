@@ -123,53 +123,29 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
         }
         private static IEnumerable<EquipAlarmDto> GenerateEquipAlarmInfos()
         {
-            // 準備容器
-            var temp = new List<EquipAlarmDto>();
             var now = DateTime.Now;
+            var temp = new List<EquipAlarmDto>()
+{
+    // --- 狀態 1：未解除 (ReleaseTime = null) + 未確認 (IsConfirmed = false) ---
+    new() { Id = "01", AlarmLevel = eAlarmLevel.重大, ReleaseTime = null, IsConfirmed = false, ConfirmedTime = null, AlarmTime = now.AddMinutes(-5), SystemType = "OCC", EquipDescription = "設備-01", AlarmDescription = "[重大] 未解除/未確認 (閃爍)" },
+    new() { Id = "02", AlarmLevel = eAlarmLevel.中度, ReleaseTime = null, IsConfirmed = false, ConfirmedTime = null, AlarmTime = now.AddMinutes(-6), SystemType = "OCC", EquipDescription = "設備-02", AlarmDescription = "[中度] 未解除/未確認 (閃爍)" },
+    new() { Id = "03", AlarmLevel = eAlarmLevel.輕微, ReleaseTime = null, IsConfirmed = false, ConfirmedTime = null, AlarmTime = now.AddMinutes(-7), SystemType = "OCC", EquipDescription = "設備-03", AlarmDescription = "[輕微] 未解除/未確認 (閃爍)" },
 
-            // 定義三種等級
-            var levels = new[] { eAlarmLevel.重大, eAlarmLevel.中度, eAlarmLevel.輕微 };
+    // --- 狀態 2：未解除 (ReleaseTime = null) + 已確認 (IsConfirmed = true) ---
+    new() { Id = "04", AlarmLevel = eAlarmLevel.重大, ReleaseTime = null, IsConfirmed = true, ConfirmedTime = now.AddMinutes(-2), ConfirmedUserName = "Admin", AlarmTime = now.AddMinutes(-10), SystemType = "OCC", EquipDescription = "設備-04", AlarmDescription = "[重大] 未解除/已確認 (靜態底色)" },
+    new() { Id = "05", AlarmLevel = eAlarmLevel.中度, ReleaseTime = null, IsConfirmed = true, ConfirmedTime = now.AddMinutes(-3), ConfirmedUserName = "Admin", AlarmTime = now.AddMinutes(-11), SystemType = "OCC", EquipDescription = "設備-05", AlarmDescription = "[中度] 未解除/已確認 (靜態底色)" },
+    new() { Id = "06", AlarmLevel = eAlarmLevel.輕微, ReleaseTime = null, IsConfirmed = true, ConfirmedTime = now.AddMinutes(-4), ConfirmedUserName = "Admin", AlarmTime = now.AddMinutes(-12), SystemType = "OCC", EquipDescription = "設備-06", AlarmDescription = "[輕微] 未解除/已確認 (靜態底色)" },
 
-            // 定義四種狀態組合 (解除狀態, 確認狀態)
-            var states = new[]
-            {
-                new { IsReleased = false, IsConfirmed = false, Desc = "未解除/未確認 (閃爍)" },
-                new { IsReleased = false, IsConfirmed = true,  Desc = "未解除/已確認 (靜態底色)" },
-                new { IsReleased = true,  IsConfirmed = false, Desc = "已解除/未確認 (灰底分色字)" },
-                new { IsReleased = true,  IsConfirmed = true,  Desc = "已解除/已確認 (正常結案)" }
-            };
+    // --- 狀態 3：已解除 (ReleaseTime != null) + 未確認 (IsConfirmed = false) ---
+    new() { Id = "07", AlarmLevel = eAlarmLevel.重大, ReleaseTime = now, IsConfirmed = false, ConfirmedTime = null, AlarmTime = now.AddMinutes(-20), SystemType = "OCC", EquipDescription = "設備-07", AlarmDescription = "[重大] 已解除/未確認 (灰底彩色字)" },
+    new() { Id = "08", AlarmLevel = eAlarmLevel.中度, ReleaseTime = now, IsConfirmed = false, ConfirmedTime = null, AlarmTime = now.AddMinutes(-21), SystemType = "OCC", EquipDescription = "設備-08", AlarmDescription = "[中度] 已解除/未確認 (灰底彩色字)" },
+    new() { Id = "09", AlarmLevel = eAlarmLevel.輕微, ReleaseTime = now, IsConfirmed = false, ConfirmedTime = null, AlarmTime = now.AddMinutes(-22), SystemType = "OCC", EquipDescription = "設備-09", AlarmDescription = "[輕微] 已解除/未確認 (灰底彩色字)" },
 
-            int index = 1;
-            foreach (var state in states)
-            {
-                foreach (var level in levels)
-                {
-                    temp.Add(new EquipAlarmDto()
-                    {
-                        Id = index.ToString(),
-                        AlarmLevel = level,
-                        // 處理解除時間：未解除則給 null，已解除則給現在時間
-                        ReleaseTime = state.IsReleased ? now : (DateTime?)null,
-                        // 處理確認狀態
-                        IsConfirmed = state.IsConfirmed,
-                        ConfirmedUserName = state.IsConfirmed ? "Admin" : string.Empty,
-
-                        // 輔助資訊
-                        AlarmTime = now.AddHours(-1),
-                        SystemType = "OCC",
-                        EquipDescription = $"設備-{index:00}",
-                        AlarmDescription = $"[{level}] {state.Desc}",
-
-                        // 如果你的 Style 有用到 ConfirmedTime，也要記得給值
-                        ConfirmedTime = state.IsConfirmed ? now : (DateTime?)null
-                    });
-                    index++;
-                }
-            }
-
-            // 最後將資料掛載到 UI 綁定的 Collection
-            // this.EquipAlarmList = new ObservableCollection<EquipAlarmDto>(temp);
-
+    // --- 狀態 4：已解除 (ReleaseTime != null) + 已確認 (IsConfirmed = true) ---
+    new() { Id = "10", AlarmLevel = eAlarmLevel.重大, ReleaseTime = now, IsConfirmed = true, ConfirmedTime = now, ConfirmedUserName = "Admin", AlarmTime = now.AddMinutes(-30), SystemType = "OCC", EquipDescription = "設備-10", AlarmDescription = "[重大] 已解除/已確認 (正常結案)" },
+    new() { Id = "11", AlarmLevel = eAlarmLevel.中度, ReleaseTime = now, IsConfirmed = true, ConfirmedTime = now, ConfirmedUserName = "Admin", AlarmTime = now.AddMinutes(-31), SystemType = "OCC", EquipDescription = "設備-11", AlarmDescription = "[中度] 已解除/已確認 (正常結案)" },
+    new() { Id = "12", AlarmLevel = eAlarmLevel.輕微, ReleaseTime = now, IsConfirmed = true, ConfirmedTime = now, ConfirmedUserName = "Admin", AlarmTime = now.AddMinutes(-32), SystemType = "OCC", EquipDescription = "設備-12", AlarmDescription = "[輕微] 已解除/已確認 (正常結案)" }
+};
             return temp;
         }
         private static IEnumerable<EventAlarmTypeDefineDto> GenerateEventAlarmTypeDefines()

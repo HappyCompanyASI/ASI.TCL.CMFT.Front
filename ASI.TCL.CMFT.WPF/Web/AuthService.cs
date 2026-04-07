@@ -1,4 +1,6 @@
-﻿public class AuthService : IAuthService
+﻿namespace ASI.TCL.CMFT.WPF.Web;
+
+public class AuthService : IAuthService
 {
     private string _token;
 

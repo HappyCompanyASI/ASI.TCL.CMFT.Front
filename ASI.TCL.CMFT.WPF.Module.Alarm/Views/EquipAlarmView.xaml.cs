@@ -5,9 +5,9 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Views
     /// <summary>
     /// EquipAlarmMainView.xaml 的互動邏輯
     /// </summary>
-    public partial class EquipAlarmMainView : UserControl
+    public partial class EquipAlarmView : UserControl
     {
-        public EquipAlarmMainView()
+        public EquipAlarmView()
         {
             InitializeComponent();
         }

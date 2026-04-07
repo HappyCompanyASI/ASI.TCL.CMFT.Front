@@ -5,9 +5,9 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-
 using ASI.TCL.CMFT.WPF.Logger;
-using ASI.TCL.CMFT.WPF.Web;
+
+namespace ASI.TCL.CMFT.WPF.Web;
 
 public class ApiClient : IApiClient
 {
