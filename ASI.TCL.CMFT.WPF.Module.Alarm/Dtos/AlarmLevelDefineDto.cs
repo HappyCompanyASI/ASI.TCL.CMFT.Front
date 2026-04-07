@@ -4,12 +4,10 @@ using System.Collections.Generic;
 namespace ASI.TCL.CMFT.WPF.Module.Alarm.Dtos
 {
     public enum eAlarmLevel
-    { 
-        緊急,
-        高,
-        中,
-        低,
-        普通 
+    {
+        重大,
+        中度,
+        輕微
     }
     public enum eSystemType
     {
@@ -80,25 +78,16 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Dtos
 
     public class EquipAlarmDto 
     {
-        // 告警事件時間
+        public string Id { get; set; }
         public DateTime AlarmTime { get; set; }
         public DateTime? ReleaseTime { get; set; }
-
-        // 確認資訊
-        public DateTime? ConfirmedTime { get; set; }
-
-        // 確認人員
-        // public AccountDto Confirmed { get; set; }
-        public string ConfirmedUserID { get; set; }
+        public string EquipDescription { get; set; }
+        public string SystemType { get; set; }
+        public eAlarmLevel AlarmLevel { get; set; }
+        public string AlarmDescription { get; set; }
         public string ConfirmedUserName { get; set; }
         public bool? IsConfirmed { get; set; }
-
-        // 設備資訊(哪個設備)
-        public SYSEquipDto Equip { get; set; }
-
-        // 告警資訊(發生什麼事)
-        public EquipAlarmTypeDefineDto AlarmDefine { get; set; }
-        public string Id { get; set; }
+        public DateTime? ConfirmedTime { get; set; }
     }
 
     public class EventAlarmTypeDefineDto

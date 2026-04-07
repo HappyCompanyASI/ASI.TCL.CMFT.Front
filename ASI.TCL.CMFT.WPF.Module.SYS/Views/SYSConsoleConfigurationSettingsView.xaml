@@ -11,7 +11,6 @@
              xmlns:prism="http://prismlibrary.com/"
              d:DataContext="{d:DesignInstance viewModels:SYSConsoleConfigurationSettingsViewModel,
                                               IsDesignTimeCreatable=True}"
-             d:DesignHeight="540"
              d:DesignWidth="1308"
              Style="{StaticResource CMFT.UserControl}"
              mc:Ignorable="d">
@@ -20,7 +19,6 @@
             <ColumnDefinition Width="9*" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-
         <ListView d:ItemsSource="{x:Static datas:DesignTimeDatas.SYSConsoles}"
                   ItemContainerStyle="{StaticResource ListView.GridViewItem.Stretch}"
                   ItemsSource="{Binding SYSConsoles}"

@@ -1,7 +1,6 @@
-﻿<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Fields.xaml" />
@@ -13,33 +12,29 @@
         <Setter Property="CornerRadius" Value="4" />
     </Style>
 
-    <Style
-        x:Key="CMFT.DataGrid.ColumnHeader.Left"
-        BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}"
-        TargetType="{x:Type DataGridColumnHeader}">
+    <Style x:Key="CMFT.DataGrid.ColumnHeader.Left"
+           BasedOn="{StaticResource MaterialDesignDataGridColumnHeader}"
+           TargetType="{x:Type DataGridColumnHeader}">
         <Setter Property="materialDesign:DataGridAssist.ColumnHeaderPadding" Value="15,10" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="FontSize" Value="{DynamicResource DataGridHeaderSize}" />
         <Setter Property="FontWeight" Value="Bold" />
     </Style>
-    <Style
-        x:Key="CMFT.DataGrid.ColumnHeader.Center"
-        BasedOn="{StaticResource CMFT.DataGrid.ColumnHeader.Left}"
-        TargetType="{x:Type DataGridColumnHeader}">
+    <Style x:Key="CMFT.DataGrid.ColumnHeader.Center"
+           BasedOn="{StaticResource CMFT.DataGrid.ColumnHeader.Left}"
+           TargetType="{x:Type DataGridColumnHeader}">
         <Setter Property="HorizontalContentAlignment" Value="Center" />
     </Style>
-    <Style
-        x:Key="CMFT.DataGrid.ColumnHeader.Right"
-        BasedOn="{StaticResource CMFT.DataGrid.ColumnHeader.Left}"
-        TargetType="{x:Type DataGridColumnHeader}">
+    <Style x:Key="CMFT.DataGrid.ColumnHeader.Right"
+           BasedOn="{StaticResource CMFT.DataGrid.ColumnHeader.Left}"
+           TargetType="{x:Type DataGridColumnHeader}">
         <Setter Property="HorizontalContentAlignment" Value="Right" />
     </Style>
 
-    <Style
-        x:Key="CMFT.DataGrid.Cell"
-        BasedOn="{StaticResource MaterialDesignDataGridCell}"
-        TargetType="DataGridCell">
+    <Style x:Key="CMFT.DataGrid.Cell"
+           BasedOn="{StaticResource MaterialDesignDataGridCell}"
+           TargetType="DataGridCell">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Padding" Value="15,10" />
         <Setter Property="FontSize" Value="{DynamicResource DataGridFontSize}" />
@@ -51,22 +46,19 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    <Style
-        x:Key="CMFT.DataGrid.Cell.SmallPadding"
-        BasedOn="{StaticResource CMFT.DataGrid.Cell}"
-        TargetType="DataGridCell">
+    <Style x:Key="CMFT.DataGrid.Cell.SmallPadding"
+           BasedOn="{StaticResource CMFT.DataGrid.Cell}"
+           TargetType="DataGridCell">
         <Setter Property="Padding" Value="15,5,15,5" />
     </Style>
-    <Style
-        x:Key="CMFT.DataGrid.Cell.NoPadding"
-        BasedOn="{StaticResource CMFT.DataGrid.Cell}"
-        TargetType="DataGridCell">
+    <Style x:Key="CMFT.DataGrid.Cell.NoPadding"
+           BasedOn="{StaticResource CMFT.DataGrid.Cell}"
+           TargetType="DataGridCell">
         <Setter Property="Padding" Value="0" />
     </Style>
-    <Style
-        x:Key="CMFT.DataGrid.Cell.Vertical"
-        BasedOn="{StaticResource CMFT.DataGrid.Cell}"
-        TargetType="DataGridCell">
+    <Style x:Key="CMFT.DataGrid.Cell.Vertical"
+           BasedOn="{StaticResource CMFT.DataGrid.Cell}"
+           TargetType="DataGridCell">
         <Setter Property="Padding" Value="0,5" />
         <Style.Triggers>
             <MultiDataTrigger>
@@ -78,10 +70,9 @@
             </MultiDataTrigger>
         </Style.Triggers>
     </Style>
-    <Style
-        x:Key="CMFT.DataGrid.Cell.Vertical.NoPadding"
-        BasedOn="{StaticResource CMFT.DataGrid.Cell}"
-        TargetType="DataGridCell">
+    <Style x:Key="CMFT.DataGrid.Cell.Vertical.NoPadding"
+           BasedOn="{StaticResource CMFT.DataGrid.Cell}"
+           TargetType="DataGridCell">
         <Setter Property="Padding" Value="0" />
         <Style.Triggers>
             <MultiDataTrigger>
@@ -94,20 +85,17 @@
         </Style.Triggers>
     </Style>
 
-    <Style
-        x:Key="CMFT.DataGrid.Row"
-        BasedOn="{StaticResource MaterialDesignDataGridRow}"
-        TargetType="{x:Type DataGridRow}" />
+    <Style x:Key="CMFT.DataGrid.Row"
+           BasedOn="{StaticResource MaterialDesignDataGridRow}"
+           TargetType="{x:Type DataGridRow}" />
 
-    <Style
-        x:Key="CMFT.DataGrid.RowHeader"
-        BasedOn="{StaticResource MaterialDesignDataGridRowHeader}"
-        TargetType="{x:Type DataGridRowHeader}" />
+    <Style x:Key="CMFT.DataGrid.RowHeader"
+           BasedOn="{StaticResource MaterialDesignDataGridRowHeader}"
+           TargetType="{x:Type DataGridRowHeader}" />
 
-    <Style
-        x:Key="CMFT.DataGrid.Element.TextBlock.Left"
-        BasedOn="{StaticResource MaterialDesignDataGridTextColumnStyle}"
-        TargetType="{x:Type TextBlock}">
+    <Style x:Key="CMFT.DataGrid.Element.TextBlock.Left"
+           BasedOn="{StaticResource MaterialDesignDataGridTextColumnStyle}"
+           TargetType="{x:Type TextBlock}">
         <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Foreground}" />
         <Setter Property="FontSize" Value="{DynamicResource DataGridFontSize}" />
         <Setter Property="VerticalAlignment" Value="Center" />
@@ -118,29 +106,25 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    <Style
-        x:Key="CMFT.DataGrid.Element.TextBlock.Left.SmallFontSize"
-        BasedOn="{StaticResource CMFT.DataGrid.Element.TextBlock.Left}"
-        TargetType="{x:Type TextBlock}">
+    <Style x:Key="CMFT.DataGrid.Element.TextBlock.Left.SmallFontSize"
+           BasedOn="{StaticResource CMFT.DataGrid.Element.TextBlock.Left}"
+           TargetType="{x:Type TextBlock}">
         <Setter Property="FontSize" Value="{DynamicResource DataGridContentSize}" />
     </Style>
-    <Style
-        x:Key="CMFT.DataGrid.Element.TextBlock.Center"
-        BasedOn="{StaticResource CMFT.DataGrid.Element.TextBlock.Left}"
-        TargetType="{x:Type TextBlock}">
+    <Style x:Key="CMFT.DataGrid.Element.TextBlock.Center"
+           BasedOn="{StaticResource CMFT.DataGrid.Element.TextBlock.Left}"
+           TargetType="{x:Type TextBlock}">
         <Setter Property="HorizontalAlignment" Value="Center" />
     </Style>
-    <Style
-        x:Key="CMFT.DataGrid.Element.TextBlock.Center.SmallFontSize"
-        BasedOn="{StaticResource CMFT.DataGrid.Element.TextBlock.Left}"
-        TargetType="{x:Type TextBlock}">
+    <Style x:Key="CMFT.DataGrid.Element.TextBlock.Center.SmallFontSize"
+           BasedOn="{StaticResource CMFT.DataGrid.Element.TextBlock.Left}"
+           TargetType="{x:Type TextBlock}">
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="FontSize" Value="{DynamicResource DataGridContentSize}" />
     </Style>
-    <Style
-        x:Key="CMFT.DataGrid.Element.ComboBox.Left"
-        BasedOn="{StaticResource MaterialDesignDataGridComboBox}"
-        TargetType="ComboBox">
+    <Style x:Key="CMFT.DataGrid.Element.ComboBox.Left"
+           BasedOn="{StaticResource MaterialDesignDataGridComboBox}"
+           TargetType="ComboBox">
         <Setter Property="Padding" Value="0,0,8,0" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="materialDesign:TextFieldAssist.HasClearButton" Value="False" />
@@ -158,10 +142,9 @@
         </Style.Triggers>
     </Style>
 
-    <Style
-        x:Key="CMFT.DataGrid"
-        BasedOn="{StaticResource MaterialDesignDataGrid}"
-        TargetType="{x:Type DataGrid}">
+    <Style x:Key="CMFT.DataGrid"
+           BasedOn="{StaticResource MaterialDesignDataGrid}"
+           TargetType="{x:Type DataGrid}">
         <Setter Property="materialDesign:DataGridAssist.CornerRadius" Value="0" />
         <Setter Property="GridLinesVisibility" Value="Horizontal" />
         <Setter Property="Background" Value="Transparent" />

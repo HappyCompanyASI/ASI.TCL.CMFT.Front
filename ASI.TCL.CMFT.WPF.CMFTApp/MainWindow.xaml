@@ -46,6 +46,9 @@
         <system:Double x:Key="CMFT.BottomDrawer.Button.Width">1830</system:Double>
         <system:Double x:Key="CMFT.BottomDrawer.Width">1830</system:Double>
         <system:Double x:Key="CMFT.BottomDrawer.Height">800</system:Double>
+
+        <Visibility x:Key="DrawerVisibility">Collapsed</Visibility>
+
     </Window.Resources>
     <Viewbox Stretch="Fill">
         <Grid Width="{StaticResource CMFT.Window.Width}" Height="{StaticResource CMFT.Window.Height}">
@@ -296,7 +299,8 @@
                                     Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                                     CommandParameter="{x:Static Dock.Left}"
                                     Content="事件告警"
-                                    ContentTemplate="{StaticResource CMFT.DataTemplate.EventAlarmDrawerButton}" />
+                                    ContentTemplate="{StaticResource CMFT.DataTemplate.EventAlarmDrawerButton}"
+                                    Visibility="{StaticResource DrawerVisibility}" />
                             <!--#endregion-->
 
                             <!--#region 下方視窗按鈕-->
@@ -312,7 +316,8 @@
                                     Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                                     CommandParameter="{x:Static Dock.Bottom}"
                                     Content="{Binding UnConfirmedEquipAlarmCount}"
-                                    ContentTemplate="{StaticResource CMFT.DataTemplate.EquipAlarmDrawerButton}" />
+                                    ContentTemplate="{StaticResource CMFT.DataTemplate.EquipAlarmDrawerButton}"
+                                    Visibility="{StaticResource DrawerVisibility}" />
                             <!--#endregion-->
 
                             <!--#region 右側視窗按鈕-->
@@ -327,7 +332,8 @@
                                     Command="{x:Static materialDesign:DrawerHost.OpenDrawerCommand}"
                                     CommandParameter="{x:Static Dock.Right}"
                                     Content="直線電話"
-                                    ContentTemplate="{StaticResource CMFT.DataTemplate.DLTDrawerButton}" />
+                                    ContentTemplate="{StaticResource CMFT.DataTemplate.DLTDrawerButton}"
+                                    Visibility="{StaticResource DrawerVisibility}" />
                             <!--#endregion-->
 
                         </Grid>
@@ -337,7 +343,7 @@
 
                     <!--#region 左側視窗-->
                     <materialDesign:DrawerHost.LeftDrawerContent>
-                        <Grid VerticalAlignment="Center">
+                        <Grid VerticalAlignment="Center" Visibility="Collapsed">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
                                 <ColumnDefinition Width="Auto" />

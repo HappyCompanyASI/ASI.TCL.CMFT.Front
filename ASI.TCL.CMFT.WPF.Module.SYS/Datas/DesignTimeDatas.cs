@@ -26,6 +26,7 @@ namespace ASI.TCL.CMFT.WPF.Module.SYS.Datas
         public static IEnumerable<SYSOperationLogDto> SYSOperationLogs { get; private set; } = GenerateSYSOperationLogs();
         public static IEnumerable<SYSConsoleStateDto> SYSConsoleStates { get; private set; } = GenerateSYSConsoleStates();
         public static IEnumerable<string> DMDBlockList { get; private set; } = GenerateDMDBlockList();
+
         private static IEnumerable<eSystemType> GenerateSystemTypes()
         {
             return Enum.GetValues(typeof(eSystemType)).Cast<eSystemType>();

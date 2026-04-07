@@ -11,7 +11,7 @@ using Prism.Services.Dialogs;
 
 namespace ASI.TCL.CMFT.WPF.Module.Alarm.ViewModels
 {
-    public class EventAlarmMainViewModel : BindableBase, IRegionMemberLifetime
+    public class EventAlarmViewModel : BindableBase, IRegionMemberLifetime
     {
         public bool KeepAlive => false;
 
@@ -22,10 +22,10 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.ViewModels
 
 
         #region Constructors
-        public EventAlarmMainViewModel()
+        public EventAlarmViewModel()
         {
         }
-        public EventAlarmMainViewModel( IDialogService dialogService, IEventAggregator eventAggregator)
+        public EventAlarmViewModel( IDialogService dialogService, IEventAggregator eventAggregator)
         {
             
             _dialogService = dialogService;

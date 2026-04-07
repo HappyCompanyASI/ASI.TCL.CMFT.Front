@@ -34,16 +34,16 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
         {
             var temp = new List<SYSEquipTypeDto>()
             {
-                new SYSEquipTypeDto(){ SystemType = eSystemType.點矩陣,  EquipType = "伺服器" },//0
-                new SYSEquipTypeDto(){ SystemType = eSystemType.點矩陣,  EquipType = "工作站主機" },//1
-                new SYSEquipTypeDto(){ SystemType = eSystemType.點矩陣,  EquipType = "大廳層點矩陣顯示器" },//2
-                new SYSEquipTypeDto(){ SystemType = eSystemType.點矩陣,  EquipType = "單面點矩陣顯示器" },//3
-                new SYSEquipTypeDto(){ SystemType = eSystemType.點矩陣,  EquipType = "月臺層點矩陣顯示器" },//4
-                new SYSEquipTypeDto(){ SystemType = eSystemType.車站廣播,  EquipType = "伺服器" },//5
-                new SYSEquipTypeDto(){ SystemType = eSystemType.車站廣播,  EquipType = "消防主機" },//6
-                new SYSEquipTypeDto(){ SystemType = eSystemType.車站廣播,  EquipType = "廣播主機" },//7
-                new SYSEquipTypeDto(){ SystemType = eSystemType.車站廣播,  EquipType = "擴大機1" },//8
-                new SYSEquipTypeDto(){ SystemType = eSystemType.車站廣播,  EquipType = "PAO廣播控制面盤" },//9
+                new(){ SystemType = eSystemType.點矩陣,  EquipType = "伺服器" },//0
+                new(){ SystemType = eSystemType.點矩陣,  EquipType = "工作站主機" },//1
+                new(){ SystemType = eSystemType.點矩陣,  EquipType = "大廳層點矩陣顯示器" },//2
+                new(){ SystemType = eSystemType.點矩陣,  EquipType = "單面點矩陣顯示器" },//3
+                new(){ SystemType = eSystemType.點矩陣,  EquipType = "月臺層點矩陣顯示器" },//4
+                new(){ SystemType = eSystemType.車站廣播,  EquipType = "伺服器" },//5
+                new(){ SystemType = eSystemType.車站廣播,  EquipType = "消防主機" },//6
+                new(){ SystemType = eSystemType.車站廣播,  EquipType = "廣播主機" },//7
+                new(){ SystemType = eSystemType.車站廣播,  EquipType = "擴大機1" },//8
+                new(){ SystemType = eSystemType.車站廣播,  EquipType = "PAO廣播控制面盤" },//9
             };
             return temp;
         }
@@ -52,11 +52,11 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
             var sysEquipTypes = SYSEquipTypes.ToList();
             var temp = new List<SYSEquipDto>()
             {
-                new SYSEquipDto(){ EquipID = "DMD-001", EquipTypes = sysEquipTypes[0],  RegionID = "Y06", RegionName = "大坪林", AreaName="頂版層", PlaceName="通訊維修員工室" },
-                new SYSEquipDto(){ EquipID = "PA-001", EquipTypes = sysEquipTypes[7],  RegionID = "Y06", RegionName = "大坪林", AreaName="頂版層", PlaceName="通訊維修員工室"},
-                new SYSEquipDto(){ EquipID = "PA-002", EquipTypes = sysEquipTypes[9],  RegionID = "Y06", RegionName = "大坪林", AreaName="頂版層", PlaceName="通訊維修員工室"},
-                new SYSEquipDto(){ EquipID = "DMD-002", EquipTypes = sysEquipTypes[1],  RegionID = "Y06", RegionName = "大坪林", AreaName="大廳層", PlaceName="服務台" },
-                new SYSEquipDto(){ EquipID = "PA-003", EquipTypes = sysEquipTypes[8],  RegionID = "Y06", RegionName = "大坪林", AreaName="月台層", PlaceName="廣播室" },
+                new(){ EquipID = "DMD-001", EquipTypes = sysEquipTypes[0],  RegionID = "Y06", RegionName = "大坪林", AreaName="頂版層", PlaceName="通訊維修員工室" },
+                new(){ EquipID = "PA-001", EquipTypes = sysEquipTypes[7],  RegionID = "Y06", RegionName = "大坪林", AreaName="頂版層", PlaceName="通訊維修員工室"},
+                new(){ EquipID = "PA-002", EquipTypes = sysEquipTypes[9],  RegionID = "Y06", RegionName = "大坪林", AreaName="頂版層", PlaceName="通訊維修員工室"},
+                new(){ EquipID = "DMD-002", EquipTypes = sysEquipTypes[1],  RegionID = "Y06", RegionName = "大坪林", AreaName="大廳層", PlaceName="服務台" },
+                new(){ EquipID = "PA-003", EquipTypes = sysEquipTypes[8],  RegionID = "Y06", RegionName = "大坪林", AreaName="月台層", PlaceName="廣播室" },
             };
             return temp;
         }
@@ -64,13 +64,13 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
         {
             var temp = new List<SYSConsoleDto>()
             {
-                new SYSConsoleDto() { Id = Guid.NewGuid().ToString(), SystemID = "Console1", ConsoleName = "通訊多功能操作台1", IPAddress = "10.7.0.51", DLTNumber ="2301", TetraNumber = "51001", SetupLocation = "行控中心", SeatName = "正線控制1" },
-                new SYSConsoleDto() { Id = Guid.NewGuid().ToString(), SystemID = "Console2", ConsoleName = "通訊多功能操作台2", IPAddress = "10.7.0.52", DLTNumber ="2302", TetraNumber = "51002", SetupLocation = "行控中心", SeatName = "正線控制2" },
-                new SYSConsoleDto() { Id = Guid.NewGuid().ToString(), SystemID = "Console3", ConsoleName = "通訊多功能操作台3", IPAddress = "10.7.0.53", DLTNumber ="2303", TetraNumber = "51003", SetupLocation = "行控中心", SeatName = "車站/電力控制" },
-                new SYSConsoleDto() { Id = Guid.NewGuid().ToString(), SystemID = "Console4", ConsoleName = "通訊多功能操作台4", IPAddress = "10.7.0.54", DLTNumber ="2304", TetraNumber = "51004", SetupLocation = "行控中心", SeatName = "南機廠控制" },
-                new SYSConsoleDto() { Id = Guid.NewGuid().ToString(), SystemID = "Console5", ConsoleName = "通訊多功能操作台5", IPAddress = "10.7.0.55", DLTNumber ="2305", TetraNumber = "51005", SetupLocation = "行控中心", SeatName = "主任控制" },
-                new SYSConsoleDto() { Id = Guid.NewGuid().ToString(), SystemID = "Console6", ConsoleName = "通訊多功能操作台6", IPAddress = "10.7.0.56", DLTNumber ="2306", TetraNumber = "51006", SetupLocation = "通訊維修室", SeatName = "通訊維修" },
-                new SYSConsoleDto() { Id = Guid.NewGuid().ToString(), SystemID = "Console7", ConsoleName = "通訊多功能操作台7", IPAddress = "10.7.0.57", DLTNumber ="2307", TetraNumber = "51007", SetupLocation = "測試軌控制室", SeatName = "測試軌控制" },
+                new() { Id = Guid.NewGuid().ToString(), SystemID = "Console1", ConsoleName = "通訊多功能操作台1", IPAddress = "10.7.0.51", DLTNumber ="2301", TetraNumber = "51001", SetupLocation = "行控中心", SeatName = "正線控制1" },
+                new() { Id = Guid.NewGuid().ToString(), SystemID = "Console2", ConsoleName = "通訊多功能操作台2", IPAddress = "10.7.0.52", DLTNumber ="2302", TetraNumber = "51002", SetupLocation = "行控中心", SeatName = "正線控制2" },
+                new() { Id = Guid.NewGuid().ToString(), SystemID = "Console3", ConsoleName = "通訊多功能操作台3", IPAddress = "10.7.0.53", DLTNumber ="2303", TetraNumber = "51003", SetupLocation = "行控中心", SeatName = "車站/電力控制" },
+                new() { Id = Guid.NewGuid().ToString(), SystemID = "Console4", ConsoleName = "通訊多功能操作台4", IPAddress = "10.7.0.54", DLTNumber ="2304", TetraNumber = "51004", SetupLocation = "行控中心", SeatName = "南機廠控制" },
+                new() { Id = Guid.NewGuid().ToString(), SystemID = "Console5", ConsoleName = "通訊多功能操作台5", IPAddress = "10.7.0.55", DLTNumber ="2305", TetraNumber = "51005", SetupLocation = "行控中心", SeatName = "主任控制" },
+                new() { Id = Guid.NewGuid().ToString(), SystemID = "Console6", ConsoleName = "通訊多功能操作台6", IPAddress = "10.7.0.56", DLTNumber ="2306", TetraNumber = "51006", SetupLocation = "通訊維修室", SeatName = "通訊維修" },
+                new() { Id = Guid.NewGuid().ToString(), SystemID = "Console7", ConsoleName = "通訊多功能操作台7", IPAddress = "10.7.0.57", DLTNumber ="2307", TetraNumber = "51007", SetupLocation = "測試軌控制室", SeatName = "測試軌控制" },
             };
             return temp;
         }
@@ -80,28 +80,23 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
             
             var temp = new List<SYSOperationLogDto>()
             {
-                new SYSOperationLogDto() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = "admin0" , UserName = "名稱0" ,Console = consoles[0], SystemType = eSystemType.點矩陣,  Content ="發送即時訊息" },
-                new SYSOperationLogDto() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = "admin0" , UserName = "名稱0" ,Console = consoles[0], SystemType = eSystemType.點矩陣,  Content ="發送預路訊息" },
-                new SYSOperationLogDto() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = "admin0" , UserName = "名稱0" ,Console = consoles[0], SystemType = eSystemType.點矩陣,  Content ="發送即時訊息" },
-                new SYSOperationLogDto() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = "admin0" , UserName = "名稱0" ,Console = consoles[0], SystemType = eSystemType.點矩陣,  Content ="修改ATS訊息設定" },
-                new SYSOperationLogDto() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = "admin0" , UserName = "名稱0" ,Console = consoles[0], SystemType = eSystemType.點矩陣,  Content ="發送預錄訊息" },
-                new SYSOperationLogDto() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = "admin0" , UserName = "名稱0" ,Console = consoles[1], SystemType = eSystemType.車站廣播,  Content ="發送預錄廣播" },
-                new SYSOperationLogDto() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = "admin0" , UserName = "名稱0" ,Console = consoles[2], SystemType = eSystemType.車站廣播,  Content ="發送預錄廣播" },
+                new() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = "admin0" , UserName = "名稱0" ,Console = consoles[0], SystemType = eSystemType.點矩陣,  Content ="發送即時訊息" },
+                new() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = "admin0" , UserName = "名稱0" ,Console = consoles[0], SystemType = eSystemType.點矩陣,  Content ="發送預路訊息" },
+                new() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = "admin0" , UserName = "名稱0" ,Console = consoles[0], SystemType = eSystemType.點矩陣,  Content ="發送即時訊息" },
+                new() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = "admin0" , UserName = "名稱0" ,Console = consoles[0], SystemType = eSystemType.點矩陣,  Content ="修改ATS訊息設定" },
+                new() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = "admin0" , UserName = "名稱0" ,Console = consoles[0], SystemType = eSystemType.點矩陣,  Content ="發送預錄訊息" },
+                new() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = "admin0" , UserName = "名稱0" ,Console = consoles[1], SystemType = eSystemType.車站廣播,  Content ="發送預錄廣播" },
+                new() { Id = Guid.NewGuid().ToString(), EventTime = DateTime.Today, UserID = "admin0" , UserName = "名稱0" ,Console = consoles[2], SystemType = eSystemType.車站廣播,  Content ="發送預錄廣播" },
             };
             return temp;
-
-
-
         }
         private static IEnumerable<AlarmLevelDefineDto> GenerateAlarmLevelDefines()
         {
             var temp = new List<AlarmLevelDefineDto>()
             {
-                new AlarmLevelDefineDto() { AlarmLevel = eAlarmLevel.緊急, IsNeedConfirm = true, Color  = "#ff0000", AlarmSound = eAlarmSound.警示音1, IsFlashing = true, IsToSCADA = true },
-                new AlarmLevelDefineDto() { AlarmLevel = eAlarmLevel.高  , IsNeedConfirm = true, Color  = "#ffff00", AlarmSound = eAlarmSound.警示音2, IsFlashing = true, IsToSCADA = true },
-                new AlarmLevelDefineDto() { AlarmLevel = eAlarmLevel.中  , IsNeedConfirm = true, Color  = "#ffa500", AlarmSound = eAlarmSound.警示音3, IsFlashing = true, IsToSCADA = true },
-                new AlarmLevelDefineDto() { AlarmLevel = eAlarmLevel.低  , IsNeedConfirm = false, Color = "#00ffff", AlarmSound = eAlarmSound.警示音4, IsFlashing = false, IsToSCADA = true  },
-                new AlarmLevelDefineDto() { AlarmLevel = eAlarmLevel.普通, IsNeedConfirm = false, Color  = "#ffffff", AlarmSound = eAlarmSound.無警示音, IsFlashing = false, IsToSCADA = true },
+                new() { AlarmLevel = eAlarmLevel.重大, IsNeedConfirm = true, Color  = "#ff0000", AlarmSound = eAlarmSound.警示音1, IsFlashing = true, IsToSCADA = true },
+                new() { AlarmLevel = eAlarmLevel.中度  , IsNeedConfirm = true, Color  = "#ffff00", AlarmSound = eAlarmSound.警示音2, IsFlashing = true, IsToSCADA = true },
+                new() { AlarmLevel = eAlarmLevel.輕微  , IsNeedConfirm = true, Color  = "#ffa500", AlarmSound = eAlarmSound.警示音3, IsFlashing = true, IsToSCADA = true },
             };
             return temp;
         }
@@ -117,37 +112,73 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
 
             var temp = new List<EquipAlarmTypeDefineDto>()
             {
-                new EquipAlarmTypeDefineDto { EquipAlarmTypeID = "PA-001", EquipType = sysEquipTypes[7], Description = "廣播主機發生錯誤", DescriptionENG = "PA error", PossibleReason = "廣播主機故障。", PossibleReasonENG = "PA error", AlarmLevelDefine = alarmLevelDefines[0] },
-                new EquipAlarmTypeDefineDto { EquipAlarmTypeID = "PA-002", EquipType = sysEquipTypes[6], Description = "消防主機", DescriptionENG = "消防主機錯誤", PossibleReason = "消防主機錯誤", PossibleReasonENG = "消防主機錯誤", AlarmLevelDefine = alarmLevelDefines[1] },
-                new EquipAlarmTypeDefineDto { EquipAlarmTypeID = "PA-003", EquipType = sysEquipTypes[9], Description = "PAO廣播控制面盤錯誤", DescriptionENG = "PAO廣播控制面盤錯誤", PossibleReason = "廣播主機發生錯誤", PossibleReasonENG = "廣播主機發生錯誤", AlarmLevelDefine = alarmLevelDefines[2] },
-                new EquipAlarmTypeDefineDto { EquipAlarmTypeID = "PA-004", EquipType = sysEquipTypes[0], Description = "伺服器控制面盤錯誤", DescriptionENG = "伺服器控制面盤錯誤", PossibleReason = "伺服器發生錯誤", PossibleReasonENG = "伺服器發生錯誤", AlarmLevelDefine = alarmLevelDefines[3] },
-                new EquipAlarmTypeDefineDto { EquipAlarmTypeID = "PA-005", EquipType = sysEquipTypes[1], Description = "工作站控制面盤錯誤", DescriptionENG = "工作站控制面盤錯誤", PossibleReason = "工作站主機發生錯誤", PossibleReasonENG = "工作站主機發生錯誤", AlarmLevelDefine = alarmLevelDefines[4] }
+                new() { EquipAlarmTypeID = "PA-001", EquipType = sysEquipTypes[7], Description = "廣播主機發生錯誤", DescriptionENG = "PA error", PossibleReason = "廣播主機故障。", PossibleReasonENG = "PA error", AlarmLevelDefine = alarmLevelDefines[0] },
+                new() { EquipAlarmTypeID = "PA-002", EquipType = sysEquipTypes[6], Description = "消防主機", DescriptionENG = "消防主機錯誤", PossibleReason = "消防主機錯誤", PossibleReasonENG = "消防主機錯誤", AlarmLevelDefine = alarmLevelDefines[1] },
+                new() { EquipAlarmTypeID = "PA-003", EquipType = sysEquipTypes[9], Description = "PAO廣播控制面盤錯誤", DescriptionENG = "PAO廣播控制面盤錯誤", PossibleReason = "廣播主機發生錯誤", PossibleReasonENG = "廣播主機發生錯誤", AlarmLevelDefine = alarmLevelDefines[1] },
+                new() { EquipAlarmTypeID = "PA-004", EquipType = sysEquipTypes[0], Description = "伺服器控制面盤錯誤", DescriptionENG = "伺服器控制面盤錯誤", PossibleReason = "伺服器發生錯誤", PossibleReasonENG = "伺服器發生錯誤", AlarmLevelDefine = alarmLevelDefines[0] },
+                new() { EquipAlarmTypeID = "PA-005", EquipType = sysEquipTypes[1], Description = "工作站控制面盤錯誤", DescriptionENG = "工作站控制面盤錯誤", PossibleReason = "工作站主機發生錯誤", PossibleReasonENG = "工作站主機發生錯誤", AlarmLevelDefine = alarmLevelDefines[2] }
             };
 
             return temp;
         }
         private static IEnumerable<EquipAlarmDto> GenerateEquipAlarmInfos()
         {
-            var equip = SYSEquips.ToList();
-            var alarmdefines = EquipAlarmTypeDefines.ToList();
+            // 準備容器
+            var temp = new List<EquipAlarmDto>();
+            var now = DateTime.Now;
 
-            var temp = new List<EquipAlarmDto>()
+            // 定義三種等級
+            var levels = new[] { eAlarmLevel.重大, eAlarmLevel.中度, eAlarmLevel.輕微 };
+
+            // 定義四種狀態組合 (解除狀態, 確認狀態)
+            var states = new[]
             {
-                new EquipAlarmDto(){AlarmTime = DateTime.Today, ReleaseTime = DateTime.Today, ConfirmedTime = DateTime.Today, ConfirmedUserID = "admin0", ConfirmedUserName = "名稱0", Equip = equip[0], AlarmDefine = alarmdefines[0] ,IsConfirmed = false},
-                new EquipAlarmDto(){AlarmTime = DateTime.Today, ReleaseTime = DateTime.Today, ConfirmedTime = DateTime.Today, ConfirmedUserID = "admin1", ConfirmedUserName = "名稱1", Equip = equip[1], AlarmDefine = alarmdefines[1] ,IsConfirmed = false},
-                new EquipAlarmDto(){AlarmTime = DateTime.Today, ReleaseTime = DateTime.Today, ConfirmedTime = DateTime.Today, ConfirmedUserID = "admin2", ConfirmedUserName = "名稱2", Equip = equip[2], AlarmDefine = alarmdefines[2] ,IsConfirmed = true},
-                new EquipAlarmDto(){AlarmTime = DateTime.Today, ReleaseTime = DateTime.Today, ConfirmedTime = DateTime.Today, ConfirmedUserID = "admin3", ConfirmedUserName = "名稱3", Equip = equip[3], AlarmDefine = alarmdefines[3], IsConfirmed = true},
-                new EquipAlarmDto(){AlarmTime = DateTime.Today, ReleaseTime = DateTime.Today, ConfirmedTime = DateTime.Today, ConfirmedUserID = "admin4", ConfirmedUserName = "名稱4", Equip = equip[4], AlarmDefine = alarmdefines[4], IsConfirmed = true},
+                new { IsReleased = false, IsConfirmed = false, Desc = "未解除/未確認 (閃爍)" },
+                new { IsReleased = false, IsConfirmed = true,  Desc = "未解除/已確認 (靜態底色)" },
+                new { IsReleased = true,  IsConfirmed = false, Desc = "已解除/未確認 (灰底分色字)" },
+                new { IsReleased = true,  IsConfirmed = true,  Desc = "已解除/已確認 (正常結案)" }
             };
-                return temp;
+
+            int index = 1;
+            foreach (var state in states)
+            {
+                foreach (var level in levels)
+                {
+                    temp.Add(new EquipAlarmDto()
+                    {
+                        Id = index.ToString(),
+                        AlarmLevel = level,
+                        // 處理解除時間：未解除則給 null，已解除則給現在時間
+                        ReleaseTime = state.IsReleased ? now : (DateTime?)null,
+                        // 處理確認狀態
+                        IsConfirmed = state.IsConfirmed,
+                        ConfirmedUserName = state.IsConfirmed ? "Admin" : string.Empty,
+
+                        // 輔助資訊
+                        AlarmTime = now.AddHours(-1),
+                        SystemType = "OCC",
+                        EquipDescription = $"設備-{index:00}",
+                        AlarmDescription = $"[{level}] {state.Desc}",
+
+                        // 如果你的 Style 有用到 ConfirmedTime，也要記得給值
+                        ConfirmedTime = state.IsConfirmed ? now : (DateTime?)null
+                    });
+                    index++;
+                }
             }
+
+            // 最後將資料掛載到 UI 綁定的 Collection
+            // this.EquipAlarmList = new ObservableCollection<EquipAlarmDto>(temp);
+
+            return temp;
+        }
         private static IEnumerable<EventAlarmTypeDefineDto> GenerateEventAlarmTypeDefines()
         {
             var alarmLevelDefines = AlarmLevelDefines.ToList();
 
             var temp = new List<EventAlarmTypeDefineDto>()
             {
-                new EventAlarmTypeDefineDto
+                new()
                 {
                     EventAlarmTypeID = "EVT-001",
                     Description = "車廂監視器異常",
@@ -156,7 +187,7 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
                     PossibleReasonENG = "Camera hardware failure or connection lost",
                     AlarmLevelDefine = alarmLevelDefines[0]
                 },
-                new EventAlarmTypeDefineDto
+                new()
                 {
                     EventAlarmTypeID = "EVT-002",
                     Description = "列車通訊中斷",
@@ -165,7 +196,7 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
                     PossibleReasonENG = "Communication module failure or signal interference",
                     AlarmLevelDefine = alarmLevelDefines[1]
                 },
-                new EventAlarmTypeDefineDto
+                new()
                 {
                     EventAlarmTypeID = "EVT-003",
                     Description = "車門無法正常開關",
@@ -174,7 +205,7 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
                     PossibleReasonENG = "Door mechanism stuck or control circuit failure",
                     AlarmLevelDefine = alarmLevelDefines[2]
                 },
-                new EventAlarmTypeDefineDto
+                new()
                 {
                     EventAlarmTypeID = "EVT-004",
                     Description = "煞車系統壓力異常",
@@ -183,16 +214,16 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
                     PossibleReasonENG = "Brake line leak or compressor failure",
                     AlarmLevelDefine = alarmLevelDefines[0]
                 },
-                new EventAlarmTypeDefineDto
+                new()
                 {
                     EventAlarmTypeID = "EVT-005",
                     Description = "空調溫度控制異常",
                     DescriptionENG = "Air conditioning temperature control abnormal",
                     PossibleReason = "溫控感測器故障或冷媒不足",
                     PossibleReasonENG = "Temperature sensor failure or refrigerant insufficient",
-                    AlarmLevelDefine = alarmLevelDefines[3]
+                    AlarmLevelDefine = alarmLevelDefines[1]
                 },
-                new EventAlarmTypeDefineDto
+                new()
                 {
                     EventAlarmTypeID = "EVT-006",
                     Description = "牽引馬達過熱",
@@ -201,16 +232,16 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
                     PossibleReasonENG = "Motor overload or cooling system failure",
                     AlarmLevelDefine = alarmLevelDefines[1]
                 },
-                new EventAlarmTypeDefineDto
+                new()
                 {
                     EventAlarmTypeID = "EVT-007",
                     Description = "車廂照明異常",
                     DescriptionENG = "Car lighting abnormal",
                     PossibleReason = "LED燈具故障或電源供應異常",
                     PossibleReasonENG = "LED fixture failure or power supply abnormal",
-                    AlarmLevelDefine = alarmLevelDefines[4]
+                    AlarmLevelDefine = alarmLevelDefines[1]
                 },
-                new EventAlarmTypeDefineDto
+                new()
                 {
                     EventAlarmTypeID = "EVT-008",
                     Description = "集電弓接觸不良",
@@ -219,7 +250,7 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
                     PossibleReasonENG = "Pantograph wear or overhead line contact abnormal",
                     AlarmLevelDefine = alarmLevelDefines[0]
                 },
-                new EventAlarmTypeDefineDto
+                new()
                 {
                     EventAlarmTypeID = "EVT-009",
                     Description = "蓄電池電壓不足",
@@ -228,7 +259,7 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
                     PossibleReasonENG = "Battery aging or charging system failure",
                     AlarmLevelDefine = alarmLevelDefines[2]
                 },
-                new EventAlarmTypeDefineDto
+                new()
                 {
                     EventAlarmTypeID = "EVT-010",
                     Description = "緊急煞車系統啟動",
@@ -248,7 +279,7 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
 
             var temp = new List<EventAlarmDto>()
             {
-                new EventAlarmDto
+                new()
                 {
                     Id = Guid.NewGuid().ToString(),
                     AlarmTime = DateTime.Now.AddHours(-2),
@@ -265,7 +296,7 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
                     Remark = "前車廂監視設備",
                     AlarmDefine = alarmDefines[0]
                 },
-                new EventAlarmDto
+                new()
                 {
                     Id = Guid.NewGuid().ToString(),
                     AlarmTime = DateTime.Now.AddHours(-4),
@@ -282,7 +313,7 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
                     Remark = "主要通訊設備",
                     AlarmDefine = alarmDefines[1]
                 },
-                new EventAlarmDto
+                new()
                 {
                     Id = Guid.NewGuid().ToString(),
                     AlarmTime = DateTime.Now.AddHours(-6),
@@ -299,7 +330,7 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
                     Remark = "左側車門",
                     AlarmDefine = alarmDefines[2]
                 },
-                new EventAlarmDto
+                new()
                 {
                     Id = Guid.NewGuid().ToString(),
                     AlarmTime = DateTime.Now.AddMinutes(-30),
@@ -316,7 +347,7 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
                     Remark = "主煞車系統",
                     AlarmDefine = alarmDefines[3]
                 },
-                new EventAlarmDto
+                new()
                 {
                     Id = Guid.NewGuid().ToString(),
                     AlarmTime = DateTime.Now.AddHours(-8),
@@ -333,7 +364,7 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
                     Remark = "車廂空調",
                     AlarmDefine = alarmDefines[4]
                 },
-                new EventAlarmDto
+                new()
                 {
                     Id = Guid.NewGuid().ToString(),
                     AlarmTime = DateTime.Now.AddHours(-1),
@@ -350,7 +381,7 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
                     Remark = "主牽引馬達",
                     AlarmDefine = alarmDefines[5]
                 },
-                new EventAlarmDto
+                new()
                 {
                     Id = Guid.NewGuid().ToString(),
                     AlarmTime = DateTime.Now.AddDays(-1),
@@ -367,7 +398,7 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
                     Remark = "車廂照明",
                     AlarmDefine = alarmDefines[6]
                 },
-                new EventAlarmDto
+                new()
                 {
                     Id = Guid.NewGuid().ToString(),
                     AlarmTime = DateTime.Now.AddMinutes(-15),
@@ -384,7 +415,7 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
                     Remark = "主集電弓",
                     AlarmDefine = alarmDefines[7]
                 },
-                new EventAlarmDto
+                new()
                 {
                     Id = Guid.NewGuid().ToString(),
                     AlarmTime = DateTime.Now.AddHours(-12),
@@ -401,7 +432,7 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
                     Remark = "備用電源",
                     AlarmDefine = alarmDefines[8]
                 },
-                new EventAlarmDto
+                new()
                 {
                     Id = Guid.NewGuid().ToString(),
                     AlarmTime = DateTime.Now.AddMinutes(-45),
@@ -426,31 +457,31 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
         {
             var temp = new List<SYSTrainDto>()
             {
-               new SYSTrainDto() { TrainNumber = "V01"  },
-               new SYSTrainDto() { TrainNumber = "V02"  },
-               new SYSTrainDto() { TrainNumber = "V03"  },
-               new SYSTrainDto() { TrainNumber = "V04"  },
-               new SYSTrainDto() { TrainNumber = "V05"  },
-               new SYSTrainDto() { TrainNumber = "V06"  },
-               new SYSTrainDto() { TrainNumber = "V07"  },
-               new SYSTrainDto() { TrainNumber = "V08"  },
-               new SYSTrainDto() { TrainNumber = "V09"  },
-               new SYSTrainDto() { TrainNumber = "V10"  },
-               new SYSTrainDto() { TrainNumber = "V11"  },
-               new SYSTrainDto() { TrainNumber = "V12"  },
-               new SYSTrainDto() { TrainNumber = "V13"  },
-               new SYSTrainDto() { TrainNumber = "V14"  },
-               new SYSTrainDto() { TrainNumber = "V15"  },
-               new SYSTrainDto() { TrainNumber = "V16"  },
-               new SYSTrainDto() { TrainNumber = "V17"  },
-               new SYSTrainDto() { TrainNumber = "V18"  },
-               new SYSTrainDto() { TrainNumber = "V19"  },
-               new SYSTrainDto() { TrainNumber = "V20"  },
-               new SYSTrainDto() { TrainNumber = "V21"  },
-               new SYSTrainDto() { TrainNumber = "V22"  },
-               new SYSTrainDto() { TrainNumber = "V23"  },
-               new SYSTrainDto() { TrainNumber = "V24"  },
-               new SYSTrainDto() { TrainNumber = "V25"  },
+               new() { TrainNumber = "V01"  },
+               new() { TrainNumber = "V02"  },
+               new() { TrainNumber = "V03"  },
+               new() { TrainNumber = "V04"  },
+               new() { TrainNumber = "V05"  },
+               new() { TrainNumber = "V06"  },
+               new() { TrainNumber = "V07"  },
+               new() { TrainNumber = "V08"  },
+               new() { TrainNumber = "V09"  },
+               new() { TrainNumber = "V10"  },
+               new() { TrainNumber = "V11"  },
+               new() { TrainNumber = "V12"  },
+               new() { TrainNumber = "V13"  },
+               new() { TrainNumber = "V14"  },
+               new() { TrainNumber = "V15"  },
+               new() { TrainNumber = "V16"  },
+               new() { TrainNumber = "V17"  },
+               new() { TrainNumber = "V18"  },
+               new() { TrainNumber = "V19"  },
+               new() { TrainNumber = "V20"  },
+               new() { TrainNumber = "V21"  },
+               new() { TrainNumber = "V22"  },
+               new() { TrainNumber = "V23"  },
+               new() { TrainNumber = "V24"  },
+               new() { TrainNumber = "V25"  },
             };
 
             return temp;
