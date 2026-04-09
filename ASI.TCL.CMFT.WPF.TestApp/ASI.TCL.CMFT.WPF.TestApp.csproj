@@ -13,4 +13,8 @@
     <PackageReference Include="Prism.Unity" Version="8.1.97" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ASI.TCL.CMFT.WPF\ASI.TCL.CMFT.WPF.csproj" />
+  </ItemGroup>
+
 </Project>

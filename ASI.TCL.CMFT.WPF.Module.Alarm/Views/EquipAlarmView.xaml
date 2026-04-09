@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:datas="clr-namespace:ASI.TCL.CMFT.WPF.Module.Alarm.Datas"
              xmlns:mvvm="http://prismlibrary.com/"
              xmlns:viewModels="clr-namespace:ASI.TCL.CMFT.WPF.Module.Alarm.ViewModels"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
@@ -13,14 +12,20 @@
              mvvm:ViewModelLocator.AutoWireViewModel="True"
              Style="{StaticResource CMFT.UserControl}"
              mc:Ignorable="d">
-
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ASI.TCL.CMFT.WPF.Module.Alarm;component/Datas/DesignTimeDatas.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Grid>
+        <Grid Margin="5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
@@ -118,8 +123,9 @@
         </Grid>
 
         <DataGrid Grid.Row="1"
-                  d:ItemsSource="{x:Static datas:DesignTimeDatas.EquipAlarmInfos}"
+                  d:ItemsSource="{DynamicResource MockEquipAlarms}"
                   CellStyle="{StaticResource CMFT.DataGrid.DataGridRow.EquipAlarmCell}"
+                  FontSize="16"
                   FontWeight="Bold"
                   ItemsSource="{Binding EquipAlarms}"
                   RowStyle="{StaticResource CMFT.DataGrid.DataGridRow.EquipAlarmRow}"
@@ -163,17 +169,20 @@
                                     ElementStyle="{StaticResource CMFT.DataGrid.DataGridRow.EquipAlarmCell.Element.TextBlock.Left}"
                                     Header="確認人員" />
 
-                <DataGridTemplateColumn Header="">
+                <DataGridTemplateColumn Width="Auto" Header="">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <CheckBox Width="100" IsChecked="{Binding IsConfirmed, Mode=OneWay}">
+                            <CheckBox Cursor="Hand" IsChecked="{Binding IsConfirmed, Mode=OneWay}">
                                 <CheckBox.Style>
                                     <Style BasedOn="{StaticResource CMFT.ButtonBase.ButtonLike}" TargetType="CheckBox">
-                                        <Setter Property="IsThreeState" Value="True" />
-                                        <Setter Property="FontWeight" Value="Bold" />
-                                        <Setter Property="Foreground" Value="{DynamicResource AssitColor1}" />
-                                        <Setter Property="Background" Value="{StaticResource CMFT.Brush.Green.Mid}" />
                                         <Setter Property="BorderBrush" Value="{StaticResource CMFT.Brush.Green.Mid}" />
+                                        <Setter Property="Background" Value="{StaticResource CMFT.Brush.Green.Mid}" />
+                                        <Setter Property="Foreground" Value="{StaticResource CMFT.Brush.Light}" />
+
+                                        <Setter Property="FontWeight" Value="Bold" />
+
+                                        <Setter Property="IsThreeState" Value="True" />
+
                                         <Setter Property="Content" Value="確認警報" />
                                         <Setter Property="IsEnabled" Value="False" />
 

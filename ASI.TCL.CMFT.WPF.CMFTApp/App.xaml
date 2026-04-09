@@ -47,15 +47,15 @@
                 <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/TCLStyle.xaml" />
 
                 <!--  ASI.TCL.CMFT.WPF.Modules Resource  -->
-                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.SYS;component/Themes/DataTemplate.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.Alarm;component/Themes/DataTemplate.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.Auth;component/Themes/DataTemplate.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.CCTV;component/Themes/DataTemplate.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.DLTS;component/Themes/DataTemplate.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.DMD;component/Themes/DataTemplate.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.OTCS;component/Themes/DataTemplate.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.PA;component/Themes/DataTemplate.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.Tetra;component/Themes/DataTemplate.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.Alarm;component/Themes/ModuleResource.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.SYS;component/Themes/ModuleResource.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.Auth;component/Themes/ModuleResource.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.CCTV;component/Themes/ModuleResource.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.DLTS;component/Themes/ModuleResource.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.DMD;component/Themes/ModuleResource.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.OTCS;component/Themes/ModuleResource.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.PA;component/Themes/ModuleResource.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.Module.Tetra;component/Themes/ModuleResource.xaml" />
 
                 <!--  ASI.TCL.CMFT.WPF.CMFTApp Resource  -->
                 <ResourceDictionary Source="pack://application:,,,/Themes/DataTemplate.xaml" />

@@ -8,7 +8,6 @@
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
         Title="MaterialDesignInPrismUnity"
-        Width="800"
         Height="600"
         d:DataContext="{d:DesignInstance local:MainWindowViewModel,
                                          IsDesignTimeCreatable=True}"
@@ -19,10 +18,71 @@
     <Grid>
         <materialDesign:DialogHost>
             <materialDesign:DrawerHost x:Name="DrawerHost">
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <TextBlock Margin="0,0,0,16" Text="哈樓我是文字" />
-                    <Button Command="{Binding ButtonCommand}" Content="Button" />
+                <StackPanel>
+                    <GroupBox HorizontalAlignment="Left"
+                              VerticalAlignment="Center"
+                              Header="Button">
+                        <UniformGrid Columns="0"
+                                     Rows="1"
+                                     Style="{StaticResource UniformGridMargin3}">
+                            <UniformGrid Style="{StaticResource UniformGridMargin3}">
+                                <TextBlock Text="" />
+                                <TextBlock Text="Button" />
+                                <TextBlock Text="ToggleButton" />
+                                <TextBlock Text="RadioButton" />
+                                <TextBlock Text="" />
+                                <TextBlock Text="CheckBox" />
+                            </UniformGrid>
+                            <UniformGrid Style="{StaticResource UniformGridMargin3}">
+                                <TextBlock Text="WPF" />
+                                <Button Content="繁體中文GGGggg" Style="{StaticResource WPF.Button}" />
+                                <ToggleButton Content="繁體中文GGGggg" Style="{StaticResource WPF.ToggleButton}" />
+                                <RadioButton Content="繁體中文GGGggg" Style="{StaticResource WPF.RadioButton}" />
+                                <RadioButton Content="繁體中文GGGggg" Style="{StaticResource WPF.RadioButton}" />
+                                <CheckBox Content="繁體中文GGGggg" Style="{StaticResource WPF.CheckBox}" />
+                            </UniformGrid>
+                            <UniformGrid Style="{StaticResource UniformGridMargin3}">
+                                <TextBlock Text="CMFT" />
+                                <Button Content="繁體中文GGGggg" Style="{StaticResource CMFT.Button}" />
+                                <ToggleButton Style="{StaticResource CMFT.ToggleButton}" />
+                                <RadioButton Content="繁體中文GGGggg" Style="{StaticResource CMFT.RadioButton}" />
+                                <RadioButton Content="繁體中文GGGggg" Style="{StaticResource CMFT.RadioButton}" />
+                                <CheckBox Content="繁體中文GGGggg" Style="{StaticResource CMFT.CheckBox}" />
+                            </UniformGrid>
+                        </UniformGrid>
+                    </GroupBox>
+
+                    <GroupBox HorizontalAlignment="Left"
+                              VerticalAlignment="Center"
+                              Header="Button Like">
+                        <UniformGrid Columns="0"
+                                     Rows="1"
+                                     Style="{StaticResource UniformGridMargin3}">
+                            <UniformGrid Columns="1">
+                                <TextBlock Text="ToggleButton" />
+                                <TextBlock Text="RadioButton" />
+                                <TextBlock Text="" />
+                                <TextBlock Text="CheckBox" />
+                            </UniformGrid>
+
+                            <UniformGrid Style="{StaticResource UniformGridMargin3}">
+                                <ToggleButton Content="繁體中文GGGggg" Style="{StaticResource WPF.ToggleButton.ButtonLike}" />
+                                <RadioButton Content="繁體中文GGGggg" Style="{StaticResource WPF.RadioButton.ButtonLike}" />
+                                <RadioButton Content="繁體中文GGGggg" Style="{StaticResource WPF.RadioButton.ButtonLike}" />
+                                <CheckBox Content="繁體中文GGGggg" Style="{StaticResource WPF.CheckBox.ButtonLike}" />
+                            </UniformGrid>
+                            <UniformGrid Style="{StaticResource UniformGridMargin3}">
+                                <ToggleButton Content="繁體中文GGGggg" Style="{StaticResource CMFT.ToggleButton.ButtonLike}" />
+                                <RadioButton Content="繁體中文GGGggg" Style="{StaticResource CMFT.RadioButton.ButtonLike}" />
+                                <RadioButton Content="繁體中文GGGggg" Style="{StaticResource CMFT.RadioButton.ButtonLike}" />
+                                <CheckBox Content="繁體中文GGGggg" Style="{StaticResource CMFT.CheckBox.ButtonLike}" />
+                            </UniformGrid>
+
+                        </UniformGrid>
+                    </GroupBox>
+
                 </StackPanel>
+
             </materialDesign:DrawerHost>
         </materialDesign:DialogHost>
     </Grid>

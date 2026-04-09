@@ -11,7 +11,39 @@
                                                  SecondaryColor="#fb8c00" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml" />
                 <!--#endregion-->
-                <ResourceDictionary Source="pack://application:,,,/Window.xaml" />
+
+                <!--  ASI.CMFT.WPF Resource  -->
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/TextBlock.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Snackbar.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Panel.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Separator.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Contents.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/TabControl.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Control.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Window.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Fields.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/GridView.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/ColorTool.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Buttons.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Dialog.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Expander.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/ItemsControl.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/ListBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/ListView.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/DataGrid.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/DataTemplate.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Default.xaml" />
+
+
+
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/TCLStyle.xaml" />
+
+
+
+                <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF.TestApp;component/Themes/Window.xaml" />
+
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

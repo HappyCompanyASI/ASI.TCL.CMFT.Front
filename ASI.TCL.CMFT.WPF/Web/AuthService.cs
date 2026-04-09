@@ -1,21 +1,22 @@
-﻿namespace ASI.TCL.CMFT.WPF.Web;
-
-public class AuthService : IAuthService
+﻿namespace ASI.TCL.CMFT.WPF.Web
 {
-    private string _token;
-
-    public string GetToken()
+    public class AuthService : IAuthService
     {
-        return _token;
-    }
+        private string _token;
 
-    public void SetToken(string token)
-    {
-        _token = token;
-    }
+        public string GetToken()
+        {
+            return _token;
+        }
 
-    public void ClearToken()
-    {
-        _token = null;
+        public void SetToken(string token)
+        {
+            _token = token;
+        }
+
+        public void ClearToken()
+        {
+            _token = null;
+        }
     }
 }

@@ -14,12 +14,8 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.ViewModels
     public class EventAlarmViewModel : BindableBase, IRegionMemberLifetime
     {
         public bool KeepAlive => false;
-
-        
         private readonly IDialogService _dialogService;
-        
         private readonly IEventAggregator _eventAggregator;
-
 
         #region Constructors
         public EventAlarmViewModel()
@@ -30,7 +26,7 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.ViewModels
             _dialogService = dialogService;
             _eventAggregator = eventAggregator;
 
-            //InitDataAsync().Await(null, (ex) => throw ex);
+            InitDataAsync().Await(null, (ex) => throw ex);
         }
         #endregion
 
@@ -104,7 +100,8 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.ViewModels
         #region Private Methods
         private async Task InitDataAsync()
         {
-            EventAlarms = new ObservableCollection<EventAlarmDto>(DesignTimeDatas.EventAlarmInfos);
+            var data = await Task.Run(() => DesignTimeDatas.EventAlarms);
+            EventAlarms = new ObservableCollection<EventAlarmDto>(data);
         }
         #endregion
     }

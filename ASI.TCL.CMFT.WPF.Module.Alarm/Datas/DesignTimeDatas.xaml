@@ -1,0 +1,172 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:dtos="clr-namespace:ASI.TCL.CMFT.WPF.Module.Alarm.Dtos">
+
+    <x:Array x:Key="MockEquipAlarms" Type="{x:Type dtos:EquipAlarmDto}">
+
+        <dtos:EquipAlarmDto AlarmDescription="[重大] 未解除/未確認"
+                            AlarmLevel="重大"
+                            AlarmTime="2026-04-08T11:00:00"
+                            EquipDescription="OCC Disk Array FFF"
+                            Id="01"
+                            IsConfirmed="False"
+                            Location="OCC"
+                            ReleaseTime="{x:Null}"
+                            SystemType="CCTV" />
+
+        <dtos:EquipAlarmDto AlarmDescription="[中度] 未解除/未確認"
+                            AlarmLevel="中度"
+                            AlarmTime="2026-04-08T10:01:00"
+                            EquipDescription="Y29 PA Main"
+                            Id="02"
+                            IsConfirmed="False"
+                            Location="Y29"
+                            ReleaseTime="{x:Null}"
+                            SystemType="PA" />
+
+        <dtos:EquipAlarmDto AlarmDescription="[輕微] 未解除/未確認"
+                            AlarmLevel="輕微"
+                            AlarmTime="2026-04-08T10:02:00"
+                            EquipDescription="NVR D"
+                            Id="03"
+                            IsConfirmed="False"
+                            Location="Train19"
+                            ReleaseTime="{x:Null}"
+                            SystemType="OTCS" />
+
+        <dtos:EquipAlarmDto AlarmDescription="[重大] 未解除/已確認"
+                            AlarmLevel="重大"
+                            AlarmTime="2026-04-08T09:50:00"
+                            ConfirmedTime="2026-04-08T09:55:00"
+                            ConfirmedUserName="系統管理員"
+                            EquipDescription="設備-04"
+                            Id="04"
+                            IsConfirmed="True"
+                            Location="OCC"
+                            ReleaseTime="{x:Null}"
+                            SystemType="System" />
+
+        <dtos:EquipAlarmDto AlarmDescription="[中度] 未解除/已確認"
+                            AlarmLevel="中度"
+                            AlarmTime="2026-04-08T09:51:00"
+                            ConfirmedTime="2026-04-08T09:56:00"
+                            ConfirmedUserName="系統管理員"
+                            EquipDescription="設備-05"
+                            Id="05"
+                            IsConfirmed="True"
+                            Location="OCC"
+                            ReleaseTime="{x:Null}"
+                            SystemType="System" />
+
+        <dtos:EquipAlarmDto AlarmDescription="[輕微] 未解除/已確認"
+                            AlarmLevel="輕微"
+                            AlarmTime="2026-04-08T09:52:00"
+                            ConfirmedTime="2026-04-08T09:57:00"
+                            ConfirmedUserName="系統管理員"
+                            EquipDescription="設備-06"
+                            Id="06"
+                            IsConfirmed="True"
+                            Location="OCC"
+                            ReleaseTime="{x:Null}"
+                            SystemType="System" />
+
+        <dtos:EquipAlarmDto AlarmDescription="[重大] 已解除/未確認"
+                            AlarmLevel="重大"
+                            AlarmTime="2026-04-08T09:30:00"
+                            EquipDescription="設備-07"
+                            Id="07"
+                            IsConfirmed="False"
+                            Location="OCC"
+                            ReleaseTime="2026-04-08T10:00:00"
+                            SystemType="System" />
+
+        <dtos:EquipAlarmDto AlarmDescription="[中度] 已解除/未確認"
+                            AlarmLevel="中度"
+                            AlarmTime="2026-04-08T09:31:00"
+                            EquipDescription="設備-08"
+                            Id="08"
+                            IsConfirmed="False"
+                            Location="OCC"
+                            ReleaseTime="2026-04-08T10:01:00"
+                            SystemType="System" />
+
+        <dtos:EquipAlarmDto AlarmDescription="[輕微] 已解除/未確認"
+                            AlarmLevel="輕微"
+                            AlarmTime="2026-04-08T09:32:00"
+                            EquipDescription="設備-09"
+                            Id="09"
+                            IsConfirmed="False"
+                            Location="OCC"
+                            ReleaseTime="2026-04-08T10:02:00"
+                            SystemType="System" />
+
+        <dtos:EquipAlarmDto AlarmDescription="[重大] 已解除/已確認"
+                            AlarmLevel="重大"
+                            AlarmTime="2026-04-08T09:00:00"
+                            ConfirmedTime="2026-04-08T09:31:00"
+                            ConfirmedUserName="系統管理員"
+                            EquipDescription="設備-10"
+                            Id="10"
+                            IsConfirmed="True"
+                            Location="OCC"
+                            ReleaseTime="2026-04-08T09:30:00"
+                            SystemType="System" />
+
+        <dtos:EquipAlarmDto AlarmDescription="[中度] 已解除/已確認"
+                            AlarmLevel="中度"
+                            AlarmTime="2026-04-08T09:01:00"
+                            ConfirmedTime="2026-04-08T09:32:00"
+                            ConfirmedUserName="系統管理員"
+                            EquipDescription="設備-11"
+                            Id="11"
+                            IsConfirmed="True"
+                            Location="OCC"
+                            ReleaseTime="2026-04-08T09:31:00"
+                            SystemType="System" />
+
+        <dtos:EquipAlarmDto AlarmDescription="[輕微] 已解除/已確認"
+                            AlarmLevel="輕微"
+                            AlarmTime="2026-04-08T09:02:00"
+                            ConfirmedTime="2026-04-08T09:33:00"
+                            ConfirmedUserName="系統管理員"
+                            EquipDescription="設備-12"
+                            Id="12"
+                            IsConfirmed="True"
+                            Location="OCC"
+                            ReleaseTime="2026-04-08T09:32:00"
+                            SystemType="System" />
+    </x:Array>
+
+    <x:Array x:Key="MockEventAlarms" Type="{x:Type dtos:EventAlarmDto}">
+        <dtos:EventAlarmDto AlarmLevel="中度"
+                            AlarmTime="2026-04-08T13:00:00"
+                            CarNumber="CAR A"
+                            Description="緊急對講機(PIC)啟動"
+                            Train="V17" />
+
+        <dtos:EventAlarmDto AlarmLevel="重大"
+                            AlarmTime="2026-04-08T13:05:22"
+                            CarNumber="CAR A"
+                            Description="緊急疏散裝置觸發"
+                            Train="V09" />
+
+        <dtos:EventAlarmDto AlarmLevel="重大"
+                            AlarmTime="2026-04-08T13:10:45"
+                            CarNumber="CAR D"
+                            Description="車門釋放把手觸發"
+                            Train="V04" />
+
+        <dtos:EventAlarmDto AlarmLevel="重大"
+                            AlarmTime="2026-04-08T13:15:10"
+                            CarNumber="CAR C"
+                            Description="煙霧偵測器觸發"
+                            Train="V12" />
+
+        <dtos:EventAlarmDto AlarmLevel="重大"
+                            AlarmTime="2026-04-08T13:20:00"
+                            CarNumber="CAR B"
+                            Description="緊急逃生門開啟"
+                            Train="V01" />
+    </x:Array>
+
+</ResourceDictionary>

@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:dtos="clr-namespace:ASI.TCL.CMFT.WPF.Module.Alarm.Dtos"
              xmlns:viewModels="clr-namespace:ASI.TCL.CMFT.WPF.Module.Alarm.ViewModels"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              d:DataContext="{d:DesignInstance viewModels:EventAlarmViewModel,
@@ -12,91 +11,61 @@
              d:DesignWidth="1420"
              Style="{StaticResource CMFT.UserControl}"
              mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/ASI.TCL.CMFT.WPF.Module.Alarm;component/Datas/DesignTimeDatas.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="7*" />
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
-        <ListView x:Name="EventListView"
-                  Grid.Column="0"
-                  ItemContainerStyle="{StaticResource ListView.GridViewItem.Stretch}"
+
+        <DataGrid Grid.Row="0"
+                  d:ItemsSource="{DynamicResource MockEventAlarms}"
+                  CellStyle="{StaticResource CMFT.DataGrid.DataGridRow.EventAlarmCell}"
+                  Cursor="Hand"
+                  FontSize="16"
+                  FontWeight="Bold"
                   ItemsSource="{Binding EventAlarms}"
-                  ScrollViewer.VerticalScrollBarVisibility="Visible"
-                  SelectionMode="Single">
-            <ListView.View>
-                <GridView ColumnHeaderContainerStyle="{StaticResource GridView.ColumnHeader.Center}">
+                  RowStyle="{StaticResource CMFT.DataGrid.DataGridRow.EventAlarmRow}"
+                  ScrollViewer.CanContentScroll="False"
+                  Style="{StaticResource CMFT.DataGrid}">
 
-                    <GridViewColumn Header="發生時間">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate DataType="{x:Type dtos:EventAlarmDto}">
-                                <StackPanel Orientation="Vertical">
-                                    <TextBlock Style="{StaticResource GridView.Column.TextBlock.AlarmColor}" Text="{Binding AlarmTime, StringFormat='{}{0:yyyy/MM/dd}'}" />
-                                    <TextBlock Style="{StaticResource GridView.Column.TextBlock.AlarmColor}" Text="{Binding AlarmTime, StringFormat='{}{0:HH:mm:ss}'}" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="Auto"
+                                    Binding="{Binding AlarmTime, StringFormat={}{0:yyyy/MM/dd HH:mm:ss}}"
+                                    ElementStyle="{StaticResource CMFT.DataGrid.DataGridRow.EquipAlarmCell.Element.TextBlock.Left}"
+                                    Header="發生時間" />
 
-                    <!--<GridViewColumn Header="列車">
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate DataType="{x:Type dtos:EventAlarmDto}">
-                                                <TextBlock Style="{StaticResource GridView.Column.TextBlock.Center}" Text="{Binding Train.TrainNumber}" />
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                    </GridViewColumn>
+                <DataGridTextColumn Width="Auto"
+                                    Binding="{Binding Train}"
+                                    ElementStyle="{StaticResource CMFT.DataGrid.DataGridRow.EquipAlarmCell.Element.TextBlock.Left}"
+                                    Header="列車" />
 
-                                    <GridViewColumn Header="車廂">
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate DataType="{x:Type dtos:EventAlarmDto}">
-                                                <TextBlock Style="{StaticResource GridView.Column.TextBlock.Center}" Text="{Binding CarNumber}" />
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                    </GridViewColumn>-->
+                <DataGridTextColumn Width="Auto"
+                                    Binding="{Binding CarNumber}"
+                                    ElementStyle="{StaticResource CMFT.DataGrid.DataGridRow.EquipAlarmCell.Element.TextBlock.Left}"
+                                    Header="車廂" />
 
-                    <GridViewColumn Width="200" Header="監視器編號">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate DataType="{x:Type dtos:EventAlarmDto}">
-                                <ItemsControl HorizontalAlignment="Left"
-                                              VerticalAlignment="Center"
-                                              ItemsPanel="{StaticResource StackItemsPanelHorizontalMargin3}"
-                                              ItemsSource="{Binding CameraIDs}">
-                                    <ItemsControl.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackPanel Orientation="Horizontal">
-                                                <TextBlock Text="{Binding}" />
-                                                <TextBlock Text=";" />
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </ItemsControl.ItemTemplate>
-                                </ItemsControl>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                <DataGridTextColumn Width="*"
+                                    Binding="{Binding Description}"
+                                    ElementStyle="{StaticResource CMFT.DataGrid.DataGridRow.EquipAlarmCell.Element.TextBlock.Left}"
+                                    Header="警報描述" />
 
-                    <GridViewColumn Width="500" Header="發生事件">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate DataType="{x:Type dtos:EventAlarmDto}">
-                                <StackPanel Orientation="Vertical">
-                                    <TextBlock Style="{StaticResource GridView.Column.TextBlock.AlarmColor}" Text="{Binding AlarmDefine.Description}" />
-                                    <TextBlock Style="{StaticResource GridView.Column.TextBlock.AlarmColor}" Text="{Binding AlarmDefine.PossibleReason}" />
-                                </StackPanel>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                <DataGridTemplateColumn Header="">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button BorderBrush="{StaticResource CMFT.Brush.Green.Dark}" Content="轉跳至攝影機&gt;" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
 
-                    <GridViewColumn Width="200" Header="攝影機連動">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate DataType="{x:Type dtos:EventAlarmDto}">
-                                <Button Height="30"
-                                        BorderBrush="{StaticResource CMFT.Brush.Green.Dark}"
-                                        Content="轉跳至攝影機&gt;"
-                                        Style="{StaticResource CMFT.Button}" />
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        </DataGrid>
 
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>

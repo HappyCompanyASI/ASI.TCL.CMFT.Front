@@ -22,8 +22,8 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
         public static IEnumerable<EventAlarmTypeDefineDto> EventAlarmTypeDefines { get; private set; } = GenerateEventAlarmTypeDefines();
 
         // 依賴多個其他項目的複雜項目
-        public static IEnumerable<EquipAlarmDto> EquipAlarmInfos { get; set; } = GenerateEquipAlarmInfos();
-        public static IEnumerable<EventAlarmDto> EventAlarmInfos { get; set; } = GenerateEventAlarmInfos();
+        public static IEnumerable<EquipAlarmDto> EquipAlarms { get; set; } = GenerateEquipAlarms();
+        public static IEnumerable<EventAlarmDto> EventAlarms { get; set; } = GenerateEventAlarms();
 
 
         private static IEnumerable<eSystemType> GenerateSystemTypes()
@@ -105,6 +105,7 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
             //這個方法會回傳上面五種顏色的資料集合
             return AlarmLevelDefines.Select(x => x.Color).ToList();
         }
+
         private static IEnumerable<EquipAlarmTypeDefineDto> GenerateEquipAlarmTypeDefines()
         {
             var alarmLevelDefines = AlarmLevelDefines.ToList();
@@ -121,33 +122,34 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
 
             return temp;
         }
-        private static IEnumerable<EquipAlarmDto> GenerateEquipAlarmInfos()
+        private static IEnumerable<EquipAlarmDto> GenerateEquipAlarms()
         {
             var now = DateTime.Now;
             var temp = new List<EquipAlarmDto>()
-{
-    // --- 狀態 1：未解除 (ReleaseTime = null) + 未確認 (IsConfirmed = false) ---
-    new() { Id = "01", AlarmLevel = eAlarmLevel.重大, ReleaseTime = null, IsConfirmed = false, ConfirmedTime = null, AlarmTime = now.AddMinutes(-5), SystemType = "OCC", EquipDescription = "設備-01", AlarmDescription = "[重大] 未解除/未確認 (閃爍)" },
-    new() { Id = "02", AlarmLevel = eAlarmLevel.中度, ReleaseTime = null, IsConfirmed = false, ConfirmedTime = null, AlarmTime = now.AddMinutes(-6), SystemType = "OCC", EquipDescription = "設備-02", AlarmDescription = "[中度] 未解除/未確認 (閃爍)" },
-    new() { Id = "03", AlarmLevel = eAlarmLevel.輕微, ReleaseTime = null, IsConfirmed = false, ConfirmedTime = null, AlarmTime = now.AddMinutes(-7), SystemType = "OCC", EquipDescription = "設備-03", AlarmDescription = "[輕微] 未解除/未確認 (閃爍)" },
+            {
+                // --- 狀態 1：未解除 (ReleaseTime = null) + 未確認 (IsConfirmed = false) ---
+                new() { Id = "01", AlarmLevel = eAlarmLevel.重大, ReleaseTime = null, IsConfirmed = false, ConfirmedTime = null, AlarmTime = now.AddMinutes(-5), Location = "OCC", SystemType = "CCTV", EquipDescription = "OCC Disk Array A", AlarmDescription = "OCC 磁碟陣列發生問題" }, //未解除/未確認 (閃爍)
+                new() { Id = "02", AlarmLevel = eAlarmLevel.中度, ReleaseTime = null, IsConfirmed = false, ConfirmedTime = null, AlarmTime = now.AddMinutes(-6), Location = "Y29", SystemType = "PA", EquipDescription = "Y29 PA Main Control A", AlarmDescription = "車站(Y29) 廣播主控失效" },
+                new() { Id = "03", AlarmLevel = eAlarmLevel.輕微, ReleaseTime = null, IsConfirmed = false, ConfirmedTime = null, AlarmTime = now.AddMinutes(-7), Location = "Train19", SystemType = "OTCS", EquipDescription = "Ring2-Train19 NVR D", AlarmDescription = "列車(Train19) NVR D 無法連接" },
 
-    // --- 狀態 2：未解除 (ReleaseTime = null) + 已確認 (IsConfirmed = true) ---
-    new() { Id = "04", AlarmLevel = eAlarmLevel.重大, ReleaseTime = null, IsConfirmed = true, ConfirmedTime = now.AddMinutes(-2), ConfirmedUserName = "Admin", AlarmTime = now.AddMinutes(-10), SystemType = "OCC", EquipDescription = "設備-04", AlarmDescription = "[重大] 未解除/已確認 (靜態底色)" },
-    new() { Id = "05", AlarmLevel = eAlarmLevel.中度, ReleaseTime = null, IsConfirmed = true, ConfirmedTime = now.AddMinutes(-3), ConfirmedUserName = "Admin", AlarmTime = now.AddMinutes(-11), SystemType = "OCC", EquipDescription = "設備-05", AlarmDescription = "[中度] 未解除/已確認 (靜態底色)" },
-    new() { Id = "06", AlarmLevel = eAlarmLevel.輕微, ReleaseTime = null, IsConfirmed = true, ConfirmedTime = now.AddMinutes(-4), ConfirmedUserName = "Admin", AlarmTime = now.AddMinutes(-12), SystemType = "OCC", EquipDescription = "設備-06", AlarmDescription = "[輕微] 未解除/已確認 (靜態底色)" },
+                // --- 狀態 2：未解除 (ReleaseTime = null) + 已確認 (IsConfirmed = true) ---
+                new() { Id = "04", AlarmLevel = eAlarmLevel.重大, ReleaseTime = null, IsConfirmed = true, ConfirmedTime = now.AddMinutes(-2), ConfirmedUserName = "系統管理員", AlarmTime = now.AddMinutes(-10), Location = "OCC", SystemType = "System", EquipDescription = "設備-04", AlarmDescription = "[重大] 未解除/已確認 (靜態底色)" },
+                new() { Id = "05", AlarmLevel = eAlarmLevel.中度, ReleaseTime = null, IsConfirmed = true, ConfirmedTime = now.AddMinutes(-3), ConfirmedUserName = "系統管理員", AlarmTime = now.AddMinutes(-11), Location = "OCC", SystemType = "System", EquipDescription = "設備-05", AlarmDescription = "[中度] 未解除/已確認 (靜態底色)" },
+                new() { Id = "06", AlarmLevel = eAlarmLevel.輕微, ReleaseTime = null, IsConfirmed = true, ConfirmedTime = now.AddMinutes(-4), ConfirmedUserName = "系統管理員", AlarmTime = now.AddMinutes(-12), Location = "OCC", SystemType = "System", EquipDescription = "設備-06", AlarmDescription = "[輕微] 未解除/已確認 (靜態底色)" },
 
-    // --- 狀態 3：已解除 (ReleaseTime != null) + 未確認 (IsConfirmed = false) ---
-    new() { Id = "07", AlarmLevel = eAlarmLevel.重大, ReleaseTime = now, IsConfirmed = false, ConfirmedTime = null, AlarmTime = now.AddMinutes(-20), SystemType = "OCC", EquipDescription = "設備-07", AlarmDescription = "[重大] 已解除/未確認 (灰底彩色字)" },
-    new() { Id = "08", AlarmLevel = eAlarmLevel.中度, ReleaseTime = now, IsConfirmed = false, ConfirmedTime = null, AlarmTime = now.AddMinutes(-21), SystemType = "OCC", EquipDescription = "設備-08", AlarmDescription = "[中度] 已解除/未確認 (灰底彩色字)" },
-    new() { Id = "09", AlarmLevel = eAlarmLevel.輕微, ReleaseTime = now, IsConfirmed = false, ConfirmedTime = null, AlarmTime = now.AddMinutes(-22), SystemType = "OCC", EquipDescription = "設備-09", AlarmDescription = "[輕微] 已解除/未確認 (灰底彩色字)" },
+                // --- 狀態 3：已解除 (ReleaseTime != null) + 未確認 (IsConfirmed = false) ---
+                new() { Id = "07", AlarmLevel = eAlarmLevel.重大, ReleaseTime = now, IsConfirmed = false, ConfirmedTime = null, AlarmTime = now.AddMinutes(-20), Location = "OCC", SystemType = "System", EquipDescription = "設備-07", AlarmDescription = "[重大] 已解除/未確認 (灰底彩色字)" },
+                new() { Id = "08", AlarmLevel = eAlarmLevel.中度, ReleaseTime = now, IsConfirmed = false, ConfirmedTime = null, AlarmTime = now.AddMinutes(-21), Location = "OCC", SystemType = "System", EquipDescription = "設備-08", AlarmDescription = "[中度] 已解除/未確認 (灰底彩色字)" },
+                new() { Id = "09", AlarmLevel = eAlarmLevel.輕微, ReleaseTime = now, IsConfirmed = false, ConfirmedTime = null, AlarmTime = now.AddMinutes(-22), Location = "OCC", SystemType = "System", EquipDescription = "設備-09", AlarmDescription = "[輕微] 已解除/未確認 (灰底彩色字)" },
 
-    // --- 狀態 4：已解除 (ReleaseTime != null) + 已確認 (IsConfirmed = true) ---
-    new() { Id = "10", AlarmLevel = eAlarmLevel.重大, ReleaseTime = now, IsConfirmed = true, ConfirmedTime = now, ConfirmedUserName = "Admin", AlarmTime = now.AddMinutes(-30), SystemType = "OCC", EquipDescription = "設備-10", AlarmDescription = "[重大] 已解除/已確認 (正常結案)" },
-    new() { Id = "11", AlarmLevel = eAlarmLevel.中度, ReleaseTime = now, IsConfirmed = true, ConfirmedTime = now, ConfirmedUserName = "Admin", AlarmTime = now.AddMinutes(-31), SystemType = "OCC", EquipDescription = "設備-11", AlarmDescription = "[中度] 已解除/已確認 (正常結案)" },
-    new() { Id = "12", AlarmLevel = eAlarmLevel.輕微, ReleaseTime = now, IsConfirmed = true, ConfirmedTime = now, ConfirmedUserName = "Admin", AlarmTime = now.AddMinutes(-32), SystemType = "OCC", EquipDescription = "設備-12", AlarmDescription = "[輕微] 已解除/已確認 (正常結案)" }
-};
+                // --- 狀態 4：已解除 (ReleaseTime != null) + 已確認 (IsConfirmed = true) ---
+                new() { Id = "10", AlarmLevel = eAlarmLevel.重大, ReleaseTime = now, IsConfirmed = true, ConfirmedTime = now, ConfirmedUserName = "系統管理員", AlarmTime = now.AddMinutes(-30), Location = "OCC", SystemType = "System", EquipDescription = "設備-10", AlarmDescription = "[重大] 已解除/已確認 (正常結案)" },
+                new() { Id = "11", AlarmLevel = eAlarmLevel.中度, ReleaseTime = now, IsConfirmed = true, ConfirmedTime = now, ConfirmedUserName = "系統管理員", AlarmTime = now.AddMinutes(-31), Location = "OCC", SystemType = "System", EquipDescription = "設備-11", AlarmDescription = "[中度] 已解除/已確認 (正常結案)" },
+                new() { Id = "12", AlarmLevel = eAlarmLevel.輕微, ReleaseTime = now, IsConfirmed = true, ConfirmedTime = now, ConfirmedUserName = "系統管理員", AlarmTime = now.AddMinutes(-32), Location = "OCC", SystemType = "System", EquipDescription = "設備-12", AlarmDescription = "[輕微] 已解除/已確認 (正常結案)" }
+            };
             return temp;
         }
+
         private static IEnumerable<EventAlarmTypeDefineDto> GenerateEventAlarmTypeDefines()
         {
             var alarmLevelDefines = AlarmLevelDefines.ToList();
@@ -248,182 +250,49 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Datas
 
             return temp;
         }
-        private static IEnumerable<EventAlarmDto> GenerateEventAlarmInfos()
+        private static IEnumerable<EventAlarmDto> GenerateEventAlarms()
         {
-            var sysTrain = SYSTrains.ToList();
-            var alarmDefines = EventAlarmTypeDefines.ToList();
-
-            var temp = new List<EventAlarmDto>()
+            var temp = new List<EventAlarmDto>
             {
                 new()
                 {
-                    Id = Guid.NewGuid().ToString(),
-                    AlarmTime = DateTime.Now.AddHours(-2),
-                    ReleaseTime = null,
-                    ConfirmedTime = null,
-                    ConfirmedUserID = null,
-                    ConfirmedUserName = null,
-                    IsConfirmed = false,
-                    Train = sysTrain[0],
-                    CarNumber = "1",
-                    EquipID = "CAM-001",
-                    EquipName = "車廂監視器1",
-                    CameraIDs = new List<string> { "CAM-001", "CAM-002" },
-                    Remark = "前車廂監視設備",
-                    AlarmDefine = alarmDefines[0]
+                    AlarmLevel = eAlarmLevel.中度,
+                    AlarmTime = DateTime.Parse("2026-04-08T13:00:00"),
+                    CarNumber = "CAR A",
+                    Description = "緊急對講機(PIC)啟動",
+                    Train = "V17"
                 },
                 new()
                 {
-                    Id = Guid.NewGuid().ToString(),
-                    AlarmTime = DateTime.Now.AddHours(-4),
-                    ReleaseTime = DateTime.Now.AddHours(-1),
-                    ConfirmedTime = DateTime.Now.AddHours(-3),
-                    ConfirmedUserID = "admin1",
-                    ConfirmedUserName = "控制員王小明",
-                    IsConfirmed = true,
-                    Train = sysTrain[1],
-                    CarNumber = "2",
-                    EquipID = "COMM-001",
-                    EquipName = "列車通訊設備",
-                    CameraIDs = new List<string> { "CAM-003" },
-                    Remark = "主要通訊設備",
-                    AlarmDefine = alarmDefines[1]
+                    AlarmLevel = eAlarmLevel.重大,
+                    AlarmTime = DateTime.Parse("2026-04-08T13:05:22"),
+                    CarNumber = "CAR A",
+                    Description = "緊急疏散裝置觸發",
+                    Train = "V09"
                 },
                 new()
                 {
-                    Id = Guid.NewGuid().ToString(),
-                    AlarmTime = DateTime.Now.AddHours(-6),
-                    ReleaseTime = null,
-                    ConfirmedTime = DateTime.Now.AddHours(-5),
-                    ConfirmedUserID = "admin2",
-                    ConfirmedUserName = "技術員李小華",
-                    IsConfirmed = true,
-                    Train = sysTrain[2],
-                    CarNumber = "3",
-                    EquipID = "DOOR-001",
-                    EquipName = "車門控制器",
-                    CameraIDs = new List<string> { "CAM-004", "CAM-005" },
-                    Remark = "左側車門",
-                    AlarmDefine = alarmDefines[2]
+                    AlarmLevel = eAlarmLevel.重大,
+                    AlarmTime = DateTime.Parse("2026-04-08T13:10:45"),
+                    CarNumber = "CAR D",
+                    Description = "車門釋放把手觸發",
+                    Train = "V04"
                 },
                 new()
                 {
-                    Id = Guid.NewGuid().ToString(),
-                    AlarmTime = DateTime.Now.AddMinutes(-30),
-                    ReleaseTime = null,
-                    ConfirmedTime = null,
-                    ConfirmedUserID = null,
-                    ConfirmedUserName = null,
-                    IsConfirmed = false,
-                    Train = sysTrain[3],
-                    CarNumber = "4",
-                    EquipID = "BRAKE-001",
-                    EquipName = "煞車系統",
-                    CameraIDs = new List<string> { "CAM-006" },
-                    Remark = "主煞車系統",
-                    AlarmDefine = alarmDefines[3]
+                    AlarmLevel = eAlarmLevel.重大,
+                    AlarmTime = DateTime.Parse("2026-04-08T13:15:10"),
+                    CarNumber = "CAR C",
+                    Description = "煙霧偵測器觸發",
+                    Train = "V12"
                 },
                 new()
                 {
-                    Id = Guid.NewGuid().ToString(),
-                    AlarmTime = DateTime.Now.AddHours(-8),
-                    ReleaseTime = DateTime.Now.AddHours(-7),
-                    ConfirmedTime = DateTime.Now.AddHours(-7).AddMinutes(-30),
-                    ConfirmedUserID = "admin3",
-                    ConfirmedUserName = "維修員張小強",
-                    IsConfirmed = true,
-                    Train = sysTrain[4],
-                    CarNumber = "5",
-                    EquipID = "AC-001",
-                    EquipName = "空調系統",
-                    CameraIDs = new List<string> { "CAM-007", "CAM-008" },
-                    Remark = "車廂空調",
-                    AlarmDefine = alarmDefines[4]
-                },
-                new()
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    AlarmTime = DateTime.Now.AddHours(-1),
-                    ReleaseTime = null,
-                    ConfirmedTime = DateTime.Now.AddMinutes(-30),
-                    ConfirmedUserID = "admin4",
-                    ConfirmedUserName = "主控員陳小美",
-                    IsConfirmed = true,
-                    Train = sysTrain[5],
-                    CarNumber = "6",
-                    EquipID = "TRAC-001",
-                    EquipName = "牽引馬達",
-                    CameraIDs = new List<string> { "CAM-009" },
-                    Remark = "主牽引馬達",
-                    AlarmDefine = alarmDefines[5]
-                },
-                new()
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    AlarmTime = DateTime.Now.AddDays(-1),
-                    ReleaseTime = DateTime.Now.AddDays(-1).AddHours(2),
-                    ConfirmedTime = DateTime.Now.AddDays(-1).AddMinutes(15),
-                    ConfirmedUserID = "admin5",
-                    ConfirmedUserName = "技師劉小偉",
-                    IsConfirmed = true,
-                    Train = sysTrain[6],
-                    CarNumber = "7",
-                    EquipID = "LIGHT-001",
-                    EquipName = "照明系統",
-                    CameraIDs = new List<string> { "CAM-010", "CAM-011" },
-                    Remark = "車廂照明",
-                    AlarmDefine = alarmDefines[6]
-                },
-                new()
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    AlarmTime = DateTime.Now.AddMinutes(-15),
-                    ReleaseTime = null,
-                    ConfirmedTime = null,
-                    ConfirmedUserID = null,
-                    ConfirmedUserName = null,
-                    IsConfirmed = false,
-                    Train = sysTrain[7],
-                    CarNumber = "8",
-                    EquipID = "PANTOGRAPH-001",
-                    EquipName = "集電弓",
-                    CameraIDs = new List<string> { "CAM-012" },
-                    Remark = "主集電弓",
-                    AlarmDefine = alarmDefines[7]
-                },
-                new()
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    AlarmTime = DateTime.Now.AddHours(-12),
-                    ReleaseTime = DateTime.Now.AddHours(-10),
-                    ConfirmedTime = DateTime.Now.AddHours(-11),
-                    ConfirmedUserID = "admin6",
-                    ConfirmedUserName = "電機員蘇小芳",
-                    IsConfirmed = true,
-                    Train = sysTrain[8],
-                    CarNumber = "9",
-                    EquipID = "BATTERY-001",
-                    EquipName = "蓄電池系統",
-                    CameraIDs = new List<string> { "CAM-013", "CAM-014" },
-                    Remark = "備用電源",
-                    AlarmDefine = alarmDefines[8]
-                },
-                new()
-                {
-                    Id = Guid.NewGuid().ToString(),
-                    AlarmTime = DateTime.Now.AddMinutes(-45),
-                    ReleaseTime = null,
-                    ConfirmedTime = DateTime.Now.AddMinutes(-40),
-                    ConfirmedUserID = "admin7",
-                    ConfirmedUserName = "安全員黃小龍",
-                    IsConfirmed = true,
-                    Train = sysTrain[9],
-                    CarNumber = "10",
-                    EquipID = "EMERGENCY-001",
-                    EquipName = "緊急煞車",
-                    CameraIDs = new List<string> { "CAM-015" },
-                    Remark = "緊急制動系統",
-                    AlarmDefine = alarmDefines[9]
+                    AlarmLevel = eAlarmLevel.重大,
+                    AlarmTime = DateTime.Parse("2026-04-08T13:20:00"),
+                    CarNumber = "CAR B",
+                    Description = "緊急逃生門開啟",
+                    Train = "V01"
                 }
             };
 

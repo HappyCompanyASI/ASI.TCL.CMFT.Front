@@ -106,7 +106,8 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.ViewModels
         #region Private Methods
         private async Task InitDataAsync()
         {
-            EquipAlarms = new ObservableCollection<EquipAlarmDto>(DesignTimeDatas.EquipAlarmInfos);
+            var data = await Task.Run(() => DesignTimeDatas.EquipAlarms);
+            EquipAlarms = new ObservableCollection<EquipAlarmDto>(data);
         }
         #endregion
     }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace ASI.TCL.CMFT.WPF.Module.Alarm.Dtos
+﻿namespace ASI.TCL.CMFT.WPF.Module.Alarm.Dtos
 {
     public enum eAlarmLevel
     {
@@ -76,20 +73,6 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Dtos
         public AlarmLevelDefineDto AlarmLevelDefine { get; set; }
     }
 
-    public class EquipAlarmDto 
-    {
-        public string Id { get; set; }
-        public DateTime AlarmTime { get; set; }
-        public DateTime? ReleaseTime { get; set; }
-        public string EquipDescription { get; set; }
-        public string SystemType { get; set; }
-        public eAlarmLevel AlarmLevel { get; set; }
-        public string AlarmDescription { get; set; }
-        public string ConfirmedUserName { get; set; }
-        public bool? IsConfirmed { get; set; }
-        public DateTime? ConfirmedTime { get; set; }
-    }
-
     public class EventAlarmTypeDefineDto
     {
         public string EventAlarmTypeID { get; set; }
@@ -102,30 +85,5 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.Dtos
 
         // 告警等級定義
         public AlarmLevelDefineDto AlarmLevelDefine { get; set; }
-    }
-
-    public class EventAlarmDto
-    {
-        // 告警事件時間
-        public DateTime AlarmTime { get; set; }
-        public DateTime? ReleaseTime { get; set; }
-
-        // 確認資訊
-        public DateTime? ConfirmedTime { get; set; }
-        public string ConfirmedUserID { get; set; }
-        public string ConfirmedUserName { get; set; }
-        public bool? IsConfirmed { get; set; }
-
-        // 具體的列車和設備資訊 - 實例級別
-        public SYSTrainDto Train { get; set; }
-        public string CarNumber { get; set; }
-        public string EquipID { get; set; }
-        public string EquipName { get; set; }
-        public List<string> CameraIDs { get; set; }
-        public string Remark { get; set; }
-
-        // 告警類型定義 - 類型級別
-        public EventAlarmTypeDefineDto AlarmDefine { get; set; }
-        public string Id { get; set; }
     }
 }

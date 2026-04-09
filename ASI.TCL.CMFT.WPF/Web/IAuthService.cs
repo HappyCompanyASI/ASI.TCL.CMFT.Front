@@ -1,6 +1,7 @@
-﻿namespace ASI.TCL.CMFT.WPF.Web;
-
-public interface IAuthService
+﻿namespace ASI.TCL.CMFT.WPF.Web
 {
-    string GetToken();
+    public interface IAuthService
+    {
+        string GetToken();
+    }
 }

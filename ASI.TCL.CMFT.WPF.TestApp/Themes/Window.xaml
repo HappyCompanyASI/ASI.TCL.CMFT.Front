@@ -2,8 +2,8 @@
 
 
     <Style x:Key="BaseWindow" TargetType="{x:Type Window}">
-        <Setter Property="FontFamily" Value="標楷體" />
-        <Setter Property="Background" Value="Red" />
+        <Setter Property="Background" Value="{DynamicResource MaterialDesign.Brush.Background}" />
+        <Setter Property="Foreground" Value="{DynamicResource MaterialDesign.Brush.Foreground}" />
     </Style>
 
 </ResourceDictionary>
