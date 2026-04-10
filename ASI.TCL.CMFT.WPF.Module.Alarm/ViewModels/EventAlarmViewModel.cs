@@ -25,11 +25,10 @@ namespace ASI.TCL.CMFT.WPF.Module.Alarm.ViewModels
         {
             _dialogService = dialogService;
             _eventAggregator = eventAggregator;
-
             InitDataAsync().Await(null, (ex) => throw ex);
         }
         #endregion
-
+        
         #region Properties
         private ObservableCollection<EventAlarmDto> _eventAlarms = new();
         public ObservableCollection<EventAlarmDto> EventAlarms

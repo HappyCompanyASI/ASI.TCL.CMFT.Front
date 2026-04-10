@@ -37,22 +37,22 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Width="Auto"
                                     Binding="{Binding AlarmTime, StringFormat={}{0:yyyy/MM/dd HH:mm:ss}}"
-                                    ElementStyle="{StaticResource CMFT.DataGrid.DataGridRow.EquipAlarmCell.Element.TextBlock.Left}"
+                                    ElementStyle="{StaticResource CMFT.DataGrid.Element.TextBlock.Left}"
                                     Header="發生時間" />
 
                 <DataGridTextColumn Width="Auto"
                                     Binding="{Binding Train}"
-                                    ElementStyle="{StaticResource CMFT.DataGrid.DataGridRow.EquipAlarmCell.Element.TextBlock.Left}"
+                                    ElementStyle="{StaticResource CMFT.DataGrid.Element.TextBlock.Left}"
                                     Header="列車" />
 
                 <DataGridTextColumn Width="Auto"
                                     Binding="{Binding CarNumber}"
-                                    ElementStyle="{StaticResource CMFT.DataGrid.DataGridRow.EquipAlarmCell.Element.TextBlock.Left}"
+                                    ElementStyle="{StaticResource CMFT.DataGrid.Element.TextBlock.Left}"
                                     Header="車廂" />
 
                 <DataGridTextColumn Width="*"
                                     Binding="{Binding Description}"
-                                    ElementStyle="{StaticResource CMFT.DataGrid.DataGridRow.EquipAlarmCell.Element.TextBlock.Left}"
+                                    ElementStyle="{StaticResource CMFT.DataGrid.Element.TextBlock.Left}"
                                     Header="警報描述" />
 
                 <DataGridTemplateColumn Header="">
