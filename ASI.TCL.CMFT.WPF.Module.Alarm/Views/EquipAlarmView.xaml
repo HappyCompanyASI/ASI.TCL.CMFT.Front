@@ -10,7 +10,6 @@
                                               IsDesignTimeCreatable=True}"
              d:DesignWidth="1420"
              mvvm:ViewModelLocator.AutoWireViewModel="True"
-             Style="{StaticResource CMFT.UserControl}"
              mc:Ignorable="d">
     <UserControl.Resources>
         <ResourceDictionary>
@@ -124,9 +123,8 @@
 
         <DataGrid Grid.Row="1"
                   d:ItemsSource="{DynamicResource MockEquipAlarms}"
+                  materialDesign:DataGridAssist.SelectedCellBorderBrush="Transparent"
                   CellStyle="{StaticResource CMFT.DataGrid.DataGridRow.EquipAlarmCell}"
-                  FontSize="16"
-                  FontWeight="Bold"
                   ItemsSource="{Binding EquipAlarms}"
                   RowStyle="{StaticResource CMFT.DataGrid.DataGridRow.EquipAlarmRow}"
                   ScrollViewer.CanContentScroll="False"
@@ -136,37 +134,37 @@
 
                 <DataGridTextColumn Width="Auto"
                                     Binding="{Binding AlarmTime, StringFormat={}{0:yyyy/MM/dd HH:mm:ss}}"
-                                    ElementStyle="{StaticResource CMFT.DataGrid.DataGridRow.EquipAlarmCell.Element.TextBlock.Left}"
+                                    ElementStyle="{StaticResource CMFT.DataGrid.Element.TextBlock.Left}"
                                     Header="發生時間" />
 
                 <DataGridTextColumn Width="Auto"
                                     Binding="{Binding ReleaseTime, StringFormat={}{0:yyyy/MM/dd HH:mm:ss}}"
-                                    ElementStyle="{StaticResource CMFT.DataGrid.DataGridRow.EquipAlarmCell.Element.TextBlock.Left}"
+                                    ElementStyle="{StaticResource CMFT.DataGrid.Element.TextBlock.Left}"
                                     Header="解除時間" />
 
                 <DataGridTextColumn Width="Auto"
                                     Binding="{Binding EquipDescription}"
-                                    ElementStyle="{StaticResource CMFT.DataGrid.DataGridRow.EquipAlarmCell.Element.TextBlock.Left}"
+                                    ElementStyle="{StaticResource CMFT.DataGrid.Element.TextBlock.Left}"
                                     Header="設備描述" />
 
                 <DataGridTextColumn Width="Auto"
                                     Binding="{Binding SystemType}"
-                                    ElementStyle="{StaticResource CMFT.DataGrid.DataGridRow.EquipAlarmCell.Element.TextBlock.Left}"
+                                    ElementStyle="{StaticResource CMFT.DataGrid.Element.TextBlock.Left}"
                                     Header="系統別" />
 
                 <DataGridTextColumn Width="Auto"
                                     Binding="{Binding AlarmLevel}"
-                                    ElementStyle="{StaticResource CMFT.DataGrid.DataGridRow.EquipAlarmCell.Element.TextBlock.Left}"
+                                    ElementStyle="{StaticResource CMFT.DataGrid.Element.TextBlock.Left}"
                                     Header="等級" />
 
                 <DataGridTextColumn Width="1*"
                                     Binding="{Binding AlarmDescription}"
-                                    ElementStyle="{StaticResource CMFT.DataGrid.DataGridRow.EquipAlarmCell.Element.TextBlock.Left}"
+                                    ElementStyle="{StaticResource CMFT.DataGrid.Element.TextBlock.Left}"
                                     Header="告警描述" />
 
                 <DataGridTextColumn Width="Auto"
                                     Binding="{Binding ConfirmedUserName}"
-                                    ElementStyle="{StaticResource CMFT.DataGrid.DataGridRow.EquipAlarmCell.Element.TextBlock.Left}"
+                                    ElementStyle="{StaticResource CMFT.DataGrid.Element.TextBlock.Left}"
                                     Header="確認人員" />
 
                 <DataGridTemplateColumn Width="Auto" Header="">
@@ -178,8 +176,6 @@
                                         <Setter Property="BorderBrush" Value="{StaticResource CMFT.Brush.Green.Mid}" />
                                         <Setter Property="Background" Value="{StaticResource CMFT.Brush.Green.Mid}" />
                                         <Setter Property="Foreground" Value="{StaticResource CMFT.Brush.Light}" />
-
-                                        <Setter Property="FontWeight" Value="Bold" />
 
                                         <Setter Property="IsThreeState" Value="True" />
 

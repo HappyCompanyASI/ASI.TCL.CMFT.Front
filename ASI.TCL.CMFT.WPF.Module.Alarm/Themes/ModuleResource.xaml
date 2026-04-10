@@ -6,11 +6,16 @@
     <Style x:Key="CMFT.DataGrid.DataGridRow.EquipAlarmRow"
            BasedOn="{StaticResource CMFT.DataGrid.Row}"
            TargetType="{x:Type DataGridRow}">
-
         <Style.Triggers>
+            <!--  關掉預設樣式 (需放最前面)  -->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Transparent" />
+            </Trigger>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="Transparent" />
+            </Trigger>
 
             <!--  # 未解除 && 未確認  -->
-
             <!--#region 重大 (紅底/黑字/閃爍)-->
             <MultiDataTrigger>
                 <MultiDataTrigger.Conditions>
@@ -100,7 +105,6 @@
             <!--#endregion-->
 
             <!--  未解除 && 已確認  -->
-
             <!--#region 重大 (紅底/黑字/不閃爍)-->
             <MultiDataTrigger>
                 <MultiDataTrigger.Conditions>
@@ -179,7 +183,6 @@
             <!--#endregion-->
 
             <!--  已解除 && 未確認  -->
-
             <!--#region 重大 (灰底/紅字/不閃爍)-->
             <MultiDataTrigger>
                 <MultiDataTrigger.Conditions>
@@ -258,25 +261,17 @@
         </Style.Triggers>
     </Style>
     <Style x:Key="CMFT.DataGrid.DataGridRow.EquipAlarmCell"
-           BasedOn="{StaticResource CMFT.DataGrid.Cell.SmallPadding}"
+           BasedOn="{StaticResource CMFT.DataGrid.Cell}"
            TargetType="DataGridCell">
         <Style.Triggers>
-            <MultiDataTrigger>
-                <MultiDataTrigger.Conditions>
-                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="True" />
-                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=DataGridRow}}" Value="False" />
-                </MultiDataTrigger.Conditions>
+            <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="Transparent" />
-            </MultiDataTrigger>
+            </Trigger>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="Transparent" />
+            </Trigger>
         </Style.Triggers>
     </Style>
-    <Style x:Key="CMFT.DataGrid.DataGridRow.EquipAlarmCell.Element.TextBlock.Left"
-           BasedOn="{StaticResource MaterialDesignDataGridTextColumnStyle}"
-           TargetType="{x:Type TextBlock}">
-        <Setter Property="VerticalAlignment" Value="Center" />
-    </Style>
-
-
 
     <Style x:Key="CMFT.DataGrid.DataGridRow.EventAlarmRow"
            BasedOn="{StaticResource CMFT.DataGrid.Row}"
@@ -323,22 +318,16 @@
         </Style.Triggers>
     </Style>
     <Style x:Key="CMFT.DataGrid.DataGridRow.EventAlarmCell"
-           BasedOn="{StaticResource CMFT.DataGrid.Cell.SmallPadding}"
+           BasedOn="{StaticResource CMFT.DataGrid.Cell}"
            TargetType="DataGridCell">
         <Style.Triggers>
-            <MultiDataTrigger>
-                <MultiDataTrigger.Conditions>
-                    <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="True" />
-                    <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=DataGridRow}}" Value="False" />
-                </MultiDataTrigger.Conditions>
+            <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="Transparent" />
-            </MultiDataTrigger>
+            </Trigger>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="Transparent" />
+            </Trigger>
         </Style.Triggers>
-    </Style>
-    <Style x:Key="CMFT.DataGrid.DataGridRow.EventAlarmCell.Element.TextBlock.Left"
-           BasedOn="{StaticResource MaterialDesignDataGridTextColumnStyle}"
-           TargetType="{x:Type TextBlock}">
-        <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
 
 </ResourceDictionary>

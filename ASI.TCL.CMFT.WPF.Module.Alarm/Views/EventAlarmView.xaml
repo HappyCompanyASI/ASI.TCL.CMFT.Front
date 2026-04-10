@@ -27,7 +27,6 @@
         <DataGrid Grid.Row="0"
                   d:ItemsSource="{DynamicResource MockEventAlarms}"
                   CellStyle="{StaticResource CMFT.DataGrid.DataGridRow.EventAlarmCell}"
-                  Cursor="Hand"
                   FontSize="16"
                   FontWeight="Bold"
                   ItemsSource="{Binding EventAlarms}"
