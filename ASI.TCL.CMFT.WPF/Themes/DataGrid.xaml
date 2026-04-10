@@ -4,7 +4,7 @@
                     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/ASI.Wanda.CMFT.WPF;component/Themes/Colors.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/ASI.TCL.CMFT.WPF;component/Themes/Colors.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <system:Double x:Key="DataGrid.Font.S">12</system:Double>
